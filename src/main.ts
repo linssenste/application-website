@@ -1,0 +1,10 @@
+import { createApp } from "vue";
+import "./style.css";
+import "./assets/fonts/handwriting/Biro Script Std/stylesheet.css";
+import "./assets/fonts/handwriting/Biro Script Sloppy Std/stylesheet.css";
+import "./assets/fonts/handwriting/Biro Script Bold Std/stylesheet.css";
+
+import "./assets/fonts/text/stylesheet.css";
+import App from "./App.vue";
+
+createApp(App).mount("#app");

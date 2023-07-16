@@ -1,0 +1,26 @@
+{
+    "name": "application-website",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "vanilla-tilt": "^1.8.0",
+        "vue": "^3.3.4",
+        "vue-github-button": "^3.1.0",
+        "vue-router": "^4.2.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.4.2",
+        "@vitejs/plugin-vue": "^4.2.3",
+        "path": "^0.12.7",
+        "sass": "^1.63.6",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.0",
+        "vue-tsc": "^1.8.3"
+    }
+}
