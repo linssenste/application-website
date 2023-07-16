@@ -46,11 +46,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
+
 
 import PolaroidImage from '../components/PolaroidImage.vue';
 import { onMounted, ref } from 'vue';
-const { t, locale }=useI18n()
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
 const name=ref<string|null>(null)
 onMounted(() => {
     const urlParams=new URLSearchParams(window.location.search);

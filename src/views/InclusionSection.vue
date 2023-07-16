@@ -3,9 +3,13 @@
 
 
 
-        <ImagesRow
-            :images="[{ name: './mountains/steffen_mountain_4.webp', type: 0, text: 'Meine erste Bergtour' }, { name: './mountains/steffen_mountain_5.gif', type: 0, text: 'Wallberg im Winter' }, { name: './mountains/steffen_mountain_3.webp', type: 0, text: 'Silvester am Herzogstand' }, { name: './mountains/steffen_mountain_2.webp', type: 0, text: 'Wallberg' }, { name: './mountains/steffen_mountain_1.webp', type: 0, text: 'Smrekovcu, Slovenia' }]"
-            songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" />
+        <ImagesRow :images="[
+            { name: './mountains/steffen_mountain_4.webp', type: 0, text: t('disability.imageText.0') },
+            { name: './mountains/steffen_mountain_5.gif', type: 0, text: t('disability.imageText.1') },
+            { name: './mountains/steffen_mountain_3.webp', type: 0, text: t('disability.imageText.2') },
+            { name: './mountains/steffen_mountain_2.webp', type: 0, text: t('disability.imageText.3') },
+            { name: './mountains/steffen_mountain_1.webp', type: 0, text: t('disability.imageText.4') }
+        ]" songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" />
 
         <div class="content-row">
             <div>
@@ -21,7 +25,8 @@
                         width="100%" frameBorder="0"
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-
+                    <div v-if="locale==='en'&&!isMobile" class="en-sorry">Sorry, the TEDx-talk and podcast are in German
+                    </div>
 
                 </div>
             </div>
@@ -34,37 +39,27 @@
                 </h1>
 
                 <div class="text" style="padding-top: 0px!important;">
-                    Mit 16 Jahren wurde die chronische Muskelkrankheit Myasthenia Gravis Teil meines Lebens.
-                    Trotz der
-                    benötigten Hilfsmittel habe ich gelernt, meine Träume zu verwirklichen, und mich nicht einschränken
-                    zu
-                    lassen von der Behinderung - inspiriert von meinem
-                    Lebensmotto: <div class="inline-handwriting">"Limitations</div>
+                    {{t('disability.textSection.paragraph1')}}
+                    <div class="inline-handwriting">"Limitations</div>
                     <div class="inline-handwriting"> only</div>
                     <div class="inline-handwriting"> go</div>
                     <div class="inline-handwriting"> so</div>
-                    <div class="inline-handwriting"> far"</div>. Dieser Leitsatz treibt mich dazu an, auch Hobbys wie das
-                    Bergsteigen zu verfolgen, trotz der Herausforderungen, die meine Krankheit mit sich bringt.
+                    <div class="inline-handwriting"> far"</div>.
+                    {{t('disability.textSection.motto')}}
 
                     <p>
-                        Meine Behinderung hat mir auch die Augen für die Inklusionsprobleme unserer Gesellschaft geöffnet.
-                        Um
-                        hier
-                        Veränderungen anzustoßen, engagiere ich mich aktiv für dieses Thema, habe einen TEDx-Vortrag
-                        gehalten
-                        und zusammen mit der Caritas den Podcast
-                    <div class="inline-handwriting">"Inklusionsgedanken" </div> ins Leben gerufen. Hier beleuchten
-                    wir
-                    das
-                    Thema Inklusion aus verschiedenen Perspektiven.
+                        {{t('disability.textSection.paragraph2')}}
+                    <div class="inline-handwriting">Inklusionsgedanken</div> {{t('disability.textSection.podcast')}}
+
                     </p>
-
-
                     <iframe v-if="isMobile" class="embedded-podcast"
                         src="https://open.spotify.com/embed/episode/37APGyNAhgVwrTJZFxY56s?utm_source=generator&t=85"
                         width="100%" frameBorder="0"
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
+                    <div v-if="isMobile&&locale==='en'" class="en-sorry">Sorry, the TEDx-talk and podcast are in German
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -77,6 +72,9 @@
 <script lang="ts" setup>
 import ImagesRow from '../components/ImagesRow.vue';
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t, locale }=useI18n()
+
 const isMobile=computed(() => {
     return window.innerWidth<600
 })
@@ -131,5 +129,12 @@ const isMobile=computed(() => {
     .text-area {
         margin-left: 30px
     }
+}
+
+.en-sorry {
+    text-align: center;
+    color: #A0A0A0;
+    font-size: 14px;
+    padding-bottom: 15px;
 }
 </style>

@@ -2,43 +2,33 @@
     <div class="main-content">
         <div class="text-content">
             <div class="title-text">
-                <span class="text-highlight-blue-bold" style="font-size: 40px;">Das war's!</span>
+                <span class="text-highlight-blue-bold" style="font-size: 40px;"> {{t('footer.thatsIt')}}!</span>
                 <img draggable="false" width="60" height="60" style="margin-top: 5px; margin-left: 10px"
                     src="../assets/icons/heart.webp" />
             </div>
             <div class="text">
-                Danke, dass Ihr Euch die Zeit genommen hast, meine persönliche Webseite zu besuchen.
+                {{t('footer.intro')}}
 
-                <p>
-                    Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
-                    Typescript
-                    realisiert sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
+                <p>{{t('footer.techDetail')}}</p>
 
-                    auf Github einsehen werden.
-                </p>
+                {{t('footer.invitation')}}
 
-                Falls Ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich
-                Euch
-                ein, einen Blick auf meinen Lebenslauf zu werfen.
-
-                <a href="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/cv_steffen_linssen_de.pdf?alt=media&token=41218fdc-f24e-4f45-93fc-3f01945afdf1"
-                    target="_blank">
+                <a :href="t('footer.cvLink')" target="_blank">
                     <button v-on:click="" class="action-button" style="margin-top: 30px;">
                         <img style="margin-right: 12px" src="../assets/icons/arrow-right-solid.svg" width="16" />
-
-                        Lebenslauf öffnen
+                        {{t('footer.cvButton')}}
                     </button>
                 </a>
 
                 <a href="https://github.com/linssenste/application-website" target="_blank">
                     <button v-on:click="" class="action-button">
-
                         <img style="margin-right: 12px" src="../assets/icons/github.svg" width="16" />
-                        Source Code
+                        {{t('footer.sourceCodeButton')}}
                     </button>
                 </a>
 
             </div>
+
 
 
         </div>
@@ -49,7 +39,8 @@
 
 <script lang="ts" setup>
 import TLDRCard from '../components/TLDRCard.vue';
-
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
 
 
 </script>

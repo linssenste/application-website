@@ -5,7 +5,7 @@
             <img draggable="false" width="60" style="margin-bottom: 10px; transform: rotate(-2deg); margin-right: 8px;"
                 src="../assets/icons/heart.webp" />
             <h1 class="fav-text">
-                Meine Lieblingssongs:
+                {{t('favoriteSongs.myFavorites')}}:
             </h1>
         </div>
 
@@ -31,7 +31,7 @@
 
 
 
-                <div class="fav-subtext">Klicke auf ein Cover oder shuffle
+                <div class="fav-subtext">{{t('favoriteSongs.selectionHint')}}
                 </div>
             </div>
             <div v-on:click="randomSong()" class="shuffle-button">
@@ -57,7 +57,8 @@
 
 <script lang="ts" setup>
 import { computed, ref, onMounted } from 'vue'
-
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
 
 
 const songId=ref<null|string>(null)

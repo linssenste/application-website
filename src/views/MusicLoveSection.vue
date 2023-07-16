@@ -1,26 +1,19 @@
 <template>
     <div class="festival-card">
 
-        <ImagesRow rowId="festival" songId="1YplKY2G8yN0bWf8rM5Egz"
+        <ImagesRow rowId="festival" :songId="t('musicLove.songId')"
             :images="[{ name: './festivals/steffen_festival_2.webp', type: 0, text: 'Tempelhof Sounds \'22' }, { name: './festivals/steffen_festival_3.webp', type: 0, text: 'Frequency 2022 ' }, { name: './festivals/steffen_festival_4.webp', type: 0, text: 'Superbloom, München' }, { name: './festivals/steffen_csd.webp', type: 0, text: 'CSD München' }, { name: './festivals/steffen_festival_1.webp', type: 0, text: 'Lolla 2019' }]" />
-
-
-
 
         <div class="music-text-area">
             <div class="text music-text">
-
-                Musik ist für mich weit mehr als reine Unterhaltung. Sie ist der Spiegel meiner Gefühle und formt den
-                <span class="inline-handwriting">Rhythmus </span> <span class="inline-handwriting">meines </span> <span
-                    class="inline-handwriting">Lebens </span>. Jeder Song,
-                den ich höre, reflektiert auf gewisse
-                Weise meine Gedanken. Jedes Konzert, das
-                ich
-                besuche, schafft eine Verbindung zu Menschen, die diese Leidenschaft teilen.
+                {{t('musicLove.musicForMe')}}
+                <span class="inline-handwriting">{{t('musicLove.rhythm')}} </span>
+                <span class="inline-handwriting">{{t('musicLove.my')}} </span>
+                <span class="inline-handwriting">{{t('musicLove.life')}} </span>.
+                {{t('musicLove.everySongReflects')}}
                 <p>
-                    So ist Musik in meinem Leben nicht
-                    nur ein Hobby, sondern ein stetiger, unersetzbarer Begleiter und gleichzeitig Quelle ständiger
-                    <span class="inline-handwriting">Inspiration </span>
+                    {{t('musicLove.musicInMyLife')}}
+                    <span class="inline-handwriting">{{t('musicLove.inspiration')}} </span>
                 </p>
             </div>
         </div>
@@ -34,7 +27,8 @@
 
 <script lang="ts" setup>
 import ImagesRow from '../components/ImagesRow.vue';
-
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
 </script>
 
 <style scoped>

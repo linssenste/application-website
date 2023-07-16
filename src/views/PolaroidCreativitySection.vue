@@ -12,43 +12,30 @@
 
             <div class="text-wrapper text">
                 <div class="text-header">
-                    <h1>Polaroid-Projekt
-                    </h1>
-                    <!-- Place this tag where you want the button to render. -->
+                    <h1>{{t('creativity.polaroidProject')}}</h1>
                     <github-button style="margin-top: 20px;" href="https://github.com/linssenste/instax-link-web"
                         data-size="large" data-show-count="true"
                         aria-label="Star linssenste/instax-link-web on GitHub">Github</github-button>
                 </div>
                 <div class="">
-                    Auch in meiner Freizeit entfalte ich gerne meine Kreativität als Entwickler. Ein Beispiel dafür ist eine
-                    <div class="inline-handwriting">Open-Source</div>
-                    Webanwendung, die das direkte Drucken von Fotos aus Google Chrome auf Instax Polaroid-Druckern
-                    ermöglicht - ganz ohne zusätzliche App.
-
-
+                    {{t('creativity.openSourceWebappDesc')}}
+                    <div class="inline-handwriting">{{t('creativity.openSource')}}</div>
+                    {{t('creativity.printerProtocol')}}
                 </div>
 
                 <p>
-                    Für dieses Projekt habe ich das Bluetooth-Protokoll der Drucker
-                    reverse engineered und darauf aufbauenend
-                    eine
-                    intuitiv bedienbare Anwendung entwickelt. Einige Drucke aus der Entwicklungsphase sind in der oben
-                    dargestellten Bildreihe zu sehen.
-
+                    {{t('creativity.reverseEngineered')}}
                 </p>
-
-
 
                 <a href="https://polaroid.linssenste.com" target="_blank">
                     <button class="action-button" style="margin-top: 30px;">
                         <img style="margin-right: 12px" src="@/assets/icons/arrow-up-right-from-square-solid.svg"
                             width="16" />
-
-                        Anwendung öffnen
+                        {{t('creativity.openApp')}}
                     </button>
                 </a>
-
             </div>
+
 
             <div class="image-wrapper">
                 <img draggable="false" style="position: absolute; top: -70px; left: -70px; z-index: -1;" width="200"
@@ -61,13 +48,7 @@
 
 
                 <div class="image-caption">
-                    Web-Anwendung & das resultierendes Polaroid
-                    <!-- <a href="https://polaroid.linssenste.com" target="_blank">
-                        <button class="action-button">
-                            <img src="../assets/icons/arrow-up-right-from-square-solid.svg" width="16"
-                                alt="Open in new tab" />
-                        </button>
-                    </a> -->
+                    {{t('creativity.imageAlt')}}
                 </div>
             </div>
         </div>
@@ -76,7 +57,9 @@
 
 <script lang="ts" setup>
 import ImagesRow from '../components/ImagesRow.vue';
-import GithubButton from 'vue-github-button'
+import GithubButton from 'vue-github-button';
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
 </script>
 
 <style scoped>

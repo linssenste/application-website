@@ -1,9 +1,7 @@
 <template>
     <div class="instagram-area">
-        <!-- <div style="margin: 50px; font-size: 50px" class="text-highlight-blue">Bele Vode, 2023</div> -->
         <div class="video-wrapper">
-            <!--                     src="https://media.githubusercontent.com/media/linssenste/application-website/main/public/instagram/slovenia_aftermovie.mp4"
- -->
+
             <video controls poster="/instagram/slovenia_thumbnail.jpg">
                 <source
                     src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/slovenia_aftermovie.mp4?alt=media&token=7ab60e9b-2a72-437f-90e1-22c491a053fb"
@@ -16,15 +14,18 @@
         <div class="instagram-feed">
 
             <div class="text" style="margin-bottom: 30px; margin-left: 0px!important; margin-right: 0px!important;">
-                Meine Leidenschaft für Musik fließt auch in das Instagram-Profil von meinem Hund <span
-                    class="text-highlight-blue" style="display: inline-block; max-height: 27px">Jasper</span> ein. Jede
-                Story und
-                jeder Beitrag
-                werden mit einem passenden Song verknüpft, um die geteilten Momente intensiver und humorvoller zu gestalten.
-                <p>Dieser <span class="text-highlight-blue" style="display: inline-block; max-height: 27px">kreative</span>
-                    Prozess, das Spiel mit Bildern und Videos in Verbindung mit Musik, bereitet mir unglaublich
-                    viel Spaß.</p>
+                {{t('instagram.musicPassion')}}
+                <span class="text-highlight-blue"
+                    style="display: inline-block; max-height: 27px">{{t('instagram.dogName')}}</span>
+                {{t('instagram.everyStoryAndPost')}}
+                <p>
+                    {{t('instagram.creativeProcess')}}
+                    <span class="text-highlight-blue"
+                        style="display: inline-block; max-height: 27px">{{t('instagram.creative')}}</span>
+                    {{t('instagram.processDescription')}}
+                </p>
             </div>
+
 
             <a href="https://www.instagram.com/thejasperfromtheblock/" target="_blank" rel="noopener noreferrer">
                 <div class="instagram-profile-link">
@@ -100,7 +101,11 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t }=useI18n()
+
+</script>
 
 <style scoped>
 .img-link {

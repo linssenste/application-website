@@ -86,18 +86,25 @@ html {
     align-content: center;
     margin: auto;
     margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: row;
     width: 100%;
     cursor: pointer;
-    justify-content: flex-end
+    justify-content: center
+}
+
+@media (min-width: 600px) {
+    .lang-selector {
+        justify-content: flex-end
+    }
 }
 
 .lang-flag {
     width: 28px;
     transition: all 100ms ease-in-out;
     opacity: .3;
-    margin: 8px;
+    padding: 8px;
 
 }
 
