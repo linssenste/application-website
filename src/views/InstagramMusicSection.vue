@@ -2,8 +2,8 @@
     <div class="instagram-area">
         <!-- <div style="margin: 50px; font-size: 50px" class="text-highlight-blue">Bele Vode, 2023</div> -->
         <div class="video-wrapper">
-            <video controls poster="@/assets/instagram/slovenia_thumbnail.jpg">
-                <source src="@/assets/instagram/slovenia_aftermovie.mp4" type="video/mp4" />
+            <video controls poster="/instagram/slovenia_thumbnail.jpg">
+                <source src="/instagram/slovenia_aftermovie.mp4" type="video/mp4" />
             </video>
             <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_1.webp" alt="" />
             <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_2.webp" alt="" />
@@ -33,53 +33,53 @@
                 <a href="https://www.instagram.com/p/Cm3X6lwIESU/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
                     <img draggable="false" class="img-link" style="border-top-left-radius: 12px;"
-                        src="@/assets/instagram/insta_jas_1.webp" width="110" height="110" alt="Instagram Post 1" />
+                        src="/instagram/insta_jas_1.webp" width="110" height="110" alt="Instagram Post 1" />
                 </a>
                 <a href="https://www.instagram.com/p/CmOXfmjgOZX/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_2.webp" height="110"
-                        width="110" alt="Instagram Post 2" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_2.webp" height="110" width="110"
+                        alt="Instagram Post 2" />
                 </a>
                 <a href="https://www.instagram.com/p/CkYfEu1I8TR/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
                     <img draggable="false" class="img-link" style="border-top-right-radius: 12px;"
-                        src="@/assets/instagram/insta_jas_3.webp" width="110" height="110" alt="Instagram Post 3" />
+                        src="/instagram/insta_jas_3.webp" width="110" height="110" alt="Instagram Post 3" />
                 </a>
             </div>
             <!-- instagram link images row #2 -->
             <div class="img-row">
                 <a href="https://www.instagram.com/p/CkDghP9DmjY/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_9.webp" height="110"
-                        width="110" alt="Instagram Post 4" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_9.webp" height="110" width="110"
+                        alt="Instagram Post 4" />
                 </a>
                 <a href="https://www.instagram.com/p/Cibx_erDPpC/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_8.webp" height="110"
-                        width="110" alt="Instagram Post 5" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_8.webp" height="110" width="110"
+                        alt="Instagram Post 5" />
                 </a>
                 <a href="https://www.instagram.com/p/Cg2FAlYjfni/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_7.webp" height="110"
-                        width="110" alt="Instagram Post 6" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_7.webp" height="110" width="110"
+                        alt="Instagram Post 6" />
                 </a>
             </div>
             <!-- instagram link images row #3 -->
             <div class="img-row">
                 <a href="https://www.instagram.com/p/CejCcFHDECi/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_6.webp" height="110"
-                        width="110" alt="Instagram Post 7" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_6.webp" height="110" width="110"
+                        alt="Instagram Post 7" />
                 </a>
                 <a href="https://www.instagram.com/p/CdBcLvSvMpj/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_5.webp" height="110"
-                        width="110" alt="Instagram Post 8" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_5.webp" height="110" width="110"
+                        alt="Instagram Post 8" />
                 </a>
                 <a href="https://www.instagram.com/p/CSpJ34TIvDm/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
                     target="_blank" rel="noopener noreferrer">
-                    <img draggable="false" class="img-link" src="@/assets/instagram/insta_jas_4.webp" height="110"
-                        width="110" alt="Instagram Post 9" />
+                    <img draggable="false" class="img-link" src="/instagram/insta_jas_4.webp" height="110" width="110"
+                        alt="Instagram Post 9" />
                 </a>
             </div>
             <div class="music-instagram">
