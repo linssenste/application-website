@@ -2,8 +2,12 @@
     <div class="instagram-area">
         <!-- <div style="margin: 50px; font-size: 50px" class="text-highlight-blue">Bele Vode, 2023</div> -->
         <div class="video-wrapper">
+            <!--                     src="https://media.githubusercontent.com/media/linssenste/application-website/main/public/instagram/slovenia_aftermovie.mp4"
+ -->
             <video controls poster="/instagram/slovenia_thumbnail.jpg">
-                <source src="/instagram/slovenia_aftermovie.mp4" type="video/mp4" />
+                <source
+                    src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/slovenia_aftermovie.mp4?alt=media&token=7ab60e9b-2a72-437f-90e1-22c491a053fb"
+                    type="video/mp4" />
             </video>
             <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_1.webp" alt="" />
             <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_2.webp" alt="" />

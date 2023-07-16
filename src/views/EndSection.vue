@@ -19,16 +19,22 @@
                 Euch
                 ein, einen Blick auf meinen Lebenslauf zu werfen.
 
-                <button v-on:click="" class="action-button" style="margin-top: 30px;">
-                    <img style="margin-right: 12px" src="../assets/icons/arrow-right-solid.svg" width="16" />
+                <a href="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/cv_steffen_linssen_de.pdf?alt=media&token=41218fdc-f24e-4f45-93fc-3f01945afdf1"
+                    target="_blank">
+                    <button v-on:click="" class="action-button" style="margin-top: 30px;">
+                        <img style="margin-right: 12px" src="../assets/icons/arrow-right-solid.svg" width="16" />
 
-                    Lebenslauf öffnen
-                </button>
-                <button v-on:click="" class="action-button">
+                        Lebenslauf öffnen
+                    </button>
+                </a>
 
-                    <img style="margin-right: 12px" src="../assets/icons/github.svg" width="16" />
-                    Source Code
-                </button>
+                <a href="https://github.com/linssenste/application-website" target="_blank">
+                    <button v-on:click="" class="action-button">
+
+                        <img style="margin-right: 12px" src="../assets/icons/github.svg" width="16" />
+                        Source Code
+                    </button>
+                </a>
 
             </div>
 

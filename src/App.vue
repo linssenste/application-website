@@ -14,7 +14,7 @@
 
         <InclusionSection />
 
-        <EndSection style="z-index: 10; margin-top: 100px" />
+        <EndSection style="z-index: 10; margin-top: 50px" />
 
         <div style="height: 200px; margin-top: 50px; z-index: -1;">
             <RisographArtSection :rotate="true" />
