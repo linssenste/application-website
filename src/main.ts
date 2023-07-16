@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 
 import { createI18n } from "vue-i18n";
-import de from "./locales/de.js";
-import en from "./locales/en.js";
+import de from "./locales/de.ts";
+import en from "./locales/en.ts";
 
 import "./style.css";
 import "./assets/fonts/handwriting/Biro Script Std/stylesheet.css";
