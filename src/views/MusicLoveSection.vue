@@ -2,7 +2,7 @@
     <div class="festival-card">
 
         <ImagesRow rowId="festival" songId="1YplKY2G8yN0bWf8rM5Egz"
-            :images="[{ name: 'festivals/steffen_festival_1.gif', type: 0, text: 'Lolla 2019' }, { name: 'festivals/steffen_festival_2.webp', type: 0, text: 'Tempelhof Sounds \'22' }, { name: 'festivals/steffen_festival_3.webp', type: 0, text: 'Frequency 2022 ' }, { name: 'festivals/steffen_festival_4.webp', type: 0, text: 'Superbloom, München' }, { name: 'festivals/steffen_csd.webp', type: 0, text: 'CSD München' }]" />
+            :images="[{ name: './festivals/steffen_festival_1.gif', type: 0, text: 'Lolla 2019' }, { name: './festivals/steffen_festival_2.webp', type: 0, text: 'Tempelhof Sounds \'22' }, { name: './festivals/steffen_festival_3.webp', type: 0, text: 'Frequency 2022 ' }, { name: './festivals/steffen_festival_4.webp', type: 0, text: 'Superbloom, München' }, { name: './festivals/steffen_csd.webp', type: 0, text: 'CSD München' }]" />
 
 
 
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts" setup>
-import ImagesRow from '@/components/ImagesRow.vue';
+import ImagesRow from '../components/ImagesRow.vue';
 
 </script>
 

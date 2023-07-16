@@ -4,7 +4,7 @@
         <div style="transform: scale(1.1); transform-origin: 50% 50%;; position: relative;">
             <img draggable="false" style="position: absolute; top: -50px; left: -70px; z-index: -1;" width="200"
                 src="@/assets/risographics/riso_form_6.webp" alt="" />
-            <PolaroidImage name="steffen_konstanz.webp" text="Das bin ich!" />
+            <PolaroidImage name="./steffen_konstanz.webp" text="Das bin ich!" />
         </div>
 
         <div class="text-content">
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import PolaroidImage from '@/components/PolaroidImage.vue';
+import PolaroidImage from '../components/PolaroidImage.vue';
 import { onMounted, ref } from 'vue';
 
 const name=ref<string|null>(null)

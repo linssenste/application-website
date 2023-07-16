@@ -13,7 +13,7 @@
             <div class="photobanner">
                 <div id="cover-container">
 
-                    <img draggable="false" v-for="i in shuffledIndices" :src="`./covers/${i+1}.webp`"
+                    <img draggable="false" v-for="i in shuffledIndices" :src="`/covers/${i+1}.webp`"
                         v-on:click="selectFavoriteSong(i+1)" />
 
                 </div>

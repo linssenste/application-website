@@ -24,14 +24,14 @@
 
 <script lang="ts" setup>
 
-import WelcomeSection from '@/views/WelcomeSection.vue';
-import RisographArtSection from '@/views/RisographArtSection.vue'
-import MusicLoveSection from '@/views/MusicLoveSection.vue';
-import FavoriteMusicSection from '@/views/FavoriteMusicSection.vue'
-import InstagramMusicSection from '@/views/InstagramMusicSection.vue'
-import PolaroidCreativitySection from '@/views/PolaroidCreativitySection.vue';
-import EndSection from '@/views/EndSection.vue';
-import InclusionSection from '@/views/InclusionSection.vue';
+import WelcomeSection from './views/WelcomeSection.vue';
+import RisographArtSection from './views/RisographArtSection.vue'
+import MusicLoveSection from './views/MusicLoveSection.vue';
+import FavoriteMusicSection from './views/FavoriteMusicSection.vue'
+import InstagramMusicSection from './views/InstagramMusicSection.vue'
+import PolaroidCreativitySection from './views/PolaroidCreativitySection.vue';
+import EndSection from './views/EndSection.vue';
+import InclusionSection from './views/InclusionSection.vue';
 </script>
 
 

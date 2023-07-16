@@ -1,11 +1,11 @@
 <template>
     <div class="row-scroll-container">
         <ImagesRow rowId="polaroid-bugs" class="images-row" :images="[
-            { name: 'polaroid_art/polaroid_art_1.webp', type: 0, text: '#67' },
-            { name: 'polaroid_art/polaroid_art_5.webp', type: 0, text: '#31' },
-            { name: 'polaroid_art/polaroid_art_2.webp', type: 0, text: '#3' },
-            { name: 'polaroid_art/polaroid_art_3.webp', type: 0, text: '#42' },
-            { name: 'polaroid_art/polaroid_art_4.webp', type: 0, text: '#14' }
+            { name: '/polaroid_art/polaroid_art_1.webp', type: 0, text: '#67' },
+            { name: '/polaroid_art/polaroid_art_5.webp', type: 0, text: '#31' },
+            { name: '/polaroid_art/polaroid_art_2.webp', type: 0, text: '#3' },
+            { name: '/polaroid_art/polaroid_art_3.webp', type: 0, text: '#42' },
+            { name: '/polaroid_art/polaroid_art_4.webp', type: 0, text: '#14' }
         ]" />
 
         <div class="content-wrapper">
@@ -56,7 +56,7 @@
 
 
 
-                <img draggable="false" class="main-image" src="polaroid_art/polaroid_app_print.webp"
+                <img draggable="false" class="main-image" src="/polaroid_art/polaroid_app_print.webp"
                     alt="Web-App und resultierendes Polaroid" />
 
 
@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts" setup>
-import ImagesRow from '@/components/ImagesRow.vue';
+import ImagesRow from '../components/ImagesRow.vue';
 import GithubButton from 'vue-github-button'
 </script>
 

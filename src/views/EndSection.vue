@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import TLDRCard from '@/components/TLDRCard.vue';
+import TLDRCard from '../components/TLDRCard.vue';
 
 
 
