@@ -4,18 +4,19 @@
         <div style="transform: scale(1.1); transform-origin: 50% 50%;; position: relative;">
             <img draggable="false" style="position: absolute; top: -50px; left: -70px; z-index: -1;" width="200"
                 src="@/assets/risographics/riso_form_6.webp" alt="" />
-            <PolaroidImage name="./steffen_konstanz.webp" text="Das bin ich" />
+            <PolaroidImage name="./steffen_konstanz.webp" :text="t('welcome.thatsMe')" />
         </div>
+
 
         <div class="text-content">
 
             <!-- welcome header with handwritten font -->
             <div class="title-text">
-                <!-- <span>Hallo <span class="text-highlight-blue-bold">WHOEVER</span>, ich bin</span> -->
-                <span class="text-highlight-name-blue" style="font-size: 40px">Hallo<span style="margin-left: 12px;"
-                        v-if="name!=null&&name.length>0" class="text-highlight-blue-bold">{{name}} </span>,
-                    ich
-                    bin
+
+                <span class="text-highlight-name-blue" style="font-size: 40px">{{t('welcome.hello')}}<span
+                        style="margin-left: 12px;" v-if="name!=null&&name.length>0"
+                        class="text-highlight-blue-bold">{{name}} </span>,
+                    {{t('welcome.iam')}}
                     Steffen!</span>
             </div>
 
@@ -23,41 +24,33 @@
             <div class="text">
 
                 <p>
-                <div>Ich bin ein
-                    Frontend-Entwickler mit 6 Jahren
-                    Erfahrung und
-                    einem Faible für ansprechende UI & UX.
-                    Außerdem bin ich stolzer Hundepapa und ein absoluter Musikliebhaber.
-                </div>
+                    {{t('welcome.introduction')}}
+
                 </p>
 
-                <div>Diese Website habe ich entwickelt, um sowohl mein technisches Wissen & Kreativität zu präsentieren als
-                    auch einen
-                    persönlichen Einblick in mein Leben zu geben. Im Vordergrund stehen nicht meine beruflichen Leistungen,
-                    sondern ich als <div class="inline-handwriting">Mensch</div>. Ich möchte Euch in meine Welt entführen,
-                    meine Leidenschaft für Musik
-                    mit Euch teilen und offen über meine Behinderung sprechen.
+                <div>{{t('welcome.websitePurpose1')}} <div class="inline-handwriting">{{t('welcome.human')}}</div>
+                    {{t('welcome.websitePurpose2')}}
                 </div>
 
             </div>
             <div class="welcome-music-container">
-                <iframe style="height: 80px; background-color: #C80018;"
-                    src="https://open.spotify.com/embed/track/254AnlO6Fr8ge2hH0nywp7?utm_source=generator&theme=1"
+                <iframe style="height: 80px;"
+                    :src="`https://open.spotify.com/embed/track/${t('welcome.welcomeMusicId')}?utm_source=generator&theme=1`"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
                 </iframe>
             </div>
         </div>
-        <!-- 
-        <div class="menu-selector">Musik</div>
-        <div class="menu-selector">Inklusion</div> -->
+
 
     </div>
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
+
 import PolaroidImage from '../components/PolaroidImage.vue';
 import { onMounted, ref } from 'vue';
-
+const { t, locale }=useI18n()
 const name=ref<string|null>(null)
 onMounted(() => {
     const urlParams=new URLSearchParams(window.location.search);
