@@ -123,7 +123,6 @@
 }
 
 .music-instagram {
-    background-color: #282828;
     height: 82px;
     overflow: hidden;
     border-bottom-right-radius: 12px;

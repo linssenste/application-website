@@ -13,7 +13,7 @@
             <div class="photobanner">
                 <div id="cover-container">
 
-                    <img draggable="false" v-for="i in shuffledIndices" :src="`/covers/${i+1}.webp`"
+                    <img draggable="false" class="cover" v-for="i in shuffledIndices" :src="`/covers/${i+1}.webp`"
                         v-on:click="selectFavoriteSong(i+1)" />
 
                 </div>
@@ -256,6 +256,14 @@ function shuffleArray(array: number[]) {
     margin-top: 10px;
     margin-bottom: 10px;
 
+}
+
+.cover {
+    transform: scale(.96);
+}
+
+.cover:hover {
+    transform: scale(1);
 }
 
 .fav-song {

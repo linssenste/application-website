@@ -4,7 +4,7 @@
 
 
         <ImagesRow
-            :images="[{ name: './mountains/steffen_mountain_4.webp', type: 0, text: 'Meine erste Bergtour' }, { name: './mountains/steffen_mountain_5.gif', type: 0, text: 'test' }, { name: './mountains/steffen_mountain_3.webp', type: 0, text: 'Silvester am Herzogstand' }, { name: './mountains/steffen_mountain_2.webp', type: 0, text: 'Wallberg' }, { name: './mountains/steffen_mountain_1.webp', type: 0, text: 'Smrekovcu, Slovenia' }]"
+            :images="[{ name: './mountains/steffen_mountain_4.webp', type: 0, text: 'Meine erste Bergtour' }, { name: './mountains/steffen_mountain_5.gif', type: 0, text: 'Wallberg im Winter' }, { name: './mountains/steffen_mountain_3.webp', type: 0, text: 'Silvester am Herzogstand' }, { name: './mountains/steffen_mountain_2.webp', type: 0, text: 'Wallberg' }, { name: './mountains/steffen_mountain_1.webp', type: 0, text: 'Smrekovcu, Slovenia' }]"
             songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" />
 
         <div class="content-row">

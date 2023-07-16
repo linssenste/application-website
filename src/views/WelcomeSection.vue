@@ -34,9 +34,9 @@
                 <div>Diese Website habe ich entwickelt, um sowohl mein technisches Wissen & Kreativität zu präsentieren als
                     auch einen
                     persönlichen Einblick in mein Leben zu geben. Im Vordergrund stehen nicht meine beruflichen Leistungen,
-                    sondern ich als <div class="inline-handwriting">Mensch</div>. Ich möchte euch in meine Welt entführen,
+                    sondern ich als <div class="inline-handwriting">Mensch</div>. Ich möchte Euch in meine Welt entführen,
                     meine Leidenschaft für Musik
-                    mit euch teilen und offen über meine Behinderung sprechen.
+                    mit Euch teilen und offen über meine Behinderung sprechen.
                 </div>
 
             </div>

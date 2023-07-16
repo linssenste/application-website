@@ -12,9 +12,9 @@
                 <p>
                     Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
                     Typescript
-                    realisiert sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Den Quellcode kannst du
-                    gerne
-                    auf Github einsehen.
+                    realisiert sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
+
+                    auf Github einsehen werden.
                 </p>
 
                 Falls Ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich

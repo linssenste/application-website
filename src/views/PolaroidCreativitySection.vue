@@ -30,7 +30,7 @@
 
                 <p>
                     Für dieses Projekt habe ich das Bluetooth-Protokoll der Drucker
-                    reverse engineered und daraufaufbauen
+                    reverse engineered und darauf aufbauenend
                     eine
                     intuitiv bedienbare Anwendung entwickelt. Einige Drucke aus der Entwicklungsphase sind in der oben
                     dargestellten Bildreihe zu sehen.
