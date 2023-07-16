@@ -3,19 +3,21 @@
         <div class="text-content">
             <div class="title-text">
                 <span class="text-highlight-blue-bold" style="font-size: 40px;">Das war's!</span>
+                <img draggable="false" width="60" height="60" style="margin-top: 5px; margin-left: 10px"
+                    src="../assets/icons/heart.webp" />
             </div>
             <div class="text">
-                Danke, dass ihr euch die Zeit genommen hast, meine persönliche Webseite zu besuchen.
+                Danke, dass Ihr Euch die Zeit genommen hast, meine persönliche Webseite zu besuchen.
 
                 <p>
-                    Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite+Vue3 in
+                    Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
                     Typescript
                     realisiert sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Den Quellcode kannst du
                     gerne
                     auf Github einsehen.
                 </p>
 
-                Falls ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich
+                Falls Ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich
                 Euch
                 ein, einen Blick auf meinen Lebenslauf zu werfen.
 
@@ -67,6 +69,9 @@ import TLDRCard from '../components/TLDRCard.vue';
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     /* transform: rotate(-1deg); */
     text-align: start;
 }
