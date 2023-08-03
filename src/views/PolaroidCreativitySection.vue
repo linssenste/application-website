@@ -1,14 +1,14 @@
 <template>
-    <div class="row-scroll-container">
+    <div>
+
         <ImagesRow rowId="polaroid-bugs" class="images-row" :images="[
             { name: '/polaroid_art/polaroid_art_1.webp', type: 0, text: '#67' },
             { name: '/polaroid_art/polaroid_art_5.webp', type: 0, text: '#31' },
             { name: '/polaroid_art/polaroid_art_2.webp', type: 0, text: '#3' },
-            { name: '/polaroid_art/polaroid_art_3.webp', type: 0, text: '#42' },
             { name: '/polaroid_art/polaroid_art_4.webp', type: 0, text: '#14' }
         ]" />
 
-        <div class="content-wrapper">
+        <!-- <div class="content-wrapper">
 
             <div class="text-wrapper text">
                 <div class="text-header">
@@ -51,7 +51,7 @@
                     {{t('creativity.imageAlt')}}
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

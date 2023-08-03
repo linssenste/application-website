@@ -6,10 +6,12 @@ export default {
         introduction:
             "I am a frontend developer with 6 years of experience and a passion for engaging UI & UX. I'm also a proud dog dad and an outright music lover.",
         websitePurpose1:
-            "I developed this website to present my technical knowledge & creativity as well as to give a personal insight into my life. The focus is not on my professional achievements, but rather on me as a  ",
+            "I developed this website to present my technical knowledge & creativity as well as to give a personal insight into my life. Music means a lot to me in life - that's why I built this website around the theme of music.",
 
-        human: "human being",
         websitePurpose2:
+            "The focus is not on my professional achievements, but rather on me as a  ",
+        human: "human being",
+        websitePurpose3:
             ". I want to take you into my world, share my passion for music and talk openly about my handicap.",
         welcomeMusicId: "1G8c9Fc37NRdqD2vOkAQk1",
     },
@@ -56,6 +58,22 @@ export default {
         openApp: "Go to Application",
 
         imageAlt: "Web app editor & the resulting polaroid",
+    },
+
+    dalli: {
+        name: "Geography Game",
+        description:
+            'In this project I have developed a geography game. The game principle is a combination of the TV game "Dalli-Klick" and the online game "Geoguessr". Just try it out:',
+    },
+
+    projects: {
+        title: "Portfolio",
+        name: "Project name",
+        type: "Project type",
+        company: "Company",
+        description: "Description",
+        stack: "Tech Stack",
+        screenshots: "Screenshots",
     },
 
     disability: {

@@ -28,8 +28,9 @@
 
                 </p>
 
-                <div>{{t('welcome.websitePurpose1')}} <div class="inline-handwriting">{{t('welcome.human')}}</div>
-                    {{t('welcome.websitePurpose2')}}
+                <div>{{t('welcome.websitePurpose1')}}<br />{{t('welcome.websitePurpose2')}} <div class="inline-handwriting">
+                        {{t('welcome.human')}}</div>
+                    {{t('welcome.websitePurpose3')}}
                 </div>
 
             </div>

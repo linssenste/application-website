@@ -3,31 +3,40 @@
 
         <div class="lang-selector">
             <img v-on:click="switchLanguage('de')" class="lang-flag" :style="locale=='de'? 'opacity: 1':''"
-                src="@/assets/flags/de.webp" width="25" />
+                src="@/assets/flags/de.webp" width="25" height="25" />
             <img v-on:click="switchLanguage('en')" class="lang-flag" style="margin-right: 15px;"
-                :style="locale=='en'? 'opacity: 1':''" src="@/assets/flags/gb.webp" width="25" />
+                :style="locale=='en'? 'opacity: 1':''" src="@/assets/flags/gb.webp" height="25" width="25" />
         </div>
+
 
 
         <WelcomeSection />
 
-
+        <!-- 
         <RisographArtSection />
+
 
         <MusicLoveSection />
         <FavoriteMusicSection />
-        <InstagramMusicSection />
-        <PolaroidCreativitySection />
+        <ProjectsSection style="margin-top: 100px" />
+        <GeoDalliDalliSection />
 
-        <RisographArtSection :rotate="true" />
+        <PolaroidCreativitySection style="margin-bottom: -180px" />
+        <RisographArtSection :small="true" />
+
 
         <InclusionSection />
 
+        <RisographArtSection :rotate="true" :small="true" style="margin-top: -200px" />
+
+
+        <InstagramMusicSection style="margin-top: -10px" />
+
         <EndSection style="z-index: 10; margin-top: 50px" />
 
-        <div style="height: 200px; margin-top: 50px; z-index: -1;">
-            <RisographArtSection :rotate="true" />
-        </div>
+        <div style="height: 130px; margin-top: 50px; padding-top: 80px; z-index: -1; overflow: hidden;">
+            <RisographArtSection :rotate="false" />
+        </div> -->
     </div>
 </template>
 
@@ -45,6 +54,8 @@ import InclusionSection from './views/InclusionSection.vue';
 
 
 import { useI18n } from 'vue-i18n'
+import GeoDalliDalliSection from './views/GeoDalliDalliSection.vue';
+import ProjectsSection from './views/ProjectsSection.vue';
 
 const { locale }=useI18n()
 
@@ -62,11 +73,7 @@ function switchLanguage(localeId: string): void {
 
 <style scoped> .application-area {
      position: relative;
-     width: 100%;
-     top: 0;
-     left: 0;
-
-     overflow: hidden;
+     height: 100vh;
 
  }
 </style>
@@ -85,7 +92,7 @@ html {
 .lang-selector {
     align-content: center;
     margin: auto;
-    margin-top: 5px;
+    padding-top: 5px;
     margin-bottom: 5px;
     display: flex;
     flex-direction: row;

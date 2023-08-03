@@ -3,13 +3,7 @@
 
 
 
-        <ImagesRow :images="[
-            { name: './mountains/steffen_mountain_4.webp', type: 0, text: t('disability.imageText.0') },
-            { name: './mountains/steffen_mountain_5.gif', type: 0, text: t('disability.imageText.1') },
-            { name: './mountains/steffen_mountain_3.webp', type: 0, text: t('disability.imageText.2') },
-            { name: './mountains/steffen_mountain_2.webp', type: 0, text: t('disability.imageText.3') },
-            { name: './mountains/steffen_mountain_1.webp', type: 0, text: t('disability.imageText.4') }
-        ]" songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" />
+
 
         <div class="content-row">
             <div>
@@ -64,6 +58,14 @@
             </div>
         </div>
 
+        <ImagesRow :images="[
+            { name: './mountains/steffen_mountain_4.webp', type: 0, text: t('disability.imageText.0') },
+            { name: './mountains/steffen_mountain_5.gif', type: 0, text: t('disability.imageText.1') },
+            { name: './mountains/steffen_mountain_3.webp', type: 0, text: t('disability.imageText.2') },
+            { name: './mountains/steffen_mountain_2.webp', type: 0, text: t('disability.imageText.3') },
+            { name: './mountains/steffen_mountain_1.webp', type: 0, text: t('disability.imageText.4') }
+        ]" songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" />
+
 
     </div>
 </template>
@@ -102,7 +104,7 @@ const isMobile=computed(() => {
     position: relative;
     width: 100%;
     margin: 0 auto;
-    margin-top: -100px;
+    margin-top: 0px;
 }
 
 

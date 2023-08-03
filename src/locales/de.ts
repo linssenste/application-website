@@ -6,10 +6,13 @@ export default {
         introduction:
             "Ich bin ein Frontend-Entwickler mit 6 Jahren Erfahrung und einem Faible für ansprechende UI & UX. Außerdem bin ich stolzer Hundepapa und ein absoluter Musikliebhaber.",
         websitePurpose1:
-            "Diese Website habe ich entwickelt, um sowohl mein technisches Wissen & Kreativität zu präsentieren, als auch einen persönlichen Einblick in mein Leben zu geben. Im Vordergrund stehen nicht meine beruflichen Leistungen, sondern ich als ",
+            "Diese Website habe ich entwickelt, um sowohl mein technisches Wissen & Kreativität zu präsentieren, als auch einen persönlichen Einblick in mein Leben zu geben. Musik bedeutet mir sehr viel im Leben - deshalb habe ich diese Website rund um das Thema Musik aufgebaut. ",
+
+        websitePurpose2:
+            "Im Vordergrund stehen nicht meine beruflichen Leistungen, sondern ich als ",
 
         human: "Mensch",
-        websitePurpose2:
+        websitePurpose3:
             ". Ich möchte Euch in meine Welt entführen, meine Leidenschaft für Musik mit Euch teilen und offen über meine Behinderung sprechen.",
         welcomeMusicId: "254AnlO6Fr8ge2hH0nywp7",
     },
@@ -57,6 +60,12 @@ export default {
         imageAlt: "Web Anwendung & das resultierende Polaroid",
     },
 
+    dalli: {
+        name: "Spiel eine Runde",
+        description:
+            'In diesem Projekt habe ich ein Geographiespiel entwickelt. Das Spielprinzip ist eine Kombination aus dem TV-Spiel "Dalli-Klick" und dem Spiel "Geoguessr":',
+    },
+
     disability: {
         imageText: [
             "Meine erste Bergtour",
@@ -78,12 +87,21 @@ export default {
         },
     },
 
+    projects: {
+        title: "Portfolio",
+        name: "Projektname",
+        type: "Projektart",
+        company: "Unternehmen",
+        description: "Beschreibung",
+        stack: "Tech Stack",
+        screenshots: "Bildschirmaufnahmen",
+    },
     footer: {
         thatsIt: "Das war's",
         intro: `Danke, dass Ihr Euch die Zeit genommen hast, meine persönliche Webseite zu besuchen.`,
         techDetail: `Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
-                    Typescript realisiert sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
-                    auf Github einsehen werden.`,
+                    Typescript realisiert, sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
+                    auf Github eingesehen werden.`,
         invitation: `Falls Ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich
                     Euch ein, einen Blick auf meinen Lebenslauf zu werfen.`,
         cvButton: "Lebenslauf öffnen",

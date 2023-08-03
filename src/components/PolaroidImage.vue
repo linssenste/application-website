@@ -73,6 +73,7 @@ props.text;
 
 .polaroid-frame {
     width: 350px;
+    height: 420px;
 
     -webkit-user-drag: none;
     user-select: none;
