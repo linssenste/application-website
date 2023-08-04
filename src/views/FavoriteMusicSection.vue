@@ -1,20 +1,13 @@
 <template>
     <div class="cover-card">
 
-        <div class="fav-text">
-            <img draggable="false" width="60" style="margin-bottom: 10px; transform: rotate(-2deg); margin-right: 8px;"
-                src="../assets/icons/heart.webp" />
-            <h1 class="fav-text">
-                {{t('favoriteSongs.myFavorites')}}:
-            </h1>
-        </div>
 
         <div class="cover-area">
             <div class="photobanner">
                 <div id="cover-container">
 
-                    <img draggable="false" class="cover" v-for="i in shuffledIndices" :src="`/covers/${i+1}.webp`"
-                        v-on:click="selectFavoriteSong(i+1)" />
+                    <img draggable="false" alt="random album cover" class="cover" v-for="i in shuffledIndices"
+                        :src="`/covers/${i+1}-min.webp`" v-on:click="selectFavoriteSong(i+1)" />
 
                 </div>
             </div>
@@ -22,10 +15,9 @@
 
 
         <div class="fav-song" :class="{ 'fav-song-mobile': isMobile }">
-            <iframe v-if="songId" class="fav-player" :key="songId"
+            <iframe title="music" v-if="songId" class="fav-player" :key="songId"
                 :src="`https://open.spotify.com/embed/track/${songId}?utm_source=generator&theme=0`" max-width="600"
-                width="100%" :height="isMobile? 352:152" frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                width="100%" :height="isMobile? 352:152" frameBorder="0" loading="lazy"></iframe>
 
             <div v-else class="song-placeholder">
 
@@ -35,17 +27,16 @@
                 </div>
             </div>
             <div v-on:click="randomSong()" class="shuffle-button">
-                <img src="../assets/icons/shuffle-solid.svg" width="17" />
+                <img alt="suffle icon" src="../assets/icons/shuffle-solid.svg" width="17" />
                 <div>SHUFFLE</div>
             </div>
         </div>
 
-        <div v-if="!isMobile" style="max-width: 750px; margin: 0 auto; margin-top:50px; text-align: center;">
-            <span
-                style="font-size: 38px; font-family: 'biro_script_standardsloppy'; color: #000F55; line-height: 45px">"Music
+        <div v-if="!isMobile" class="quote-area">
+            <span class="quote">"Music
                 is the divine way to tell beautiful, poetic things to the heart."</span>
 
-            <div style="color: #A0A0A0; margin-top: 20px;"> - Pablo Casals</div>
+            <div style="color: #505050; margin-top: 20px;"> - Pablo Casals</div>
         </div>
 
 
@@ -247,24 +238,29 @@ function shuffleArray(array: number[]) {
     padding-bottom: 40px;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: .5;
-    color: #FFFFFFAA;
+    opacity: .75;
+    color: #FFFFFF !important;
     letter-spacing: .5px;
 }
 
 .fav-text {
 
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
 }
 
 .cover {
+    width: 100px !important;
+    height: 100px !important;
+
+    margin-top: 10px;
     transform: scale(.96);
 }
 
 .cover:hover {
     transform: scale(1);
+    box-shadow: 0 0 10px 0px #00000088;
 }
 
 .fav-song {
@@ -277,7 +273,7 @@ function shuffleArray(array: number[]) {
     height: 222px;
     overflow: hidden;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 10px;
 
     width: calc(100% - 20px);
     background-color: #282828;
@@ -289,24 +285,24 @@ function shuffleArray(array: number[]) {
     height: 422px
 }
 
-
-
-.fav-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.quote-area {
+    max-width: 750px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
 }
 
-@media (min-width: 600px) {
-    .fav-text {
-        flex-direction: row;
-    }
+
+.quote {
+    font-size: 38px;
+    font-family: 'biro_script_standardsloppy';
+    color: #000F55;
+    line-height: 45px
 }
 
 #cover-container {
     width: 100%;
-    height: 150px;
+    height: 120px;
     position: relative;
     overflow: hidden;
 }
@@ -315,8 +311,8 @@ function shuffleArray(array: number[]) {
 .cover-area {
     position: relative;
     width: 100%;
-    height: 150px;
-    margin-top: 20px;
+    height: 120px;
+    margin-top: 0px;
 
 }
 
@@ -331,13 +327,13 @@ function shuffleArray(array: number[]) {
 }
 
 .photobanner img {
-    height: 150px;
+    height: 100px;
     cursor: pointer;
-    width: 150px;
+    width: 100px;
 
     margin-left: 10px;
 
-    border-radius: 10px;
+    border-radius: 6px;
     transition: all 100ms ease-in;
     -webkit-user-drag: none !important;
     user-select: none !important;
@@ -401,5 +397,4 @@ function shuffleArray(array: number[]) {
 
 .song-placeholder {
     margin-top: 40px;
-}
-</style>
+}</style>

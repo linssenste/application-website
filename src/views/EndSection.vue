@@ -3,8 +3,8 @@
         <div class="text-content">
             <div class="title-text">
                 <span class="text-highlight-blue-bold" style="font-size: 40px;"> {{t('footer.thatsIt')}}!</span>
-                <img draggable="false" width="60" height="60" style="margin-top: 5px; margin-left: 10px"
-                    src="../assets/icons/heart.webp" />
+                <!-- <img draggable="false" width="60" height="60" style="margin-top: 5px; margin-left: 10px"
+                    src="../assets/icons/heart.webp" /> -->
             </div>
             <div class="text">
                 {{t('footer.intro')}}
@@ -15,14 +15,15 @@
 
                 <a :href="t('footer.cvLink')" target="_blank">
                     <button v-on:click="" class="action-button" style="margin-top: 30px;">
-                        <img style="margin-right: 12px" src="../assets/icons/arrow-right-solid.svg" width="16" />
+                        <img alt="arrow right button" style="margin-right: 12px" src="../assets/icons/arrow-right-solid.svg"
+                            width="16" />
                         {{t('footer.cvButton')}}
                     </button>
                 </a>
 
                 <a href="https://github.com/linssenste/application-website" target="_blank">
                     <button v-on:click="" class="action-button">
-                        <img style="margin-right: 12px" src="../assets/icons/github.svg" width="16" />
+                        <img alt="github logo" style="margin-right: 12px" src="../assets/icons/github.svg" width="16" />
                         {{t('footer.sourceCodeButton')}}
                     </button>
                 </a>

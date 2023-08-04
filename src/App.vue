@@ -2,37 +2,47 @@
     <div class="application-area">
 
         <div class="lang-selector">
-            <img v-on:click="switchLanguage('de')" class="lang-flag" :style="locale=='de'? 'opacity: 1':''"
-                src="@/assets/flags/de.webp" width="25" height="25" />
-            <img v-on:click="switchLanguage('en')" class="lang-flag" style="margin-right: 15px;"
-                :style="locale=='en'? 'opacity: 1':''" src="@/assets/flags/gb.webp" height="25" width="25" />
+            <img alt="german language selection" v-on:click="switchLanguage('de')" class="lang-flag"
+                :style="locale=='de'? 'opacity: 1':''" src="@/assets/flags/de.webp" width="25" height="25" />
+            <img alt="english language selection" v-on:click="switchLanguage('en')" class="lang-flag"
+                style="margin-right: 15px;" :style="locale=='en'? 'opacity: 1':''" src="@/assets/flags/gb.webp" height="25"
+                width="25" />
         </div>
 
 
 
         <WelcomeSection />
 
-        <!-- 
+
         <RisographArtSection />
 
 
-        <MusicLoveSection />
+        <MusicLoveSection style="margin-top: -200px;" />
+
         <FavoriteMusicSection />
-        <ProjectsSection style="margin-top: 100px" />
-        <GeoDalliDalliSection />
+        <InstagramMusicSection style="margin-top: 75px" />
+        <RisographArtSection :small="true" style="margin-top: -75px" />
+        <PolaroidCreativitySection style="margin-bottom: -180px; margin-top: -100px;" />
 
-        <PolaroidCreativitySection style="margin-bottom: -180px" />
-        <RisographArtSection :small="true" />
-
+        <ProjectsSection style="margin-top: 200px" />
 
         <InclusionSection />
+        <RisographArtSection :small="true" style="margin-top: -150px" />
+
+        <EndSection style="z-index: 10; margin-top: 50px; padding-bottom: 100px;" />
+
+        <!--     <GeoDalliDalliSection />
+
+       
+      
+
+
+        
 
         <RisographArtSection :rotate="true" :small="true" style="margin-top: -200px" />
 
 
-        <InstagramMusicSection style="margin-top: -10px" />
 
-        <EndSection style="z-index: 10; margin-top: 50px" />
 
         <div style="height: 130px; margin-top: 50px; padding-top: 80px; z-index: -1; overflow: hidden;">
             <RisographArtSection :rotate="false" />
@@ -108,7 +118,7 @@ html {
 }
 
 .lang-flag {
-    width: 28px;
+    width: 25px;
     transition: all 100ms ease-in-out;
     opacity: .3;
     padding: 8px;

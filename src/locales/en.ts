@@ -17,16 +17,14 @@ export default {
     },
     musicLove: {
         songId: "2oXchyEBxQBe8vH6iFgbv0",
-        musicForMe:
-            "For me, music is far more than mere entertainment. It is the mirror of my feelings and shapes the",
-        rhythm: "rhythm",
-        my: "of my",
-        life: "life",
+        musicForMe: "Music is more than just entertainment to me. It's like a ",
+        rhythm: "Sountrack",
         everySongReflects:
-            "Every song I listen to reflects my thoughts in some way. Every concert I attend creates a connection with people who share this passion.",
+            "k to my feelings and everyday experiences. Every song I listen to reflects my thoughts in some way. Every concert I attend connects me with people who share my passion. And I love to sing, although I admit I'm not very good at it.",
         musicInMyLife:
-            "So, in my life, music is not just a hobby, but a constant, irreplaceable companion and a source of continuous",
-        inspiration: "inspiration",
+            "So music in my life is not just a hobby, but a constant, irreplaceable companion and a source of constant ",
+        inspiration: "inspiration.",
+        myFavorites: "Listen to one of my favorite songs:",
     },
 
     favoriteSongs: {
@@ -47,17 +45,58 @@ export default {
     },
 
     creativity: {
-        polaroidProject: "Polaroid Project",
-        openSource: "Open-Source",
-        openSourceWebappDesc:
-            "I really enjoy to unfold my creativity as a developer. One example is an",
-        printerProtocol:
-            "web application that allows direct printing of photos from Google Chrome on Instax Polaroid printers - all without an additional app.",
-        reverseEngineered:
-            "For this project, I reverse-engineered the printer's Bluetooth protocol and based on it, I developed an simple and intuitive application. Some prints from the development phase can be seen in the picture series shown above.",
-        openApp: "Go to Application",
+        disclaimer:
+            "These photos are actual polaroid prints from the development phase of my Instax reverse engineering project.",
+    },
 
-        imageAlt: "Web app editor & the resulting polaroid",
+    portfolio: {
+        title: "Scroll through my portfolio",
+        instax: {
+            description:
+                "Instax-Web is a user-friendly web application designed to print photos directly from Google Chrome to Instax Polaroid printers without the need for additional applications. Through reverse engineering, the Bluetooth protocol of the printers was understood and documented. This information formed the basis for developing an intuitive and user-friendly application. As the web Bluetooth API is only supported by Chrome, the application can only be used with Chromium browsers.",
+            image1: "App interface with an Instax Link Square printer connected via Bluetooth",
+            image2: "Connecting to a printer via Web Bluetooth API",
+            video1: "Video in which a printer is connected via Bluetooth and an image is prepared for printing.",
+            video2: "Complete printing with the application and a Square Link printer",
+            image3: "Resulting polaroid compared to web application",
+            video3: "Playing with colors in the user interface",
+            image4: "Advantages of testing with hardware - some of my test prints from the development phase",
+        },
+        dalli: {
+            description:
+                "GeoDalli Dalli is a web-based geography game using Google Maps API's. Inspired by GeoGuessr and Dalli-Klick from the German TV show Dalli-Dalli, it features a hidden image that gradually reveals itself, challenging players to identify the location. The game offers four difficulty levels, each featuring different types of locations ranging from popular landmarks to random Google Street View images, and players can adjust the complexity of the game by manipulating the number of triangles covering the image and setting their reveal rate, providing a customizable and engaging geography experience.",
+            image1: "Start screen of the game with all settings options",
+            image2: "In the game, the picture is gradually revealed and players:inside can click their guess on the card",
+            image3: "Review of a game round with points awarded according to distance and visibility",
+            image4: "Total overview of all five game rounds",
+            video1: "Speedrun of the game in level 1",
+        },
+
+        plan: {
+            type: "internal Tool",
+            description:
+                "AlinoPlan is a web-based application for visual planning of camera-based safeguards (e.g. of construction sites). For detailed planning, the construction plan or satellite images can be used and project boundaries can be defined. The application serves on the one hand to improve internal collaboration and on the other hand to provide the client with a clear, logical and above all transparent project planning. The project plans can be exported as formatted PDF (DIN-A3).",
+            image1: "Example shading (visibility restrictions) by trees and construction areas for the cameras of a video tower.",
+            image2: "The best way to create a project is to use a development plan. Alternatively, satellite imagery from Google Maps can be used.",
+            video1: "Placement of trees on the project site, as they may obstruct the view of the cameras.",
+            video2: "Construction areas, trees, containers, and project boundaries must be manually drawn into the project to calculate shading.",
+            image3: "Each change (export, review, draft, etc.) is recorded in a history with a comment. This way, all changes and the editor are documented.",
+            video3: "Automatic calculation of shading (camera view restrictions) due to trees, buildings and project boundaries.",
+            pdf: "Project plans can be exported as a high-resolution PDF file in A3 format with legend and scale.",
+        },
+
+        cam: {
+            description:
+                "AlinoCam is a web application for visual documentation of construction site processes. The end users are mainly construction managers, architects and project owners. AlinoCam uses moving PTZ cameras to continuously document the progress on the construction site from different perspectives. This is done at regular intervals, allowing the creation of time-lapse and continuous visual documentation. A customizable schedule allows for precise planning of coverage and documentation blocks. In addition, AlinoCam has a vehicle entry logging function that captures important information such as vehicle license plate number, type of entry (entry or exit) and an evidence photo.",
+            image1: "The current images of all alignments are displayed on the home page. Hovering the mouse over an image will display a time lapse to the current time.",
+            image2: "Images can be easily shared via a link or specific alignments can be made public for outreach. ",
+            video1: "Picture-in-picture mode allows to examine punctual changes in one direction between two points in time.",
+            video2: "It is possible to select images at different points in time and follow the progress step by step.",
+            video3: "With the help of the many images, time lapse can be created with different settings.",
+            video4: "Users can modify the schedule as needed and freely define safeguarding and documentation blocks.",
+            video5: "With the image slider comparison, images taken at different times with the same orientation can be compared with each other. ",
+            image3: "The Vehicle Access Logging feature allows to record important information such as vehicle license plate number, type of access (entry or exit), and an evidence photo.",
+        },
     },
 
     dalli: {
@@ -72,6 +111,7 @@ export default {
         type: "Project type",
         company: "Company",
         description: "Description",
+        website: "Website",
         stack: "Tech Stack",
         screenshots: "Screenshots",
     },

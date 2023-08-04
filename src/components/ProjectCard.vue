@@ -1,12 +1,16 @@
 <template>
     <div class="card-area">
+
+
         <div v-on:click="cardClickedEvent" class="project-card" :style="focused? '':'cursor: pointer'">
 
             <div
                 style="display: flex; padding-bottom: 20px; padding-top: 0px; position: relative; flex-direction: row; align-items: start; justify-content: space-between;">
-                <img style="border: none; max-width: 260px; " :src="data.logo" />
+                <img v-if="data.logo!=null" :alt="`Project logo of ${data.name}`" draggable="false"
+                    style="border: none; max-width: 260px; " :src="data.logo" />
                 <div class="text-highlight-blue" style="font-size: 32px;  text-align: end; width: 100%;">
-                    Portfolio #{{index}}</div>
+                    <span v-if="!isMobile">Portfolio</span> #{{index}}
+                </div>
             </div>
             <div class="card-oneliner">
                 <span class="key-name">{{t('projects.name')}}:</span>
@@ -40,6 +44,21 @@
             </div>
 
 
+            <div v-if="data.github!=null" style="padding-top: 20px;">
+                <github-button data-testid="github-link" v-if="data.github!=null" :href="`https://github.com${data.github}`"
+                    data-size="large" data-show-count="true" aria-label="View on GitHub">View on Github</github-button>
+            </div>
+
+
+            <div v-if="data.website!=null" class="card-multiline" style="padding-bottom: 5px; ">
+                <span class="key-name ">{{t('projects.website')}}:</span>
+            </div>
+            <div v-if="data.website!=null" class="multiline-text">
+
+
+                <a data-testid="website-link" :href="data.website" target="_blank"> {{data.website}}</a>
+            </div>
+
 
             <div class="card-multiline" style="padding-bottom: 5px;">
                 <span class="key-name ">{{t('projects.stack')}}:</span>
@@ -52,37 +71,50 @@
 
             </div>
 
-            <div class="card-multiline" style="padding-bottom: 15px; padding-top: 0px;">
+            <div class="card-multiline"
+                style="padding-bottom: 10px; padding-top: 0px; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
                 <span class="key-name ">{{t('projects.screenshots')}}:</span>
+
+                <div v-if="!isMobile" v-on:click="fullscreenToggle=!fullscreenToggle" class="fullscreen-button">
+                    <img alt="fullscreen button" src="../assets/icons/expand-solid.svg" />
+                </div>
             </div>
 
-            <carousel v-on:slide-end="refIndex=$event.currentSlideIndex" :wrapAround="true" :items-to-show="1">
-                <slide v-for="(el, index) in data.images" :key="index">
-                    <!-- {{slide}} -->
-                    <div class="carousel-item">
-                        <img v-if="el.type===0" preload :src="el.src" />
+            <fullscreen v-model="fullscreenToggle">
 
-                        <video v-else-if="el.type===1" loop muted width="100%" controls>
-                            <source :src="el.src" preload type="video/webm">
-                        </video>
-                        <embed v-else-if="el.type===2" width="100%" :src="`${el.src}#view=FitH`">
+                <div v-if="fullscreenToggle&&!isMobile" v-on:click="fullscreenToggle=!fullscreenToggle"
+                    class="close-fullscreen-button fullscreen-button">
+                    <img alt="close fullscreen button" src="../assets/icons/compress-solid.svg" />
+                </div>
+                <carousel v-on:slide-end="refIndex=$event.currentSlideIndex" :wrapAround="true" :items-to-show="1">
+                    <slide v-for="(el, index) in data.images" :key="index">
+                        <!-- {{slide}} -->
+                        <div class="carousel-item"
+                            :style="fullscreenToggle? 'margin: 1 auto; background-color: black; height: 100vh!important':''">
+                            <img v-if="el.type===0" :alt="el.descr" :src="el.src" />
 
-                    </div>
+                            <video v-else-if="el.type===1" :alt="el.descr" loop muted width="100%" controls>
+                                <source :src="el.src" type="video/webm">
+                            </video>
+                            <embed v-else-if="el.type===2" :alt="el.descr" width="100%" :src="`${el.src}#view=FitH`">
+
+                        </div>
 
 
-                </slide>
+                    </slide>
 
-                <template #addons>
-                    <navigation />
+                    <template #addons>
+                        <navigation />
 
-                    <pagination />
+                        <pagination />
 
-                </template>
-            </carousel>
-
+                    </template>
+                </carousel>
+            </fullscreen>
 
             <div class="carousel-description">{{
                 data.images[refIndex].descr}} </div>
+
 
 
         </div>
@@ -92,11 +124,14 @@
 
 <script lang="ts" setup>
 import 'vue3-carousel/dist/carousel.css'
+import GithubButton from 'vue-github-button';
+
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t }=useI18n()
 
+let fullscreenToggle=ref(false);
 const refIndex=ref(0);
 const emit=defineEmits(['selected']);
 
@@ -110,6 +145,8 @@ const props=defineProps<{
     total: number,
     focused: boolean,
     data: {
+        website?: string,
+        github?: string,
         logo: string,
         name: string,
         projectType: string,
@@ -120,7 +157,12 @@ const props=defineProps<{
     }
 }>()
 
+const isMobile=computed(() => {
+    return window.innerWidth<400
+})
+
 function cardClickedEvent() {
+    console.log("CLICK FUNCTION")
     if (!props.focused) emit('selected')
 }
 props.data;
@@ -155,7 +197,7 @@ props.focused;
     align-items: center;
     justify-content: center;
     width: 100%;
-    aspect-ratio: 16/8.85;
+    /* aspect-ratio: 16/8.85; */
     position: relative;
 }
 
@@ -184,7 +226,7 @@ props.focused;
 .card-multiline {
     /* padding: 15px; */
     padding-bottom: 10px;
-    padding-top: 35px !important;
+    padding-top: 30px !important;
 }
 
 
@@ -284,5 +326,43 @@ props.focused;
     padding-right: 15px;
     border-radius: 6px;
     color: #505050;
+}
+
+.close-fullscreen-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.fullscreen-button {
+    width: 40px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 30px !important;
+    height: 40px;
+    border: 1px solid #C0C0C0AA;
+    background-color: #f0f0f0aa;
+    transition: all 150ms ease-in-out;
+}
+
+.fullscreen-button:hover {
+    background-color: #FFFFFF;
+    transition: all 150ms ease-in-out;
+}
+
+.fullscreen-button img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    opacity: .75;
+    transform: translate(-50%, -50%);
+}
+
+.fullscreen-button:hover img {
+    opacity: 1;
 }
 </style>

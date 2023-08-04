@@ -1,13 +1,15 @@
 <template>
     <div ref="tiltImage" class="polaroid" v-on:dblclick="developPolaroidEvent">
 
-        <img v-on:load="loadedFrame=true" src="@/assets/polaroid_frame.webp" class="polaroid-frame" alt="Tilted Image">
+        <img :alt="`Polaroid style sqaure picture described handwritten as ${text}`" v-on:load="loadedFrame=true"
+            src="@/assets/polaroid_frame.webp" class="polaroid-frame">
 
 
 
         <div :key="`polaroid-${developPolaroid}`" class="polaroid-image" v-if="loadedFrame">
 
-            <img class="content-image" :src="`${name}`" />
+            <img :alt="`Polaroid style sqaure picture described handwritten as ${text}`" class="content-image"
+                :src="`${name}`" />
 
         </div>
 

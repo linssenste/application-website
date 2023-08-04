@@ -1,10 +1,10 @@
 <template>
     <div class="hello-content">
 
-        <div style="transform: scale(1.1); transform-origin: 50% 50%;; position: relative;">
-            <img draggable="false" style="position: absolute; top: -50px; left: -70px; z-index: -1;" width="200"
-                src="@/assets/risographics/riso_form_6.webp" alt="" />
-            <PolaroidImage name="./steffen_konstanz.webp" :text="t('welcome.thatsMe')" />
+        <div class="personal-image" data-testid="personal-image">
+            <img alt="" draggable="false" class="riso-decorative" width="200" src="/risographics/riso_form_6.webp" />
+            <PolaroidImage data-testid="personal-image-polaroid" name="./steffen_konstanz.webp"
+                :text="t('welcome.thatsMe')" />
         </div>
 
 
@@ -13,19 +13,18 @@
             <!-- welcome header with handwritten font -->
             <div class="title-text">
 
-                <span class="text-highlight-name-blue" style="font-size: 40px">{{t('welcome.hello')}}<span
-                        style="margin-left: 12px;" v-if="name!=null&&name.length>0"
-                        class="text-highlight-blue-bold">{{name}} </span>,
+                <span data-testid="welcoming-phrase" class="text-highlight-name-blue"
+                    style="font-size: 40px">{{t('welcome.hello')}}<span style="margin-left: 12px;"
+                        v-if="name!=null&&name.length>0" class="text-highlight-blue-bold">{{name}} </span>,
                     {{t('welcome.iam')}}
                     Steffen!</span>
             </div>
 
             <!-- about me description -->
-            <div class="text">
+            <div class="text" data-testid="description-text">
 
                 <p>
                     {{t('welcome.introduction')}}
-
                 </p>
 
                 <div>{{t('welcome.websitePurpose1')}}<br />{{t('welcome.websitePurpose2')}} <div class="inline-handwriting">
@@ -34,10 +33,9 @@
                 </div>
 
             </div>
-            <div class="welcome-music-container">
-                <iframe style="height: 80px;"
-                    :src="`https://open.spotify.com/embed/track/${t('welcome.welcomeMusicId')}?utm_source=generator&theme=1`"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            <div class="welcome-music-container" data-testid="welcome-music-container">
+                <iframe title="portfolio theme music" style="height: 80px;"
+                    :src="`https://open.spotify.com/embed/track/${t('welcome.welcomeMusicId')}?utm_source=generator&theme=1`">
                 </iframe>
             </div>
         </div>
@@ -54,6 +52,7 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n'
 const { t }=useI18n()
 const name=ref<string|null>(null)
+
 onMounted(() => {
     const urlParams=new URLSearchParams(window.location.search);
     name.value=urlParams.get('name');
@@ -71,7 +70,7 @@ onMounted(() => {
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .hello-content {
         flex-direction: row;
         min-height: calc(100vh - 150px);
@@ -95,7 +94,7 @@ onMounted(() => {
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .text-content {
         margin-left: 60px;
     }
@@ -124,7 +123,7 @@ onMounted(() => {
 }
 
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .welcome-music-container {
 
         padding-bottom: 0px;
@@ -136,5 +135,19 @@ onMounted(() => {
     width: 100%;
     height: 102px;
     border: none;
+}
+
+.riso-decorative {
+    position: absolute;
+    top: -50px;
+    left: -70px;
+    z-index: -1;
+}
+
+.personal-image {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+
+    position: relative;
 }
 </style>

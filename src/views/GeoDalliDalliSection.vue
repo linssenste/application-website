@@ -9,13 +9,12 @@
         <!-- <div class="text-element text description">{{t('dalli.description')}}</div> -->
         <div
             style="position: relative;  height: 90%; width: 100%; align-items: center; justify-content: center; display: flex;">
-            <iframe src="https://dalli-dalli.com?interval=0" class="game-iframe" />
+            <iframe title="dalli dalli game" src="https://dalli-dalli.com?interval=0" class="game-iframe" />
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import GithubButton from 'vue-github-button';
 import { useI18n } from 'vue-i18n'
 const { t }=useI18n()
 </script>

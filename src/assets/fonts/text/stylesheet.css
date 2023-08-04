@@ -1,12 +1,8 @@
 
 @font-face {
     font-family: 'Hanken Grotesk';
-    src: url('HankenGrotesk-SemiBold.eot');
-    src: url('HankenGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('HankenGrotesk-SemiBold.woff2') format('woff2'),
-        url('HankenGrotesk-SemiBold.woff') format('woff'),
-        url('HankenGrotesk-SemiBold.ttf') format('truetype'),
-        url('HankenGrotesk-SemiBold.svg#HankenGrotesk-SemiBold') format('svg');
+    src: url('HankenGrotesk-SemiBold.woff2') format('woff2'),
+        url('HankenGrotesk-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -14,12 +10,8 @@
 
 @font-face {
     font-family: 'Hanken Grotesk';
-    src: url('HankenGrotesk-Regular.eot');
-    src: url('HankenGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
-        url('HankenGrotesk-Regular.woff2') format('woff2'),
-        url('HankenGrotesk-Regular.woff') format('woff'),
-        url('HankenGrotesk-Regular.ttf') format('truetype'),
-        url('HankenGrotesk-Regular.svg#HankenGrotesk-Regular') format('svg');
+    src: url('HankenGrotesk-Regular.woff2') format('woff2'),
+        url('HankenGrotesk-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -30,12 +22,8 @@
 
 @font-face {
     font-family: 'Hanken Grotesk';
-    src: url('HankenGrotesk-Bold.eot');
-    src: url('HankenGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
-        url('HankenGrotesk-Bold.woff2') format('woff2'),
-        url('HankenGrotesk-Bold.woff') format('woff'),
-        url('HankenGrotesk-Bold.ttf') format('truetype'),
-        url('HankenGrotesk-Bold.svg#HankenGrotesk-Bold') format('svg');
+    src: url('HankenGrotesk-Bold.woff2') format('woff2'),
+        url('HankenGrotesk-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -44,12 +32,8 @@
 
 @font-face {
     font-family: 'Hanken Grotesk';
-    src: url('HankenGrotesk-Medium.eot');
-    src: url('HankenGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
-        url('HankenGrotesk-Medium.woff2') format('woff2'),
-        url('HankenGrotesk-Medium.woff') format('woff'),
-        url('HankenGrotesk-Medium.ttf') format('truetype'),
-        url('HankenGrotesk-Medium.svg#HankenGrotesk-Medium') format('svg');
+    src: url('HankenGrotesk-Medium.woff2') format('woff2'),
+        url('HankenGrotesk-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;

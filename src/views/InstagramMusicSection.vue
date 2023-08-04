@@ -7,9 +7,9 @@
                     src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/slovenia_aftermovie.mp4?alt=media&token=7ab60e9b-2a72-437f-90e1-22c491a053fb"
                     type="video/mp4" />
             </video>
-            <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_1.webp" alt="" />
-            <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_2.webp" alt="" />
-            <img draggable="false" class="video-decorative" src="@/assets/risographics/riso_form_3.webp" alt="" />
+            <img draggable="false" class="video-decorative" src="/risographics/riso_form_1.webp" alt="" />
+            <!-- <img draggable="false" class="video-decorative" src="/risographics/riso_form_2.webp" alt="" />
+            <img draggable="false" class="video-decorative" src="/risographics/riso_form_3.webp" alt="" /> -->
         </div>
         <div class="instagram-feed">
 
@@ -88,11 +88,10 @@
                 </a>
             </div>
             <div class="music-instagram">
-                <iframe style="border-radius: 0px!important; border-bottom-right-radius:12px!important"
+                <iframe title="'Jenny from the block' song on spotify"
+                    style="border-radius: 0px!important; border-bottom-right-radius:12px!important"
                     src="https://open.spotify.com/embed/track/7LqjznQwfrax7MjQXmxqdQ?utm_source=generator&theme=0"
-                    width="100%" height="102" frameborder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                    width="100%" height="102" frameborder="0" loading="lazy"></iframe>
             </div>
 
 

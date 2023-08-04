@@ -2,31 +2,28 @@
     <div class="image-row" :id="`image-row-${rowId}`">
 
         <!-- scroll left button -->
-        <img v-bind:style="{ opacity: canScrollLeft? '1':'0' }" width="20" class="scroll-arrow scroll-arrow-left"
-            @click="scroll('left')" src="../assets/icons/chevron-left-solid.svg" />
+        <img alt="button to go left" v-bind:style="{ opacity: canScrollLeft? '1':'0' }" width="20"
+            class="scroll-arrow scroll-arrow-left" @click="scroll('left')" src="../assets/icons/chevron-left-solid.svg" />
 
         <!-- scroll right button -->
-        <img v-bind:style="{ opacity: canScrollRight? '1':'0' }" width="20" class="scroll-arrow scroll-arrow-right"
-            @click="scroll('right')" src="../assets/icons/chevron-right-solid.svg" />
+        <img alt="button to go right" v-bind:style="{ opacity: canScrollRight? '1':'0' }" width="20"
+            class="scroll-arrow scroll-arrow-right" @click="scroll('right')"
+            src="../assets/icons/chevron-right-solid.svg" />
 
 
         <div class="row-scroll-container" data-testid="scroll-container">
 
             <div class="row-scroll-content" id="horizontal-scroll" ref="scrollContainer" data-testid="scroll-content">
                 <PolaroidImage v-for="(image, index) in images" :key="index" :id="`polaroid-row-image-${rowId}-${index}`"
-                    @click.prevent.stop="scrollToImage(index)" :name="image.name" :text="image.text"
-                    :data-testid="`polaroid-row-image-${rowId}-${index}`" />
+                    :name="image.name" :text="image.text" :data-testid="`polaroid-row-image-${rowId}-${index}`" />
 
 
 
-                <div v-if="songId" :id="`polaroid-row-image-${rowId}-${images.length}`"
-                    @click="scrollToImage(images.length)" class="song-container"
+                <div v-if="songId" :id="`polaroid-row-image-${rowId}-${images.length}`" class="song-container"
                     :data-testid="`spotify-music-iframe-container-${rowId}`">
-                    <iframe style="border-radius:12px"
+                    <iframe title="Spotify music preview" style="border-radius:12px"
                         :src="`https://open.spotify.com/embed/track/${songId}?utm_source=generator&theme=0`" width="300"
-                        height="352" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
+                        height="352" frameBorder="0" loading="lazy"></iframe>
 
                 </div>
             </div>
@@ -63,17 +60,23 @@ const canScrollLeft=ref(false);
 const canScrollRight=ref(false);
 
 onMounted(() => {
-
     if (!scrollContainer.value) return;
-    // Register a scroll event listener on the scrollContainer
-    scrollContainer.value.addEventListener('scroll', () => {
+
+    const handleScroll=() => {
         canScrollLeft.value=(scrollContainer.value as HTMLElement).scrollLeft>0;
+
         canScrollRight.value=(scrollContainer.value as HTMLElement).scrollWidth-(scrollContainer.value as HTMLElement).scrollLeft>(scrollContainer.value as HTMLElement).clientWidth;
-    });
+    };
+
+    // Register a scroll event listener on the scrollContainer
+    scrollContainer.value.addEventListener('scroll', handleScroll);
 
     scrollContainer.value.scrollLeft=0;
     canScrollLeft.value=false;
     canScrollRight.value=true;
+
+    // Call the handler right away to initialize canScrollRight
+    handleScroll();
 });
 
 
@@ -90,21 +93,7 @@ function scroll(direction: 'left'|'right'): void {
     (scrollContainer.value as HTMLElement).scrollBy({ left: scrollValue, behavior: 'smooth' });
 }
 
-function scrollToImage(id: number): void {
-    const imageElement=document.getElementById(`polaroid-row-image-${props.rowId}-${id}`);
-    if (!imageElement||!scrollContainer.value) return;
 
-    const containerStart=scrollContainer.value.getBoundingClientRect().left;
-    const imageStart=imageElement.getBoundingClientRect().left;
-
-    // calculate the difference between the container start and the image start
-    const scrollPosition=imageStart-containerStart;
-
-    // scroll smoothly to the calculated position
-    scrollContainer.value.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-
-    currentImageIndex.value=id;
-}
 
 
 </script>
@@ -150,11 +139,11 @@ function scrollToImage(id: number): void {
 
 .row-scroll-content>div {
     /* replace "div" with whatever selector matches your images */
-    /* scroll-snap-align: center; */
+    scroll-snap-align: center;
 }
 
 .row-scroll-content {
-    /* scroll-snap-type: x mandatory; */
+    scroll-snap-type: x mandatory;
     display: flex;
     flex-direction: row;
     width: 100%;
