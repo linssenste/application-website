@@ -9,6 +9,11 @@ import "./assets/fonts/text/stylesheet.css";
 import VueFullscreen from "vue-fullscreen";
 import App from "./App.vue";
 
-import { i18n } from "./i18n";
+import { createLangI18n } from "./i18n";
+
+const urlParams = new URLSearchParams(window.location.search);
+const lang = urlParams.get("lang");
+
+const i18n = createLangI18n((lang as string) || "de");
 
 createApp(App).use(i18n).use(VueFullscreen).mount("#app");

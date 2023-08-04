@@ -7,17 +7,10 @@ const messages = {
     en: en,
 };
 
-let locale = "de"; // Default language
-const urlParams = new URLSearchParams(window.location.search);
-const lang = urlParams.get("lang");
-
-if (lang === "en") {
-    locale = "en";
+export function createLangI18n(locale = "de") {
+    return createI18n({
+        legacy: false,
+        locale: locale,
+        messages,
+    });
 }
-
-export const i18n = createI18n({
-    legacy: false,
-
-    locale: locale,
-    messages,
-});

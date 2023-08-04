@@ -2,10 +2,9 @@ import { mergeConfig } from "vite";
 import { configDefaults, defineConfig } from "vitest/config";
 import viteConfig from "./vite.config";
 import { config } from "@vue/test-utils";
-import { createI18n } from "vue-i18n";
-import { i18n } from "./src/i18n";
+import { createLangI18n } from "./src/i18n";
 
-config.global.plugins = [i18n];
+config.global.plugins = [createLangI18n("en")];
 
 export default mergeConfig(
     viteConfig,

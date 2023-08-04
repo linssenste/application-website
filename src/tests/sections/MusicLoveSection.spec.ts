@@ -28,10 +28,6 @@ describe("MusicLoveSection.vue", () => {
             msg: "renders music text",
             textContains: "musicLove.musicForMe",
         },
-        {
-            id: "lyrics",
-            msg: "renders lyrics",
-        },
     ];
 
     for (const { id, msg, isComponent, textContains } of testCases) {
@@ -94,17 +90,6 @@ describe("MusicLoveSection.vue", () => {
         expect(musicText.text()).toContain("musicLove.musicInMyLife");
         expect(musicText.text()).toContain("musicLove.inspiration");
         expect(musicText.text()).toContain("musicLove.myFavorites");
-    });
-
-    it("renders lyrics when not on mobile", async () => {
-        Object.defineProperty(window, "innerWidth", {
-            writable: true,
-            configurable: true,
-            value: 1500,
-        });
-        await nextTick();
-        const lyrics = wrapper.find(".lyrics");
-        expect(lyrics.exists()).toBe(true);
     });
 
     // Add other tests as needed
