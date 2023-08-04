@@ -95,6 +95,7 @@
 
                             <video v-else-if="el.type===1" :alt="el.descr" loop muted width="100%" controls>
                                 <source :src="el.src" type="video/webm">
+                                <source :src="el.fallback" type="video/mp4">
                             </video>
                             <embed v-else-if="el.type===2" :alt="el.descr" width="100%" :src="`${el.src}#view=FitH`">
 
@@ -138,6 +139,7 @@ const emit=defineEmits(['selected']);
 interface PortfolioItem {
     type: number,
     src: string,
+    fallback?: string
     descr: string
 }
 const props=defineProps<{

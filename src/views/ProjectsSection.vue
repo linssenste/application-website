@@ -92,11 +92,13 @@ const projectReferences=[
 
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_2.mp4?alt=media&token=caaa0503-7c0c-423a-9a0a-d292fce6a8a3",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_2.webm?alt=media&token=55870d00-d7c6-4532-9de5-abc62ca1e6e0",
                 descr: t('portfolio.instax.video1')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_3.mp4?alt=media&token=1f86526c-7055-43d7-a94a-15c6df6f6218",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_3.webm?alt=media&token=8c389ef0-2004-434b-a584-550c96744157",
                 descr: t('portfolio.instax.video2')
             },
@@ -108,6 +110,7 @@ const projectReferences=[
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_1.mp4?alt=media&token=ab5b0f42-24d3-4ae0-9e26-b06a0bfab651",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Finstax-web%2Finstax_video_1.webm?alt=media&token=9685b261-7a9e-49bb-8494-4454f539c4a4",
                 descr: t('portfolio.instax.video3')
             },
@@ -151,6 +154,7 @@ const projectReferences=[
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Fgeo-dalli%2Fdalli_speedrun.mp4?alt=media&token=7053a037-5932-466f-af47-4f4981412d66",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Fgeo-dalli%2Fdalli_speedrun.mp4?alt=media&token=7053a037-5932-466f-af47-4f4981412d66",
                 descr: t('portfolio.dalli.video1')
             }
@@ -180,17 +184,20 @@ const projectReferences=[
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_1.mp4?alt=media&token=e12f64d3-c8d3-43b0-9988-0dbb3824824f",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_1.webm?alt=media&token=fabb5128-4b42-440f-86c7-1060af9a7e73",
                 descr: t('portfolio.plan.video1')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_2.mp4?alt=media&token=798413cf-759c-4144-98d1-f86c7fc7ec19",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_2.webm?alt=media&token=a91daae3-27b4-4b6a-b760-88ac8fa92cf3",
                 descr: t('portfolio.plan.video2')
             },
 
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_3.mp4?alt=media&token=1e56b354-938c-49d0-922f-b4b19a5057a1",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinoplan%2Fplan_video_3.webm?alt=media&token=6ffb72e0-7396-4970-a1fc-f811fd71d4c6",
                 descr: t('portfolio.plan.video3')
             },
@@ -227,26 +234,31 @@ const projectReferences=[
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_1.mp4?alt=media&token=87f75ddc-b634-441a-a433-cf5aeb146753",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_1.webm?alt=media&token=6938965e-41ca-41f6-990c-8801581da317",
                 descr: t('portfolio.cam.video1')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_2.mp4?alt=media&token=6832c27b-c2d4-4961-a537-d7d992e36878",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_2.webm?alt=media&token=86eef972-e237-4a72-b262-1fdbb9f0f6a0",
                 descr: t('portfolio.cam.video2')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_3.mp4?alt=media&token=8e2c741b-8038-4b18-8be4-a2aeeebcb790",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_3.webm?alt=media&token=825f24a0-182c-4f0e-b646-499f050829ac",
                 descr: t('portfolio.cam.video3')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_4.mp4?alt=media&token=3eaf0ee8-009d-4664-9f0a-37c6f98c4513",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_4.webm?alt=media&token=decc3e48-e45a-42d7-a505-8cc8362ade25",
                 descr: t('portfolio.cam.video4')
             },
             {
                 type: 1,
+                fallback: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_5.mp4?alt=media&token=bb458542-a823-46cb-a121-a863bd7109bf",
                 src: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/application%2Falinocam%2Fcam_video_5.webm?alt=media&token=66df92ed-c555-42cd-9623-04e7fbc8865e",
                 descr: t('portfolio.cam.video5')
             },
