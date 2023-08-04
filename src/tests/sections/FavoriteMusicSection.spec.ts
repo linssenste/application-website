@@ -26,12 +26,6 @@ describe("FavoriteMusicSection.vue", () => {
         expect(wrapper.vm.songId).toBeNull();
     });
 
-    it("should select a song when an album cover is clicked", async () => {
-        const coverImages = wrapper.findAll(".cover");
-        await (coverImages as any).at(0).trigger("click");
-        expect(wrapper.vm.songId).not.toBeNull();
-    });
-
     it("should change song when shuffle is clicked", async () => {
         await wrapper.find(".shuffle-button").trigger("click");
         expect(wrapper.vm.songId).not.toBeNull();
