@@ -20,11 +20,11 @@ export default {
         musicForMe: "Music is more than just entertainment to me. It's like a ",
         rhythm: "Sountrack",
         everySongReflects:
-            "k to my feelings and everyday experiences. Every song I listen to reflects my thoughts in some way. Every concert I attend connects me with people who share my passion. And I love to sing, although I admit I'm not very good at it.",
+            " to my feelings and everyday experiences. Every song I listen to reflects my thoughts in some way. Every concert I attend connects me with people who share my passion. And I love to sing, although I admit I'm not very good at it.",
         musicInMyLife:
             "So music in my life is not just a hobby, but a constant, irreplaceable companion and a source of constant ",
         inspiration: "inspiration.",
-        myFavorites: "Listen to one of my favorite songs:",
+        myFavorites: "Feel free to listen to one of my favorite songs:",
     },
 
     favoriteSongs: {
@@ -46,7 +46,7 @@ export default {
 
     creativity: {
         disclaimer:
-            "These photos are actual polaroid prints from the development phase of my Instax reverse engineering project.",
+            "These photos are actual polaroid prints from the development  of my Instax reverse-engineering project.",
     },
 
     portfolio: {

@@ -48,7 +48,7 @@ export default {
 
     creativity: {
         disclaimer:
-            "Diese Fotos sind echte Polaroid-Abzüge aus der Entwicklungsphase meines Instax-Reverse-Engineering-Projekts.",
+            "Diese Fotos sind echte Polaroid-Abzüge aus der Entwicklung meines Instax Reverse-Engineering Projekts.",
     },
 
     dalli: {

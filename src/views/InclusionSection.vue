@@ -53,7 +53,7 @@
 
         <ImagesRow style="margin-top: 50px;" :images="[
             { name: './mountains/steffen_mountain_4.webp', type: 0, text: t('disability.imageText.0') },
-            // { name: './mountains/steffen_mountain_5.gif', type: 0, text: t('disability.imageText.1') },
+            { name: './mountains/steffen_mountain_5.gif', type: 0, text: t('disability.imageText.1') },
             { name: './mountains/steffen_mountain_3.webp', type: 0, text: t('disability.imageText.2') },
             { name: './mountains/steffen_mountain_2.webp', type: 0, text: t('disability.imageText.3') },
             { name: './mountains/steffen_mountain_1.webp', type: 0, text: t('disability.imageText.4') }
