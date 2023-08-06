@@ -56,6 +56,10 @@ const name=ref<string|null>(null)
 onMounted(() => {
     const urlParams=new URLSearchParams(window.location.search);
     name.value=urlParams.get('name');
+
+    if (import.meta.env.VITE_TARGET_NAME!=null) {
+        name.value=import.meta.env.VITE_TARGET_NAME
+    }
 })
 </script>
 
