@@ -55,7 +55,7 @@ describe("InclusionSection.vue", () => {
 
     it("renders correct number of images", () => {
         const imagesRow = wrapper.findComponent(ImagesRow);
-        expect(imagesRow.props("images")).toHaveLength(4);
+        expect(imagesRow.props("images")).toHaveLength(5);
     });
 
     it("renders the first image with correct properties", () => {
