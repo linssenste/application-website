@@ -14,7 +14,7 @@
             <div class="row-scroll-content" ref="scrollContainer">
 
                 <div v-for="(project, index) in projectReferences" :id="`card-${index}`" class="carousel-item">
-                    <ProjectCard :index="index+1" :total="projectReferences.length" v-on:selected="selectCard(index)"
+                    <ProjectCard :index="index+1" :total="projectReferences.length" v-on:selected="selectCard"
                         :focused="focusedIndex==index" :data="project" />
 
                 </div>
@@ -38,7 +38,9 @@ const scrollContainer=ref(null); // Reference to the scroll container
 const focusedIndex=ref(0); // Track the currently focused project
 
 function selectCard(index: number): void {
+    console.log("H", index)
     const doc=document.getElementById(`card-${index}`);
+    console.log(doc)
     if (doc!=null) doc.scrollIntoView({ behavior: 'smooth' });
 }
 onMounted(() => {
@@ -338,5 +340,19 @@ const projectReferences=[
         padding-right: calc(50% - 375px);
 
     }
+}
+
+
+.row-scroll-content::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+
+.row-scroll-content {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 </style>

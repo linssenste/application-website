@@ -94,9 +94,8 @@ export default {
         techDetail: `Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
                     Typescript realisiert, sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
                     auf Github eingesehen werden.`,
-        invitation: `Falls Ihr mehr über mich und meine Fähigkeiten, auch im beruflichen Kontext, erfahren möchtest, lade ich
-                    Euch ein, einen Blick auf meinen Lebenslauf zu werfen.`,
-        cvButton: "Lebenslauf öffnen",
+
+        cvButton: "Professonelle Kurzform",
         sourceCodeButton: "Source Code",
         cvLink: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/resume_de.pdf?alt=media&token=e061444d-65c7-4c40-ae31-24e9f1dcad3b",
     },

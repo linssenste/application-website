@@ -2,11 +2,11 @@
     <div class="image-row" :id="`image-row-${rowId}`">
 
         <!-- scroll left button -->
-        <img alt="button to go left" v-bind:style="{ opacity: canScrollLeft? '1':'0' }" width="20"
+        <img alt="button to go left" v-bind:style="{ opacity: canScrollLeft? '1':'0' }"
             class="scroll-arrow scroll-arrow-left" @click="scroll('left')" src="../assets/icons/chevron-left-solid.svg" />
 
         <!-- scroll right button -->
-        <img alt="button to go right" v-bind:style="{ opacity: canScrollRight? '1':'0' }" width="20"
+        <img alt="button to go right" v-bind:style="{ opacity: canScrollRight? '1':'0' }"
             class="scroll-arrow scroll-arrow-right" @click="scroll('right')"
             src="../assets/icons/chevron-right-solid.svg" />
 
@@ -210,13 +210,13 @@ function scroll(direction: 'left'|'right'): void {
 
 .scroll-arrow {
     position: absolute;
-    width: 25px;
+    width: 20px;
     filter: invert();
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 20px;
     opacity: .75;
     background-color: #c0c0c0cc;
-    height: 25px;
+    height: 20px;
 
     transition: opacity 100ms linear;
     cursor: pointer;

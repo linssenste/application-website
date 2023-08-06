@@ -144,9 +144,8 @@ export default {
         techDetail: `Maybe as a conclusion, a little bit about the technical side: This website was realized with Vite & Vue 3 in
                     Typescript all components were designed & developed by myself. The source code can
                     be viewed on Github.`,
-        invitation: `If you would like to learn more about me and my skills, also in a professional context, I invite you
-                    to take a look at my resume.`,
-        cvButton: "Open Resume",
+
+        cvButton: "Professional TL;DR",
         sourceCodeButton: "Source Code",
         cvLink: "https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/resume_en.pdf?alt=media&token=11da577c-82a9-49bc-b508-046d37a7147c",
     },

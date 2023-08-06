@@ -2,7 +2,9 @@
     <div class="card-area">
 
 
+
         <div v-on:click="cardClickedEvent" class="project-card" :style="focused? '':'cursor: pointer'">
+
 
             <div
                 style="display: flex; padding-bottom: 20px; padding-top: 0px; position: relative; flex-direction: row; align-items: start; justify-content: space-between;">
@@ -75,46 +77,46 @@
                 style="padding-bottom: 10px; padding-top: 0px; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
                 <span class="key-name ">{{t('projects.screenshots')}}:</span>
 
-                <div v-if="!isMobile" v-on:click="fullscreenToggle=!fullscreenToggle" class="fullscreen-button">
-                    <img alt="fullscreen button" src="../assets/icons/expand-solid.svg" />
-                </div>
             </div>
 
-            <fullscreen v-model="fullscreenToggle">
 
-                <div v-if="fullscreenToggle&&!isMobile" v-on:click="fullscreenToggle=!fullscreenToggle"
-                    class="close-fullscreen-button fullscreen-button">
-                    <img alt="close fullscreen button" src="../assets/icons/compress-solid.svg" />
-                </div>
-                <carousel v-on:slide-end="refIndex=$event.currentSlideIndex" :wrapAround="true" :items-to-show="1">
-                    <slide v-for="(el, index) in data.images" :key="index">
-                        <!-- {{slide}} -->
-                        <div class="carousel-item"
-                            :style="fullscreenToggle? 'margin: 1 auto; background-color: black; height: 100vh!important':''">
-                            <img v-if="el.type===0" :alt="el.descr" :src="el.src" />
+            <carousel v-on:slide-end="refIndex=$event.currentSlideIndex" :wrapAround="true" :items-to-show="1">
+                <slide v-for="(el, index) in data.images" :key="index">
+                    <!-- {{slide}} -->
+                    <div class="carousel-item"> <img v-if="el.type===0" :alt="el.descr" :src="el.src" />
 
-                            <video v-else-if="el.type===1" :alt="el.descr" loop muted width="100%" controls>
-                                <source :src="el.src" type="video/webm">
-                                <source :src="el.fallback" type="video/mp4">
-                            </video>
-                            <embed v-else-if="el.type===2" :alt="el.descr" width="100%" :src="`${el.src}#view=FitH`">
+                        <video v-else-if="el.type===1" :alt="el.descr" loop muted width="100%" controls>
+                            <source :src="el.src" type="video/webm">
+                            <source :src="el.fallback" type="video/mp4">
+                        </video>
+                        <embed v-else-if="el.type===2" :alt="el.descr" width="100%" :src="`${el.src}#view=FitH`">
 
-                        </div>
+                    </div>
 
 
-                    </slide>
+                </slide>
 
-                    <template #addons>
-                        <navigation />
+                <template #addons>
+                    <navigation />
 
-                        <pagination />
+                    <pagination />
 
-                    </template>
-                </carousel>
-            </fullscreen>
+                </template>
+            </carousel>
 
             <div class="carousel-description">{{
                 data.images[refIndex].descr}} </div>
+
+
+
+            <div v-if="focused&&index!=1" v-on:click="switchEvent(-1)" class="switch-button left-button">
+                <img alt="button to go left" src="../assets/icons/chevron-left-solid.svg" />
+            </div>
+
+            <div v-if="focused&&index!=4" v-on:click="switchEvent(1)" class="switch-button right-button">
+                <img alt="button to go right" src="../assets/icons/chevron-right-solid.svg" />
+
+            </div>
 
 
 
@@ -132,7 +134,6 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t }=useI18n()
 
-let fullscreenToggle=ref(false);
 const refIndex=ref(0);
 const emit=defineEmits(['selected']);
 
@@ -142,6 +143,7 @@ interface PortfolioItem {
     fallback?: string
     descr: string
 }
+
 const props=defineProps<{
     index: number,
     total: number,
@@ -159,8 +161,12 @@ const props=defineProps<{
     }
 }>()
 
+function switchEvent(factor: number) {
+    console.log(props.index+factor, props.index, factor)
+    emit('selected', (props.index+factor-1))
+}
 const isMobile=computed(() => {
-    return window.innerWidth<400
+    return window.innerWidth<800
 })
 
 function cardClickedEvent() {
@@ -169,6 +175,7 @@ function cardClickedEvent() {
 }
 props.data;
 props.focused;
+props.index
 </script>
 
 <style scoped>
@@ -277,6 +284,14 @@ props.focused;
     box-shadow: 0px 0px 10px 0px #00000020;
 }
 
+@media screen and (max-width: 800px) {
+    .project-card {
+        padding-top: 80px;
+    }
+
+
+}
+
 .key-name {
     font-weight: 500;
     color: #303030 !important;
@@ -337,34 +352,59 @@ props.focused;
     z-index: 1000;
 }
 
-.fullscreen-button {
-    width: 40px;
+.switch-button {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #F0F0F0CC;
     cursor: pointer;
     position: relative;
-    margin-top: 10px;
-    border-radius: 30px !important;
-    height: 40px;
-    border: 1px solid #C0C0C0AA;
-    background-color: #f0f0f0aa;
-    transition: all 150ms ease-in-out;
 }
 
-.fullscreen-button:hover {
-    background-color: #FFFFFF;
-    transition: all 150ms ease-in-out;
-}
-
-.fullscreen-button img {
+.switch-button img {
     position: absolute;
-    width: 20px;
-    height: 20px;
     top: 50%;
     left: 50%;
-    opacity: .75;
+    width: 20px;
+    height: 20px;
     transform: translate(-50%, -50%);
 }
 
-.fullscreen-button:hover img {
-    opacity: 1;
+.switch-button:hover {
+    background-color: #F0F0F0FF;
+    transition: all 150ms ease-in-out;
+}
+
+.left-button {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+
+}
+
+@media screen and (max-width: 800px) {
+    .left-button {
+        position: absolute !important;
+        top: 15px !important;
+        z-index: 1000;
+        left: 15px;
+    }
+}
+
+.right-button {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .right-button {
+        position: absolute !important;
+        top: 15px !important;
+        z-index: 1000;
+        right: 15px
+    }
 }
 </style>
