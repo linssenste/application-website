@@ -21,10 +21,10 @@
                                 src="https://codecov.io/gh/linssenste/application-website/branch/main/graph/badge.svg?token=L66XWC20WB" />
                         </a>
 
-                        <a href="https://github.com/linssenste/application-website/actions/workflows/main.yml">
+                        <!-- <a href="https://github.com/linssenste/application-website/actions/workflows/tests.yml">
                             <img alt="github test pipeline" height="23"
                                 src="https://github.com/linssenste/application-website/actions/workflows/tests.yml">
-                        </a>
+                        </a> -->
                     </div>
 
                 </div>
