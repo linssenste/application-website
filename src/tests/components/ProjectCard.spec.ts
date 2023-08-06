@@ -88,7 +88,7 @@ describe("ProjectCard", () => {
 
     it("should have correct GitHub link", () => {
         const githubLink = wrapper.find('[data-testid="github-link"] a');
-        console.log(githubLink.attributes());
+
         expect(githubLink.attributes("href")).toBe(
             "https://github.com" + mockData.github
         );

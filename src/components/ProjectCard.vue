@@ -161,7 +161,6 @@ const props=defineProps<{
 }>()
 
 function switchEvent(factor: number) {
-    console.log(props.index+factor, props.index, factor)
     emit('selected', (props.index+factor-1))
 }
 const isMobile=computed(() => {
@@ -169,7 +168,6 @@ const isMobile=computed(() => {
 })
 
 function cardClickedEvent() {
-    console.log("CLICK FUNCTION")
     if (!props.focused) emit('selected')
 }
 props.data;

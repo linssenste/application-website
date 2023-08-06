@@ -36,9 +36,8 @@ const scrollContainer=ref(null); // Reference to the scroll container
 const focusedIndex=ref(0); // Track the currently focused project
 
 function selectCard(index: number): void {
-    console.log("H", index)
+
     const doc=document.getElementById(`card-${index}`);
-    console.log(doc)
     if (doc!=null) doc.scrollIntoView({ behavior: 'smooth' });
 }
 onMounted(() => {
