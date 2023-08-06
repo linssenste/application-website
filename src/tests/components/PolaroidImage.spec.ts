@@ -5,13 +5,13 @@ import { describe, expect, it, beforeEach } from "vitest";
 
 describe("Polaroid Image", () => {
     let wrapper: VueWrapper<any>;
-
+    const mockProps = {
+        name: "./test_image.webp",
+        text: "Sample Image",
+    };
     beforeEach(() => {
         wrapper = mount(PolaroidImage, {
-            props: {
-                name: "./test_image.webp",
-                text: "Test Image",
-            },
+            props: mockProps,
         });
     });
 
@@ -26,7 +26,7 @@ describe("Polaroid Image", () => {
 
     it("displays the correct text if provided", () => {
         const text = wrapper.find(".info-text");
-        expect(text.text()).toBe("Test Image");
+        expect(text.text()).toBe("Sample Image");
     });
 
     it("displays the correct image source", async () => {
@@ -70,5 +70,37 @@ describe("Polaroid Image", () => {
 
         const text = wrapper.find(".info-text");
         expect(text.exists()).toBe(false);
+    });
+
+    it("displays the polaroid frame", async () => {
+        const frame = wrapper.find(".polaroid-frame");
+        expect(frame.exists()).toBe(true);
+
+        await frame.trigger("load");
+        const contentImage = wrapper.find(".content-image");
+        expect(contentImage.exists()).toBe(true);
+    });
+
+    it("toggles developPolaroid value on double click", async () => {
+        expect(wrapper.vm.developPolaroid).toBe(false);
+        await wrapper.trigger("dblclick");
+        expect(wrapper.vm.developPolaroid).toBe(true);
+    });
+
+    it("has correct alt text for images", () => {
+        const images = wrapper.findAll("img");
+        for (let i = 0; i < images.length; i++) {
+            expect(images[i].attributes("alt")).toBe(
+                `Polaroid style sqaure picture described handwritten as ${mockProps.text}`
+            );
+        }
+    });
+
+    it("sets loadedFrame to true when the polaroid frame loads", async () => {
+        const wrapper = mount(PolaroidImage, {
+            props: { name: "image.jpg", text: "description" },
+        });
+        await wrapper.find(".polaroid-frame").trigger("load");
+        expect(wrapper.vm.loadedFrame).toBe(true);
     });
 });

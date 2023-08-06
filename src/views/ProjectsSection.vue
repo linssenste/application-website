@@ -1,12 +1,10 @@
 <template>
     <div style="position: relative; width: 100%;">
 
-        <div
-            style=" padding-top: 20px; padding-bottom: 10px; text-align:center; font-weight: 500; font-size: 16px; color: #505050;">
+        <div data-testid="portfolio-title" class="portfolio-title">
             {{t('portfolio.title')}}:
         </div>
-        <div
-            style="position: relative;width: 100%; overflow: hidden; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <div data-testid="portfolio-area" class="portfolio-area">
             <RisographArtSection style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
 
 
@@ -354,5 +352,25 @@ const projectReferences=[
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+}
+
+
+.portfolio-title {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: #505050;
+}
+
+.portfolio-area {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 </style>

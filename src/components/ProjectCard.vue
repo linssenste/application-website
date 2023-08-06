@@ -5,9 +5,7 @@
 
         <div v-on:click="cardClickedEvent" class="project-card" :style="focused? '':'cursor: pointer'">
 
-
-            <div
-                style="display: flex; padding-bottom: 20px; padding-top: 0px; position: relative; flex-direction: row; align-items: start; justify-content: space-between;">
+            <div class="portfolio-logo">
                 <img v-if="data.logo!=null" :alt="`Project logo of ${data.name}`" draggable="false"
                     style="border: none; max-width: 260px; " :src="data.logo" />
                 <div class="text-highlight-blue" style="font-size: 32px;  text-align: end; width: 100%;">
@@ -83,7 +81,8 @@
             <carousel v-on:slide-end="refIndex=$event.currentSlideIndex" :wrapAround="true" :items-to-show="1">
                 <slide v-for="(el, index) in data.images" :key="index">
                     <!-- {{slide}} -->
-                    <div class="carousel-item"> <img v-if="el.type===0" :alt="el.descr" :src="el.src" />
+                    <div class="carousel-item">
+                        <img v-if="el.type===0" :alt="el.descr" :src="el.src" />
 
                         <video v-else-if="el.type===1" :alt="el.descr" loop muted width="100%" controls>
                             <source :src="el.src" type="video/webm">
@@ -179,6 +178,16 @@ props.index
 </script>
 
 <style scoped>
+.portfolio-logo {
+    display: flex;
+    padding-bottom: 20px;
+    padding-top: 0px;
+    position: relative;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+}
+
 .card-area {
     position: relative;
     width: calc(100% - 20px);

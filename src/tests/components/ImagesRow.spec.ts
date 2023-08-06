@@ -12,6 +12,9 @@ describe("ImagesRow", () => {
             { name: "test1", type: 1, text: "test text 1" },
             { name: "test2", type: 2, text: "test text 2" },
             { name: "test3", type: 3, text: "test text 3" },
+            { name: "test4", type: 3, text: "test text 4" },
+            { name: "test5", type: 3, text: "test text 5" },
+            { name: "test6", type: 3, text: "test text 6" },
         ];
 
         scrollBySpy = vi.fn();
@@ -77,5 +80,22 @@ describe("ImagesRow", () => {
             left: 300,
             behavior: "smooth",
         });
+    });
+
+    it("hides left scroll button when cannot scroll left", () => {
+        const wrapper = mount(ImagesRow, {
+            props: { rowId: "test-row", images },
+        });
+        // assuming initially it can't scroll left
+        const leftScrollButton = wrapper.get(".scroll-arrow-left");
+        expect(leftScrollButton.attributes("style")).toContain("opacity: 0");
+    });
+
+    it("renders left and right gradient fades", () => {
+        const wrapper = mount(ImagesRow, {
+            props: { rowId: "test-row", images },
+        });
+        expect(wrapper.find(".row-scroll-fade-left").exists()).toBe(true);
+        expect(wrapper.find(".row-scroll-fade-right").exists()).toBe(true);
     });
 });

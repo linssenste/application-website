@@ -52,8 +52,11 @@ const props=defineProps<{
     images: ImageObject[]
 }>();
 
+props.rowId;
+props.songId;
+props.images;
 
-const currentImageIndex=ref(0);
+
 const scrollContainer=ref<HTMLElement|null>(null);
 
 const canScrollLeft=ref(false);
