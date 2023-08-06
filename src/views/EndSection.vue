@@ -23,7 +23,7 @@
 
                         <a href="https://github.com/linssenste/application-website/actions/workflows/main.yml">
                             <img alt="github test pipeline" height="23"
-                                src="https://github.com/linssenste/application-website/actions/workflows/main.yml/badge.svg?branch=main">
+                                src="https://github.com/linssenste/application-website/actions/workflows/tests.yml">
                         </a>
                     </div>
 
