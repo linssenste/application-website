@@ -12,6 +12,15 @@
                 <p>{{t('footer.techDetail')}}</p>
 
                 {{t('footer.invitation')}}
+                <a href="https://codecov.io/gh/linssenste/application-website">
+                    <img
+                        src="https://codecov.io/gh/linssenste/application-website/branch/main/graph/badge.svg?token=L66XWC20WB" />
+                </a>
+
+                <a href="https://github.com/linssenste/application-website/actions/workflows/main.yml">
+                    <img src="https://github.com/linssenste/application-website/actions/workflows/main.yml/badge.svg?branch=main"
+                        alt="Test">
+                </a>
 
                 <a :href="t('footer.cvLink')" target="_blank">
                     <button v-on:click="" class="action-button" style="margin-top: 30px;">

@@ -26,7 +26,7 @@ props.rotate;
 }
 
 .art-image-container {
-    height: 100vh;
+    height: 120vh;
 }
 
 .art-image-container-small {
