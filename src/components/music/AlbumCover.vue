@@ -1,23 +1,45 @@
 <template>
-	<div ref="tiltableCover" class="cover">
-		<img draggable="false" class="cover-image" :alt="`${src.name} cover`"
-			 v-lazy="`https://i.scdn.co/image/ab67616d0000b273${src.cover}`" />
+	<div class="cover">
+
+		<!-- mouse tilt area -->
+		<div ref="tiltableCover" class="tilt-cover">
+
+			<!-- hover card showing album information of cover -->
+			<div v-if="isHovering" class="cover-card">
+				<b>{{ src.name }}</b>
+				<br />
+				<span>{{ src.artists[0].name }}</span>
+			</div>
+
+			<!-- album cover image (lazy loaded) -->
+			<img draggable="false" class="cover-image" width="125" height="125" :alt="`${src.name} cover`"
+				 v-on:mouseenter="isHovering = true" v-on:mouseleave="isHovering = false"
+				 v-lazy="`https://i.scdn.co/image/ab67616d0000b273${src.cover}`" />
+		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import VanillaTilt from 'vanilla-tilt'
-import { onMounted } from 'vue';
 
 const tiltableCover = ref<any>(null)
 
+const emit = defineEmits(['hovering'])
 const props = defineProps<{
 	src: {
 		cover: string,
 		name: string
 	}
+
 }>();
+props.src;
+
+const isHovering = ref(false)
+
+watch(isHovering, () => {
+	emit('hovering', isHovering.value);
+})
 onMounted(() => {
 	VanillaTilt.init(tiltableCover.value, {
 		max: 12,
@@ -30,7 +52,7 @@ onMounted(() => {
 	})
 })
 
-props.src;
+
 
 </script>
 
@@ -38,29 +60,55 @@ props.src;
 <style scoped>
 .cover {
 	position: relative;
-	padding: 6px;
-
-	transition: z-index 150ms ease-in-out;
 }
 
 .cover-image {
 	position: relative;
 	width: 125px !important;
 	height: 125px !important;
-	transition: all 50ms ease-in-out;
+	transition: all 70ms ease-in-out;
 	transform: scale(1);
 	border-radius: 4px;
+	background-color: #ffffffaa;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 
-	box-shadow: 0 0 15px 0px #00000022;
+	box-shadow: 0 0 18px 0px #aaaaaa55;
 }
 
-.cover:hover .cover-image {
+.tilt-cover {
+	position: relative;
+	padding: 6px;
+
+	transition: z-index 150ms ease-in-out;
+}
+
+.tilt-cover:hover .cover-image {
 	transform: scale(1.35);
-	box-shadow: 0 0 15px 0px #00000088;
+	box-shadow: 0 0 18px 0px #aaaaaa55;
 }
 
-.cover:hover {
+.tilt-cover:hover {
 	cursor: pointer;
 	z-index: 100;
+}
+
+
+.cover-card {
+	position: absolute;
+	top: -90px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #f0f0f0aa;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-radius: 10px;
+
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 </style>
