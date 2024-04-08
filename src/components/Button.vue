@@ -37,10 +37,13 @@ button.action-btn {
 
 button.action-btn .circle {
 	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1);
+	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1) -webkit-;
 	position: absolute;
 	top: 50%;
 	left: 0;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	will-change: transform, width;
 	display: block;
 	width: 3rem;
 	height: 3rem;
@@ -50,6 +53,7 @@ button.action-btn .circle {
 
 button.action-btn .button-text {
 	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1);
+	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1) -webkit-;
 	padding-left: 30px;
 	color: var(--black-color);
 	font-weight: 700;
@@ -58,10 +62,12 @@ button.action-btn .button-text {
 	text-transform: uppercase;
 	z-index: 2;
 	position: relative;
+	will-change: color;
 }
 
 button.action-btn .circle .icon {
 	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1);
+	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1) -webkit-;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -86,6 +92,7 @@ button.action-btn .circle .icon.arrow::before {
 	border-top: 0.14rem solid #fff;
 	border-right: 0.14rem solid #fff;
 	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
 }
 
 @media (min-width: 768px) {
@@ -97,6 +104,7 @@ button.action-btn .circle .icon.arrow::before {
 	button:hover .circle .icon.arrow {
 		background: var(--white-color);
 		transform: translate(1rem, 0);
+		-webkit-transform: translate(1rem, 0);
 	}
 
 	button:hover .button-text {
