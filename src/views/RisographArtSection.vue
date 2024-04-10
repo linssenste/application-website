@@ -1,51 +1,60 @@
 <template>
-    <div :class="small? 'art-image-container-small':'art-image-container'">
-        <img data-testid="risograph-image"
-            alt="colorful rounded forms in risographic style with the letter S and L in the center"
-            :src="small? '/risographics/risograph_small.webp':'/risographics/risograph.webp'"
-            :style="rotate? 'transform: scaley(-1);':''" draggable="false" :class="small? 'art-image-small':'art-image'" />
-    </div>
+	<div class="art-image-container" ref="imageContainerRef">
+		<img data-testid="risograph-image" fetchpriority="high" preload
+			 alt="colorful rounded forms in risographic style with the letter S and L in the center"
+			 src="../assets/risograph.svg" class="art-image" />
+	</div>
 </template>
 
 
 <script lang="ts" setup>
-const props=defineProps<{
-    rotate?: boolean;
-    small?: boolean;
-}>();
+import { ref, onMounted, onUnmounted } from 'vue';
 
-props.rotate;
+
+const imageContainerRef = ref<HTMLElement | null>(null);
+
+const handleScroll = () => {
+
+	const offset = window.scrollY;
+	if (imageContainerRef.value) {
+		imageContainerRef.value.style.transform = `translateY(-${offset * 0.075}px)`;
+	}
+};
+
+onMounted(() => {
+	window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+	window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
+
 <style scoped>
-.art-image-container,
-.art-image-container-small {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.art-image-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .art-image-container {
-    height: 120vh;
+	height: 120vh;
 }
 
-.art-image-container-small {
-    height: 70vh;
-}
 
-.art-image,
-.art-image-small {
-    z-index: -1;
-    opacity: 1;
-    padding-top: 0px;
+.art-image {
+	z-index: -1 !important;
+	opacity: 1;
+	padding-top: 0px;
+	transition: transform 0.2s ease-out;
+	/* Optional: Smoothens the movement */
 }
 
 .art-image {
-    height: 120vh;
-    /* aspect-ratio: 1029/791; */
-}
-
-.art-image-small {
-    height: 70vh;
+	/* height: auto; */
+	/* Changed to 'auto' to maintain aspect ratio */
+	width: 100%;
+	/* Ensure full width */
 }
 </style>
