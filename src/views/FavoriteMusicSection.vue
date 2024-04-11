@@ -1,369 +1,244 @@
 <template>
-	<div class="cover-card" ref="coverAreaRef">
+	<div>
+		<AlbumCoverBanner ref="bannerRef" :playing="isPlaying" v-on:track-selected="selectedTrackEvent" />
+		<div class="content-wrapper">
+			<div class="scrollable-content">
+				<div ref="leftSideRef">
 
-		<div v-if="covers.length > 0" class="cover-area">
-			<div class="photobanner">
-				<div id="cover-container">
 
+					<div id="music-player" class="music-player-container content" :style="isVisible('music-player')">
+						<MusicPlayer style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
+									 ref="musicPlayerRef" :trackId="selectedTrack" v-on:playing="isPlaying = $event" />
+						<button v-on:click="selectRandomTrack()">SHUFFLE</button>
+					</div>
+					<div id="swim" class="content" :style="isVisible('swim')"
+						 style="margin-top: 50px; position: relative; display: flex; flex-direction: row; justify-content: center;">
+						<PolaroidImage alt="swimming" src="src/assets/polaroid_swimming.png" />
+					</div>
 
-					<AlbumCover v-for="album in randomAlbumCovers" v-on:hovering="coverHoverEvent"
-								v-on:click="selectedAlbum(album)" :src="album" />
+					<div id="1" class="content" :style="isVisible('1')" style="margin-top: 50px;">
+						<DataSetOverview :visible="currentFocus == '1'" :stats="analysisData.stats" />
+					</div>
+
+					<div id="3" class="content" :style="isVisible('3')">
+						<DecadesBarChart :decades="analysisData.decades" />
+
+					</div>
+
+					<div id="4" class="content" :style="isVisible('4')">
+						<FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" />
+
+					</div>
+
+					<div id="3" class="content" :style="isVisible('3')">
+						<GenreRadarChart :data="analysisData.genres" />
+
+					</div>
+					<div id="5" class="content" :style="isVisible('5')">
+						<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
+
+					</div>
+
+					<div id="6" class="content" :style="isVisible('6')">
+						<GoogleColabCell :visible="currentFocus == '6'" />
+
+					</div>
+
 
 				</div>
 			</div>
 
+
+
+			<div class="right-side" ref="rightSideRef">
+				<div style="padding: 40px; padding-top: 50px;">
+
+					<KeepScrollingAnimation />
+
+
+					<h1>Analysis of my swim playlist</h1>
+
+					<p>In meiner Freizeit gehe ich gerne <span id="text-swim">Schwimmen</span>. Ich finde den Sport aber
+						sehr sehr langweilig und
+						höre deswegen während des Trainings immer Musik</p>
+
+
+					<span id="text-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+						tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> <span
+						  id="text-2">At vero eos et accusam et justo duo dolores et ea rebum.</span> <span id="text-3">
+						Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span> <span
+						  id="text-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+						tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> At vero eos
+					et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+					Lorem ipsum dolor sit amet.
+
+					<Button style="margin-top: 50px" />
+				</div>
+			</div>
 		</div>
 
-		{{ titleCount }} - {{ covers.length }}
-
-		<div
-			 style="width: 100%!important; max-width: 650px; border-radius: 10px; height: 280px; position: relative; background-color: #c0c0c0;">
-			<MusicPlayer v-if="selectedTrack != null" :auto="true" style="height: 232px; width: 100%; "
-						 ref="musicPlayerRef" :trackId="selectedTrack" />
-			<button v-on:click="randomAlbumTrack()">SHUFFLE</button>
-		</div>
-
-		<MusicAnalysis />
-
-
+		LAST UPDATE: YESTERDAY
 	</div>
 </template>
 
-
 <script lang="ts" setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
-import AlbumCover from '../components/music/AlbumCover.vue'
-import MusicPlayer from '../components/music/MusicPlayer.vue';
-import MusicAnalysis from '../components/music/MusicAnalysis.vue'
-import { onBeforeMount } from 'vue';
-import { nextTick } from 'vue';
-import covers from '../assets/spotify-covers.json'
-// const covers = ref([])
-const songId = ref<null | string>(null)
-const musicPlayerRef = ref(null);
-const randomAlbumCovers = computed(() => {
-	return shuffleArray(covers);
+import { ref, onMounted, onUnmounted } from 'vue';
+import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
+import MusicPlayer from '../components/music/MusicPlayer.vue'
+import { annotate } from 'rough-notation';
+import Button from '../components/Button.vue'
+
+import KeepScrollingAnimation from '../components/KeepScrollingAnimation.vue'
+import { watch } from 'vue';
+import analysisData from '../assets/spotify-analysis.json'
+import GenreRadarChart from '../components/charts/GenreRadarChart.vue'
+import FavoriteArtistsChart from '../components/charts/FavoriteArtistsChart.vue';
+import DataSetOverview from '../components/charts/DataSetOverview.vue';
+import PolaroidImage from '../components/images/PolaroidImage.vue';
+import AudioFeaturesChart from '../components/charts/AudioFeaturesChart.vue'
+import DecadesBarChart from '../components/charts/DecadesBarChart.vue'
+import GoogleColabCell from '../components/charts/GoogleColabCell.vue'
+const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
+const selectedTrack = ref<string | null>(null)
+const isPlaying = ref(false)
+
+
+const rightSideRef = ref<HTMLElement | null>(null);
+const leftSideRef = ref(<HTMLElement | null>null);
+let currentFocus = ref(null); // This will store the ID of the div in the center
+
+function isVisible(id: string): string {
+	return currentFocus.value == id ? 'opacity: 1' : 'opacity: .15'
+}
+const handleScroll = () => {
+	if (!leftSideRef.value || !rightSideRef.value) return;
+
+	const leftSideBounds = leftSideRef.value.getBoundingClientRect();
+	const bottomPosition = (leftSideBounds.bottom - window.innerHeight);
+
+	if (leftSideBounds.top <= 0 && bottomPosition > 0) {
+		// Top of leftSideRef is out of view, but bottom is still in view
+		rightSideRef.value.style.position = 'fixed';
+		rightSideRef.value.style.top = '0px';
+	} else if (bottomPosition <= 0) {
+
+		// Bottom of leftSideRef is at or above the bottom of the viewport
+		rightSideRef.value.style.position = 'absolute';
+		rightSideRef.value.style.bottom = '0px';
+		rightSideRef.value.style.top = 'auto';
+	} else {
+
+		// leftSideRef is completely in view
+		rightSideRef.value.style.position = 'relative';
+	}
+
+	const childDivs = leftSideRef.value.querySelectorAll('.content'); // Adjust the selector as needed
+	const viewportCenter = window.innerHeight / 2 + window.scrollY;
+
+	let closestDivId = null;
+	let smallestDistance = Infinity;
+
+	childDivs.forEach((div) => {
+		const divBounds = div.getBoundingClientRect();
+		const divCenter = divBounds.top + divBounds.height / 2 + window.scrollY;
+		const distanceToCenter = Math.abs(viewportCenter - divCenter);
+
+		if (distanceToCenter < smallestDistance) {
+			smallestDistance = distanceToCenter;
+			closestDivId = div.id;
+		}
+	});
+
+	if (closestDivId !== currentFocus.value) {
+		currentFocus.value = closestDivId;
+
+	}
+
+
+
+};
+
+let currentAnnotation = null
+
+watch(currentFocus, () => {
+
+	if (currentAnnotation != null) currentAnnotation.hide();
+
+	const humanText = document.getElementById(`text-${currentFocus.value}`);
+
+	if (!humanText) return;
+
+	currentAnnotation = annotate(humanText, { type: 'underline', color: 'var(--pen-color)', multiline: true, padding: [0, 3, 0, 3] });
+
+	currentAnnotation.show();
+
 })
 
 
-const titleCount = computed(() => {
-	return covers.reduce((acc, album) => acc + album.tracks.length, 0);
-});
+onMounted(() => {
+	// selectRandomTrack();
+	window.addEventListener('scroll', handleScroll);
 
-
-const coverAreaRef = ref(null)
-let scrollInterval = null;
-let isForward = true;
-const startAutoScroll = () => {
-	console.log("AUTOSCROLL")
-	const container = document.getElementById('cover-container');
-	if (!container) return;
-
-	// Clears existing interval to prevent duplicates
-	clearInterval(scrollInterval);
-
-	scrollInterval = setInterval(() => {
-
-		let pos = container.scrollLeft ?? 0;
-		if (pos >= (container.scrollWidth - container.clientWidth)) isForward = false;
-		else if (pos == 0) isForward = true
-
-
-
-		pos += (1 * (isForward ? 1 : -1));
-
-		container.scrollLeft = pos
-		// container.scrollTo({
-		// 	top: 0,
-		// 	left: pos,
-		// 	behavior: "smooth",
-		// })
-	}, 20); // Adjust speed as needed
-};
-
-const selectedTrack = ref(null);
-async function selectedAlbum(album: any): Promise<void> {
-	const randomIndex = Math.floor(Math.random() * album.tracks.length);
-	selectedTrack.value = album.tracks[randomIndex];
-
-}
-
-function coverHoverEvent(status): void {
-	console.log(status)
-	// Pause auto-scrolling when the user manually scrolls
-
-	if (status == true) {
-		console.log("JSJS")
-		clearInterval(scrollInterval);
-	} else {
-		startAutoScroll();
-	}
-
-}
-function randomAlbumTrack() {
-
-	const randomIndex = Math.floor(Math.random() * covers.length);
-
-	selectedAlbum(covers[randomIndex])
-
-}
-
-
-
-onMounted(async () => {
-
-
-	const observer = new IntersectionObserver(
-		([entry]) => {
-			console.log(entry.isIntersecting)
-			if (entry.isIntersecting) startAutoScroll();
-			else clearInterval(scrollInterval)
-		},
-		{ threshold: 0 }
-	);
-	observer.observe(coverAreaRef.value);
-
-
-
-	const container = document.getElementById('cover-container');
-	if (container) {
-
-	}
 });
 
 onUnmounted(() => {
-	clearInterval(scrollInterval); // Clear the interval when the component unmounts
+	window.removeEventListener('scroll', handleScroll);
 });
 
-
-function shuffleArray(array: any[]) {
-	let currentIndex = array.length;
-	let temporaryValue, randomIndex;
-
-	// While there remain elements to shuffle...
-	while (currentIndex !== 0) {
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-
-		// And swap it with the current element.
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
-
-	return array;
+function selectRandomTrack() {
+	if (bannerRef.value) bannerRef.value.randomAlbumTrack();
 }
 
+function selectedTrackEvent(trackId: string) {
+	selectedTrack.value = trackId;
+}
 </script>
 
 <style scoped>
-.highlight {
-	background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fede00);
-	background-size: 100% 55px;
-	background-position: right 9px;
-	background-repeat: no-repeat;
-	font-family: 'biro_script_standardbold';
-
-}
-
-.cover-card {
-	width: 100%;
-
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	position: relative;
-}
-
-.fav-player {
-	border-radius: 12px;
-	max-width: 600px !important;
-	transition: all 1s linear;
-}
-
-
-.fav-subtext {
-	width: 100%;
-	text-align: center;
-	padding-left: 10px;
-	padding-right: 10px;
-	position: absolute;
-	top: 50%;
-	padding-bottom: 40px;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	opacity: .75;
-	color: #FFFFFF !important;
-	letter-spacing: .5px;
-}
-
-.fav-text {
-
-	margin-top: 0px;
-	margin-bottom: 0px;
-
-}
-
-
-.fav-song {
-	position: relative;
-
-	max-width: 600px;
-	/* height: 222px; */
-	overflow: hidden;
-	margin: 0 auto;
-	margin-top: 10px;
-
-	width: calc(100% - 20px);
-	background-color: #282828;
-	border-radius: 10px;
-}
-
-
-.fav-song-mobile {
-	height: 422px
-}
-
-.quote-area {
-	max-width: 750px;
-	margin: 0 auto;
-	margin-top: 50px;
-	text-align: center;
-}
-
-
-.quote {
-	font-size: 38px;
-	font-family: 'biro_script_standardsloppy';
-	color: #000F55;
-	line-height: 45px
-}
-
-#cover-container {
-	width: 100%;
-	/* height: 120px; */
-	position: relative;
-
-	padding: 35px;
-
+.content-wrapper {
 	display: flex;
-	/* Align covers in a row */
-	overflow-x: auto;
-	/* Enable horizontal scrolling */
-	scrollbar-width: thin;
-	/* Optional: Makes the scrollbar thinner */
-
 }
 
-
-.cover-area {
-	position: relative;
-	width: 100%;
-	/* Adjust as needed */
-	overflow: hidden;
-	/* Hide scrollbars */
-	padding-bottom: 20px;
-	/* Push the scrollbar out of view, adjust value based on your scrollbar height */
-}
-
-#cover-container {
+.scrollable-content {
+	width: calc(100% - 550px);
 	display: flex;
-	overflow-x: auto;
-	/* Enable horizontal scrolling */
-	scrollbar-width: none;
-	/* For Firefox */
-	-ms-overflow-style: none;
-
-	padding-top: 150px;
-	/* For Internet Explorer and Edge */
-
-	/* Hide the scrollbar, adjust value based on your scrollbar height */
-}
-
-/* For Chrome, Safari */
-#cover-container::-webkit-scrollbar {
-	display: none;
-}
-
-
-.photobanner {
-	overflow-x: auto;
-	white-space: nowrap;
-
-	/* animation: bannermove 120s linear infinite; */
-}
-
-.photobanner img {
-	/* height: 100px; */
-	cursor: pointer;
-	/* width: 150px; */
-
-	margin-left: 10px;
-
-	border-radius: 4px;
-	transition: all 200ms ease-in-out;
-	-webkit-user-drag: none !important;
-	user-select: none !important;
-	background-color: #F0F0F0;
-}
-
-
-@media (hover: hover) and (pointer: fine) {
-
-	.photobanner img:hover {
-		transition: all 100ms ease-out;
-	}
-
-}
-
-@keyframes bannermove {
-	0% {
-		transform: translate(0, 0);
-	}
-
-	100% {
-		transform: translate(-50%, 0);
-	}
-}
-
-
-
-.shuffle-button {
-	margin: 0 auto;
-	position: absolute;
-	bottom: 0px;
-	background-color: #FFFFFFAA;
-	color: black;
-	margin: 10px;
-	height: 40px;
-	font-size: 17px;
-	border-radius: 10px;
-	display: flex;
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	justify-content: center;
 	align-items: center;
-	font-weight: 700 !important;
-	letter-spacing: 1px;
-	transition: background-color 100ms ease-in-out;
-	cursor: pointer;
-	width: calc(100% - 20px)
+	flex-direction: column;
+	gap: 50px;
+	justify-content: center;
+	position: relative;
 }
 
-.shuffle-button img {
-	margin-right: 10px;
-}
-
-.shuffle-button:hover {
-
-	transition: background-color 100ms ease-in-out;
-	background-color: #FFFFFF;
+.right-side {
+	width: 550px !important;
+	min-width: 550px;
+	max-width: 550px;
 }
 
 
-.song-placeholder {
-	margin-top: 40px;
+
+.right-side {
+	right: 0px !important;
+
+
+	padding-top: 50px;
+	height: 100vh;
+	/* background-color: red; */
+	/* Smooth transition for the top position */
+}
+
+.content {
+	transition: opacity 150ms ease-in-out;
+
+	/* padding-top: 25px;
+	padding-bottom: 25px; */
+}
+
+.music-player-container {
+	/* background-color: grey; */
+	height: 382px;
+
+	padding: 20px;
+
 }
 </style>

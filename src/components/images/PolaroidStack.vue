@@ -5,8 +5,7 @@
 
 			<!-- music player card (aka last stack card) -->
 			<li class="polaroid prepend-slot" style="" :style="cardStyling(0)">
-				<MusicPlayer v-on:playing="isPlaying = $event" trackId="6X7R1KlDSwHK7wYwy94sYQ" :mini="false"
-							 ref="musicPlayerRef" />
+				<MusicPlayer v-on:playing="isPlaying = $event" trackId="6X7R1KlDSwHK7wYwy94sYQ" ref="musicPlayerRef" />
 			</li>
 
 			<!-- polaroid stack -->
@@ -16,7 +15,7 @@
 				<PolaroidImage :src="card.src" :alt="card.text" :id="`polaroid-${index}`"
 							   :overlay="(index == polaroids.length - 1) && (showText && !expanded)">
 					<template v-slot:default>
-						<AudioVisualizer v-if="isPlaying" />
+						<AudioVisualizer v-if="isPlaying" :playing="isPlaying" />
 					</template>
 				</PolaroidImage>
 
@@ -28,7 +27,7 @@
 
 				<button v-on:click="toggleExpansion">
 					<img src="../../assets/icons/chevron-left-solid.svg" alt="chevron left" title="Close polaroid stack"
-						 width="10" /></button>
+						 width="12" /></button>
 			</li>
 
 		</ul>
@@ -83,7 +82,6 @@ onMounted(() => {
 		([entry]) => {
 			if (!entry.isIntersecting) {
 				if (expanded.value) toggleExpansion();
-				console.log(musicPlayerRef)
 				if (isPlaying.value && musicPlayerRef.value) (musicPlayerRef.value as any).togglePlaying()
 			}
 		},

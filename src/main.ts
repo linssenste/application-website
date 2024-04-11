@@ -9,10 +9,11 @@ import "./assets/fonts/text/stylesheet.css";
 import App from "./App.vue";
 
 import { createLangI18n } from "./i18n";
+import VueLazyload from 'vue-lazyload'
 
 const urlParams = new URLSearchParams(window.location.search);
 const lang = urlParams.get("lang");
 
 const i18n = createLangI18n((lang as string) || "de");
 
-createApp(App).use(i18n).mount("#app");
+createApp(App).use(i18n).use(VueLazyload).mount("#app");

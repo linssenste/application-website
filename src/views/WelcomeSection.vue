@@ -54,7 +54,6 @@ onMounted(() => {
 
 	const observer = new IntersectionObserver(
 		([entry]) => {
-			console.log("HH")
 			if (entry.isIntersecting) annotationHuman.show();
 			else annotationHuman.hide();
 		},

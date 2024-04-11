@@ -1,0 +1,81 @@
+{
+	"stats": {
+		"albums": 244,
+		"tracks": 858,
+		"artists": 105
+	},
+	"features": {
+		"danceability": 0.6228259345794396,
+		"energy": 0.6083715537383174,
+		"key": 5.292056074766355,
+		"loudness": -7.748959112149523,
+		"mode": 0.5642523364485982,
+		"speechiness": 0.1483230140186916,
+		"acousticness": 0.3113155894859814,
+		"instrumentalness": 0.03693986550233646,
+		"liveness": 0.2103723130841124,
+		"valence": 0.4694867990654206,
+		"tempo": 119.33049649532714
+	},
+	"genres": {
+		"pop": 55,
+		"hip hop/rap": 59,
+		"electronic/dance": 7,
+		"other": 16,
+		"indie": 29,
+		"rock": 15,
+		"singer-songwriter": 5,
+		"ambient": 3,
+		"experimental": 1,
+		"edm": 2,
+		"reggae": 4,
+		"punk": 1,
+		"ska": 1,
+		"house": 2
+	},
+	"artists": {
+		"5fNCrHCBzuRdM8AbVajVh0": {
+			"img": "https://i.scdn.co/image/ab6761610000e5eb45a6963fbc20ede928638715",
+			"tracks": 26,
+			"albums": 7,
+			"occurrence": 2.8688524590163933,
+			"name": "Lance Butters"
+		},
+		"2XbRunIT35jrB8HRsISPgT": {
+			"img": "https://i.scdn.co/image/ab6761610000e5eb65e8d02a37ce4b2371caf085",
+			"tracks": 25,
+			"albums": 6,
+			"occurrence": 2.459016393442623,
+			"name": "Tristan Brusch"
+		},
+		"4riceIF5JCEKaSIwwLqIYt": {
+			"img": "https://i.scdn.co/image/ab6761610000e5eb09d5f9ad0864438f73196726",
+			"tracks": 23,
+			"albums": 6,
+			"occurrence": 2.459016393442623,
+			"name": "Fatoni"
+		},
+		"23xqmJEN3oVxwzqtNIyR5m": {
+			"img": "https://i.scdn.co/image/ab6761610000e5ebbcf79c131f4ddb3635dd60bb",
+			"tracks": 28,
+			"albums": 6,
+			"occurrence": 2.459016393442623,
+			"name": "AnnenMayKantereit"
+		},
+		"2jmpnuwn52LqrQASBlyQGJ": {
+			"img": "https://i.scdn.co/image/ab6761610000e5eb82bd300d288fcebbeae20bfc",
+			"tracks": 23,
+			"albums": 6,
+			"occurrence": 2.459016393442623,
+			"name": "Mine"
+		}
+	},
+	"decades": {
+		"1960": 2,
+		"1970": 8,
+		"1990": 6,
+		"2000": 12,
+		"2010": 422,
+		"2020": 406
+	}
+}

@@ -1,37 +1,50 @@
 <template>
-    <div class="application-area">
+	<div class="application-area" id="application-area">
 
-        <div class="lang-selector">
-            <img alt="german language selection" v-on:click="switchLanguage('de')" class="lang-flag"
-                :style="locale=='de'? 'opacity: 1':''" src="@/assets/flags/de.webp" width="25" height="25" />
-            <img alt="english language selection" v-on:click="switchLanguage('en')" class="lang-flag"
-                style="margin-right: 15px;" :style="locale=='en'? 'opacity: 1':''" src="@/assets/flags/gb.webp" height="25"
-                width="25" />
-        </div>
+		<!-- <div class="lang-selector">
+			<img alt="german language selection" v-on:click="switchLanguage('de')" class="lang-flag"
+				 :style="locale == 'de' ? 'opacity: 1' : ''" src="@/assets/flags/de.webp" width="25" height="25" />
+			<img alt="english language selection" v-on:click="switchLanguage('en')" class="lang-flag"
+				 style="margin-right: 15px;" :style="locale == 'en' ? 'opacity: 1' : ''" src="@/assets/flags/gb.webp"
+				 height="25" width="25" />
+		</div> -->
 
+		<WelcomeSection style="margin-top: 100px;" />
 
+		<RisographArtSection />
 
-        <WelcomeSection />
+		<FavoriteMusicSection style="margin-top: -400px; margin-bottom: 1500px;" />
 
+		<!-- <InclusionSection /> -->
+		<!-- <MusicLoveSection style="margin-top: -200px;" />
+	> -->
 
-        <RisographArtSection />
+		<!-- <iframe src="http://localhost:5173/" style="width: 100%; height: 100vh; border: none; outline: none"></iframe> -->
 
+		<!-- <RisographArtSection :small="true" style="margin-top: -150px" /> -->
 
-        <MusicLoveSection style="margin-top: -200px;" />
+		<!-- <EndSection style="z-index: 10; margin-top: 50px; padding-bottom: 100px;" /> -->
+		<!-- <iframe width="450" height="550"
+				style="margin-top: -100px; z-index: 100!important; border: 10px solid #d0d0d0; border-radius: 20px;"
+				src="https://dalli-dalli.vercel.app/viewer?image=https%3A%2F%2Ftierheim-guetersloh.de%2Fwp-content%2Fuploads%2F2023%2F10%2FJasper-neu-4-820x1093.jpg&interval=1000&shapes=20&type=voronoi"></iframe> -->
 
-        <FavoriteMusicSection />
+		<!--
+		
+
+		-->
+		<!-- 
         <InstagramMusicSection style="margin-top: 75px" />
         <RisographArtSection :small="true" style="margin-top: -75px" />
         <PolaroidCreativitySection style="margin-bottom: -180px; margin-top: -100px;" />
 
         <ProjectsSection style="margin-top: 200px" />
 
-        <InclusionSection />
+    
         <RisographArtSection :small="true" style="margin-top: -150px" />
 
-        <EndSection style="z-index: 10; margin-top: 50px; padding-bottom: 100px;" />
+        <EndSection style="z-index: 10; margin-top: 50px; padding-bottom: 100px;" /> -->
 
-        <!--     <GeoDalliDalliSection />
+		<!--     <GeoDalliDalliSection />
 
        
       
@@ -47,51 +60,58 @@
         <div style="height: 130px; margin-top: 50px; padding-top: 80px; z-index: -1; overflow: hidden;">
             <RisographArtSection :rotate="false" />
         </div> -->
-    </div>
+	</div>
 </template>
 
 <script lang="ts" setup>
 
 import WelcomeSection from './views/WelcomeSection.vue';
 import RisographArtSection from './views/RisographArtSection.vue'
-import MusicLoveSection from './views/MusicLoveSection.vue';
+// import MusicLoveSection from './views/MusicLoveSection.vue';
 import FavoriteMusicSection from './views/FavoriteMusicSection.vue'
-import InstagramMusicSection from './views/InstagramMusicSection.vue'
-import PolaroidCreativitySection from './views/PolaroidCreativitySection.vue';
-import EndSection from './views/EndSection.vue';
+// import InstagramMusicSection from './views/InstagramMusicSection.vue'
+// import PolaroidCreativitySection from './views/PolaroidCreativitySection.vue';
+// import EndSection from './views/EndSection.vue';
 
 import InclusionSection from './views/InclusionSection.vue';
+import { onMounted } from 'vue';
 
 
-import { useI18n } from 'vue-i18n'
-import GeoDalliDalliSection from './views/GeoDalliDalliSection.vue';
-import ProjectsSection from './views/ProjectsSection.vue';
+// onMounted(() => {
+// 	const doc = document.getElementById("application-area");
+// 	console.log(doc)
+// 	if (doc) doc.scrollTop = 0;
+// })
 
-const { locale }=useI18n()
+// import { useI18n } from 'vue-i18n'
+// import GeoDalliDalliSection from './views/GeoDalliDalliSection.vue';
+// import ProjectsSection from './views/ProjectsSection.vue';
+
+// const { locale } = useI18n()
 
 
-function switchLanguage(localeId: string): void {
-    if (locale.value===localeId) return;
-    const urlParams=new URLSearchParams(window.location.search);
+// function switchLanguage(localeId: string): void {
+// 	if (locale.value === localeId) return;
+// 	const urlParams = new URLSearchParams(window.location.search);
 
-    urlParams.set('lang', localeId);
+// 	urlParams.set('lang', localeId);
 
-    window.location.search=urlParams.toString();
-}
+// 	window.location.search = urlParams.toString();
+// }
 </script>
 
 
-<style scoped> .application-area {
-     position: relative;
-     height: 100vh;
+<style scoped>
+.application-area {
+	position: relative;
 
- }
+}
 </style>
 
 <style>
 html {
-
-    font-family: 'Hanken Grotesk' !important;
+	position: relative;
+	font-family: 'Hanken Grotesk' !important;
 }
 </style>
 
@@ -100,35 +120,35 @@ html {
 
 <style scoped>
 .lang-selector {
-    align-content: center;
-    margin: auto;
-    padding-top: 5px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    cursor: pointer;
-    justify-content: center
+	align-content: center;
+	margin: auto;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	cursor: pointer;
+	justify-content: center
 }
 
 @media (min-width: 600px) {
-    .lang-selector {
-        justify-content: flex-end
-    }
+	.lang-selector {
+		justify-content: flex-end
+	}
 }
 
 .lang-flag {
-    width: 25px;
-    transition: all 100ms ease-in-out;
-    opacity: .3;
-    padding: 8px;
+	width: 25px;
+	transition: all 100ms ease-in-out;
+	opacity: .3;
+	padding: 8px;
 
 }
 
 .lang-flag:hover {
-    transform: scale(1.2);
-    transform-origin: 50% 50%;
-    opacity: 1;
-    transition: all 100ms ease-in-out;
+	transform: scale(1.2);
+	transform-origin: 50% 50%;
+	opacity: 1;
+	transition: all 100ms ease-in-out;
 }
 </style>
