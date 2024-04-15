@@ -6,15 +6,12 @@
 	</div>
 </template>
 
-
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-
 
 const imageContainerRef = ref<HTMLElement | null>(null);
 
 const handleScroll = () => {
-
 	const offset = window.scrollY;
 	if (imageContainerRef.value) {
 		imageContainerRef.value.style.transform = `translateY(-${offset * 0.075}px)`;
@@ -30,31 +27,36 @@ onUnmounted(() => {
 });
 </script>
 
-
 <style scoped>
 .art-image-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-width: 1000px;
+	/* Corrected min-width */
+	overflow: hidden;
+	/* Ensures content outside this container is not visible */
 }
-
-.art-image-container {
-	height: 120vh;
-}
-
 
 .art-image {
-	z-index: -1 !important;
+	z-index: -1;
 	opacity: 1;
-	padding-top: 0px;
 	transition: transform 0.2s ease-out;
-	/* Optional: Smoothens the movement */
+	width: 100%;
+	/* This will make sure the image takes up 100% of the .art-image-container */
+	max-width: none;
+	/* Overrides any default max-width */
 }
 
-.art-image {
-	/* height: auto; */
-	/* Changed to 'auto' to maintain aspect ratio */
-	width: 100%;
-	/* Ensure full width */
+@media (max-width: 1000px) {
+	.art-image-container {
+		min-width: 1000px;
+	}
+
+	.art-image {
+		min-width: 1000px;
+		margin-top: 50px;
+		object-fit: cover;
+	}
 }
 </style>
