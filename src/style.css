@@ -1,59 +1,83 @@
-.quote-text {
-    margin-top: 20px;
-    width: calc(100% - 20px);
+:root {
+	--dynamic-bg-color: #FF5A5A;
+	--blue-color: #4183FF;
+	--pink-color: #F870FF;
+	--orange-color: #FE9C00;
+	--yellow-color: #FEEA00;
+	--green-color: #009C34;
+	--red-color: #FF5A5A;
+	--red-color-transparent: #FF5A5Aaa;
 
-    overflow: hidden;
-    color: black;
-    font-size: 28px;
-    font-family: 'biro_script_standardregular';
+	--error-color: #FF5A5A;
+	--grey-color: #808080;
+	--light-grey-color: #dadada;
+	--white-color: #ffffff;
+	--black-color: #000;
+
+	--pen-color: #000F55
+}
+
+h2 {
+	letter-spacing: 1px;
+}
+
+.quote-text {
+	margin-top: 20px;
+	width: calc(100% - 20px);
+
+	overflow: hidden;
+	color: black;
+	font-size: 28px;
+	font-family: 'biro_script_standardregular';
 }
 
 .text-highlight-blue-bold {
-    /* font-size: 25px; */
-    display: inline-block;
-    max-height: 277px;
-    font-family: 'biro_script_standardbold';
-    color: #000F55;
-    margin-left: 4px;
-    margin-right: 4;
+	/* font-size: 25px; */
+	display: inline-block;
+	max-height: 277px;
+	font-family: 'biro_script_standardbold';
+	color: #000F55;
+	margin-left: 4px;
+	margin-right: 4;
 }
+
 .text-highlight-blue {
-    font-size: 25px;
-    display: inline-block;
-    max-height: 27px;
-    font-family: 'biro_script_standardregular';
-    color: #000F55;
-    margin-left: 4px;
-    margin-right: 4;
+	font-size: 25px;
+	display: inline-block;
+	max-height: 27px;
+	font-family: 'biro_script_standardregular';
+	color: #000F55;
+	margin-left: 4px;
+	margin-right: 4;
 }
 
 
 .action-button {
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    height: 40px;
-    background-color: #F0F0F0EE;
-    margin: auto;
-    display: flex;
-    border-radius: 12px;
-    align-items: center;
-    font-weight: 500;
-    color: black;
-    font-size: 16px;
-    justify-content: center;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+	background-color: #F0F0F0EE;
+	margin: auto;
+	display: flex;
+	border-radius: 12px;
+	align-items: center;
+	font-weight: 500;
+	color: black;
+	font-size: 16px;
+	justify-content: center;
 
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    transition: background-color 100ms ease-in-out;
+	font-weight: 700 !important;
+	letter-spacing: 1px;
+	transition: background-color 100ms ease-in-out;
 
-    margin-bottom: 8px;
-    margin-top: 8px;
+	margin-bottom: 8px;
+	margin-top: 8px;
 }
 
 .action-button:hover {
-    background-color: #E0E0E0;
-    transition: background-color 100ms ease-in-out;
+	background-color: #E0E0E0;
+	transition: background-color 100ms ease-in-out;
 
 }
 
@@ -61,17 +85,17 @@
 
 
 a {
-    text-decoration: none;
-    color: black;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    transition: background-color 100ms ease-in-out;
+	text-decoration: none;
+	color: black;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	transition: background-color 100ms ease-in-out;
 }
 
 a:hover {
-    color: #C80018;
-    transition: background-color 100ms ease-in-out;
+	color: #C80018;
+	transition: background-color 100ms ease-in-out;
 }
 
 
@@ -93,47 +117,50 @@ a:hover {
 } */
 
 .text {
-    max-width: 600px;
-    margin-left: 20px;
-    margin-right: 20px;
-        text-align: justify;
-        color: #000000;
-        font-size: 18px;
-        line-height: 28px; 
+	max-width: 600px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: justify;
+	color: #000000;
+	font-size: 18px;
+	line-height: 28px;
 
-        
+
 }
+
 .inline-handwriting {
-    display: inline-block;
-        height: 20px;
-        font-size: 25px;
-            display: inline-block;
-            max-height: 20px;
-            font-family: 'biro_script_standardregular';
-            color: #000F55;
-            margin-left: 4px;
-            margin-right: 4px;
+	display: inline-block;
+	height: 20px;
+	font-size: 25px;
+	display: inline-block;
+	max-height: 20px;
+	font-family: 'biro_script_standardregular';
+	color: #000F55;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 h1 {
-    color: #000F55;
-        user-select: none;
-        font-family: 'biro_script_standardregular';
-        font-size: 38px!important;
+	color: #000F55;
+	user-select: none;
+	font-family: 'biro_script_standardregular';
+	font-size: 38px !important;
 }
 
 
-body {
+body,
+html {
 
-    font-family: 'Hanken Grotesk' !important;
-    position: relative;
-    margin: 0;
+	font-family: 'Hanken Grotesk' !important;
+	position: relative;
+	height: 100%;
+	width: 100%;
 }
+
+
 
 #app {
-    position: relative;
-    max-width: 100%;
-    overflow-x: hidden;
+	position: relative;
+	max-width: 100%;
+	overflow-x: hidden;
 }
-
-

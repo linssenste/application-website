@@ -1,5 +1,5 @@
 <template>
-	<div class="application-area" id="application-area">
+	<div id="application-area">
 
 		<!-- <div class="lang-selector">
 			<img alt="german language selection" v-on:click="switchLanguage('de')" class="lang-flag"
@@ -9,9 +9,11 @@
 				 height="25" width="25" />
 		</div> -->
 
-		<WelcomeSection style="margin-top: 100px;" />
+		<WelcomeSection />
 
 		<RisographArtSection />
+
+		<FavoriteMusicSection style="margin-top: -400px; margin-bottom: 1500px;" />
 
 		<!-- <FavoriteMusicSection style="margin-top: -400px; margin-bottom: 1500px;" /> -->
 
@@ -102,53 +104,7 @@ import { onMounted } from 'vue';
 
 
 <style scoped>
-.application-area {
+#application-area {
 	position: relative;
-
-}
-</style>
-
-<style>
-html {
-	position: relative;
-	font-family: 'Hanken Grotesk' !important;
-}
-</style>
-
-
-
-
-<style scoped>
-.lang-selector {
-	align-content: center;
-	margin: auto;
-	padding-top: 5px;
-	margin-bottom: 5px;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	cursor: pointer;
-	justify-content: center
-}
-
-@media (min-width: 600px) {
-	.lang-selector {
-		justify-content: flex-end
-	}
-}
-
-.lang-flag {
-	width: 25px;
-	transition: all 100ms ease-in-out;
-	opacity: .3;
-	padding: 8px;
-
-}
-
-.lang-flag:hover {
-	transform: scale(1.2);
-	transform-origin: 50% 50%;
-	opacity: 1;
-	transition: all 100ms ease-in-out;
 }
 </style>

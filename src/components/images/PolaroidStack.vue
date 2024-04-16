@@ -1,36 +1,32 @@
 <template>
 	<div id="polaroid-stack">
 
+		<!-- stack animation section -->
 		<ul class="polaroids-list" ref="listRef">
 
 			<!-- music player card (aka last stack card) -->
-			<li class="polaroid prepend-slot" style="" :style="cardStyling(0)">
+			<li class="polaroid prepend-slot" :style="cardStyling(0)" data-testid="music-player-card">
 				<MusicPlayer v-on:playing="isPlaying = $event" playerId="stack-player" trackId="6X7R1KlDSwHK7wYwy94sYQ"
 							 ref="musicPlayerRef" id="music-player" />
 			</li>
 
 			<!-- polaroid stack -->
 			<li v-for="(card, index) in polaroids" :key="index" @click="toggleExpansion()"
-				:style="cardStyling(index + 1)" class="polaroid ">
+				:style="cardStyling(index + 1)" class="polaroid " :data-testid="`polaroid-card-${index}`">
 
+				<!-- themed image -->
 				<PolaroidImage :src="card.src" :alt="card.text" :id="`polaroid-${index}`"
-							   :overlay="(index == polaroids.length - 1) && (showText && !expanded)">
-
-				</PolaroidImage>
-
+							   :overlay="(index == polaroids.length - 1) && (showText && !expanded)" />
 			</li>
-
-
 
 			<!-- appended close button -->
 			<li class="polaroid append-slot" :style="cardStyling(polaroids.length + 1)"
-				:class="!expanded ? 'append-slot-hidden' : ''">
+				:class="!expanded ? 'append-slot-hidden' : ''" data-testid="close-button-card">
 
-				<button v-on:click="toggleExpansion">
+				<button v-on:click="toggleExpansion" data-testid="close-button">
 					<img src="../../assets/icons/chevron-left-solid.svg" alt="chevron left" title="Close polaroid stack"
 						 width="12" /></button>
 			</li>
-
 		</ul>
 
 
@@ -48,6 +44,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import PolaroidImage from '../../components/images/PolaroidImage.vue';
 import MusicPlayer from '../../components/music/MusicPlayer.vue'
+import { debounce } from '../../utilities';
 
 
 interface POLAROID_CARD {
@@ -74,7 +71,6 @@ const windowWidth = ref(window.innerWidth);
 
 onMounted(() => {
 
-
 	if (!listRef.value) return;
 	const observer = new IntersectionObserver(
 		([entry]) => {
@@ -99,14 +95,7 @@ onUnmounted(() => {
 });
 
 
-let debounceTimer;
 
-function debounce(func, delay) {
-	return function () {
-		clearTimeout(debounceTimer);
-		debounceTimer = setTimeout(func, delay);
-	};
-}
 
 function handleResize() {
 	windowWidth.value = window.innerWidth;
@@ -138,14 +127,9 @@ function toggleExpansion(): void {
 	expanded.value = !expanded.value;
 
 	if (window.innerWidth <= 850) showText.value = true;
-	else {
-		showText.value = !expanded.value
+	else showText.value = !expanded.value
 
-	}
-
-	if (!listRef.value) return;
-
-	setStyling()
+	if (listRef.value) setStyling()
 }
 
 defineExpose({ toggleExpansion })
