@@ -12,13 +12,13 @@
 			</div>
 
 			<!-- album cover image (lazy loaded) -->
-			<img draggable="false" class="cover-image" width="125" height="125" :alt="`${src.name} cover`"
+			<img draggable="false" class="cover-image" width="150" height="150" :alt="`${src.name} cover`"
 				 v-on:mouseenter="setHoveringState(true)" v-on:mouseleave="setHoveringState(false)"
 				 v-lazy="`https://i.scdn.co/image/ab67616d0000b273${src.cover}`" />
 
+			<!-- audio equalizer overlay if song is playing -->
 			<div v-if="selected" class="equalizer-overlay">
 				<AudioVisualizer :playing="playing" class="audio-equalizer" />
-
 			</div>
 
 		</div>
@@ -26,42 +26,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, watch, computed } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import VanillaTilt from 'vanilla-tilt'
 import AudioVisualizer from './AudioVisualizer.vue'
-const tiltableCover = ref<any>(null)
-
-const emit = defineEmits(['hovering'])
-const props = defineProps<{
-	src: {
-		cover: string,
-		name: string
-	},
-	playing: boolean
-	selected: boolean
-
-}>();
-
-
-props.src;
-
-const isHovering = ref(false)
-
-
-watch(isHovering, () => {
-	if (!isTouchDevice.value) emit('hovering', isHovering.value);
-})
-
-const isTouchDevice = computed(() => {
-	return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-})
-
-function setHoveringState(status: boolean): void {
-
-	if (!isTouchDevice.value) isHovering.value = status
-	else isHovering.value = false;
-}
-
+import { isTouchDevice } from '../../utilities'
+import { AlbumCover } from './AlbumCoverBanner.vue'
 onMounted(() => {
 	VanillaTilt.init(tiltableCover.value, {
 		max: 12,
@@ -74,7 +43,28 @@ onMounted(() => {
 	})
 })
 
+const tiltableCover = ref<any>(null)
 
+const emit = defineEmits(['hovering'])
+const props = defineProps<{
+	src: AlbumCover
+	playing: boolean
+	selected: boolean
+
+}>();
+props.src;
+
+const isHovering = ref(false)
+
+watch(isHovering, () => {
+	if (!isTouchDevice.value) emit('hovering', isHovering.value);
+})
+
+
+function setHoveringState(status: boolean): void {
+	if (!isTouchDevice.value) isHovering.value = status
+	else isHovering.value = false;
+}
 
 </script>
 
@@ -86,11 +76,11 @@ onMounted(() => {
 
 .cover-image {
 	position: relative;
-	width: 125px !important;
-	height: 125px !important;
+	width: 150px !important;
+	height: 150px !important;
 	transition: all 70ms ease-in-out;
 	transform: scale(1);
-	border-radius: 4px;
+	border-radius: 6px;
 	background-color: #ffffffaa;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
@@ -101,27 +91,21 @@ onMounted(() => {
 .tilt-cover {
 	position: relative;
 	padding: 6px;
-
 	transition: z-index 150ms ease-in-out;
 }
 
-
-
-
 .equalizer-overlay {
-	width: 125px;
-	height: 125px;
+	width: 150px;
+	height: 150px;
 	position: absolute;
 	background-color: #f0f0f0aa;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	top: 6px;
 	left: 6px;
-	border-radius: 4px;
-
+	border-radius: 6px;
 	transition: all 70ms ease-in-out;
 }
-
 
 .cover-card {
 	position: absolute;
@@ -138,7 +122,7 @@ onMounted(() => {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 
-	min-width: 125px;
+	min-width: 150px;
 	max-width: 275px;
 	white-space: nowrap;
 
@@ -167,11 +151,11 @@ onMounted(() => {
 	}
 
 	.tilt-cover:hover .equalizer-overlay {
-		transform: scale(1.35);
+		transform: scale(1.3);
 	}
 
 	.tilt-cover:hover .cover-image {
-		transform: scale(1.35);
+		transform: scale(1.3);
 		box-shadow: 0 0 18px 0px #aaaaaa55;
 	}
 
