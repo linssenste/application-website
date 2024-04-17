@@ -18,6 +18,11 @@
 				<div style="font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">Artists</div>
 			</div>
 
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<div style="font-size: 50px;">50</div>
+				<div style="font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">HOURS</div>
+			</div>
+
 		</div>
 
 		<div style="font-size: 15px; letter-spacing: 1px; color: var(--grey-color); margin-top: 15px;">{{ updateTime }}
