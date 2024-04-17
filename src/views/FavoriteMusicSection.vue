@@ -24,17 +24,17 @@
 									 :stats="analysisData.stats" />
 				</div>
 
-				<div id="3" class="content" :style="isVisible('3')">
+				<div id="2" class="content" :style="isVisible('2')">
 					<DecadesBarChart :decades="analysisData.decades" />
 
 				</div>
 
-				<div id="4" class="content" :style="isVisible('4')">
-					<FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" />
+				<div id="3" class="content" :style="isVisible('3')">
+					<FavoriteArtistsChart :visible="currentFocus == '3'" :artists="analysisData.artists" />
 
 				</div>
 
-				<div id="3" class="content" :style="isVisible('3')">
+				<div id="4" class="content" :style="isVisible('4')">
 					<GenreRadarChart :data="analysisData.genres" />
 				</div>
 				<div id="5" class="content" :style="isVisible('5')">
@@ -60,19 +60,43 @@
 
 					<h1>Get to know me through music!</h1>
 
-					<p>In meiner Freizeit gehe ich gerne <span id="text-swim">Schwimmen</span>. Ich finde den Sport aber
-						sehr sehr langweilig und
-						höre deswegen während des Trainings immer Musik</p>
+					<p style="line-height: 25px; font-size: 17px; text-align: justify;">
+					<p>
+						Music reveals who we are, and my playlist is no exception. To give you an insight into my
+						musical tastes, take a look at my swimming playlist (to make it less boring): 999 tracks from
+						331 albums by 156 artists, totalling <span id="text-1">over 59 hours of music.</span> </p>
+					<p>
+						My taste in music is largely contemporary, dominated by the <span id="text-2">sounds of the last
+							twenty years</span>. But
+						of course my collection also includes timeless classics, such as Queen in the 80s.
 
+					</p>
+					<p>
+						The swiss musician Faber is objectivly my <span id="text-3">favourite artist</span> with 35
+						songs, closely followed
+						by AnnenMayKantereit. This selection is a reflection of my favourite genres: <span
+							  id="text-4">alternative,
+							hip-hop, pop and indie.</span>
+					</p>
+					<p>
+						The overall mood of my playlist tends to be danceable and melancholic, with a preference for
+						energetic over relaxed and electronic over acoustic sounds.
+					</p>
 
-					<span id="text-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+					</p>
+
+					<!-- <span id=" text-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 						tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> <span
-						  id="text-2">At vero eos et accusam et justo duo dolores et ea rebum.</span> <span id="text-3">
-						Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span> <span
-						  id="text-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-						tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> At vero eos
-					et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-					Lorem ipsum dolor sit amet.
+							  id="text-2">At vero eos et accusam et justo duo dolores et ea rebum.</span> <span
+							  id="text-3">
+							Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span>
+						<span id="text-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+							eirmod
+							tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> At vero
+						eos
+						et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+						est
+						Lorem ipsum dolor sit amet. -->
 
 					<!-- <Button style="margin-top: 50px" color="red" text="Open python notebook">
 					</Button> -->
@@ -241,6 +265,7 @@ function selectedTrackEvent(trackId: string) {
 
 	padding: 30px;
 	padding-top: 50px;
+	padding-right: 50px;
 	height: 100vh;
 }
 

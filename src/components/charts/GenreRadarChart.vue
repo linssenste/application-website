@@ -1,5 +1,10 @@
 <template>
 	<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
+	<div style="position: relative; width: 100%;">
+		<span v-for="other in Object.keys(data.detailed)"
+			  style="background-color: var(--light-grey-color); height: 20px; width: fit-content; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 6px;">
+			{{ other }}</span>
+	</div>
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +21,7 @@ const processData = () => {
 	if (!props.data) return;
 
 	// extracting the top 8 genres
-	const topGenres = Object.entries(props.data)
+	const topGenres = Object.entries(props.data.general)
 		.sort((a, b) => b[1] - a[1]) // Sort genres by count, descending
 		.slice(0, 8)
 		.reduce((acc, [key, value]) => {
