@@ -18,5 +18,9 @@ jobs:
           pip install notebook requests numpy pandas matplotlib
 
       - name: Execute Jupyter Notebook
+        env:
+            CLIENT_ID: ${{ secrets.CLIENT_ID }}
+            CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+            PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
         run: |
           jupyter nbconvert --execute --inplace --to notebook spotify_analysis.ipynb
