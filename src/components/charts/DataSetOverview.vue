@@ -20,11 +20,16 @@
 
 		</div>
 
+		<div style="font-size: 15px; letter-spacing: 1px; color: var(--grey-color); margin-top: 15px;">{{ updateTime }}
+		</div>
+
 	</div>
 </template>
 
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+
 interface DataStats {
 	albums: number,
 	tracks: number,
@@ -32,8 +37,25 @@ interface DataStats {
 }
 const props = defineProps<{
 	stats: DataStats;
+	time: number
 }>();
 
+const updateTime = computed(() => {
+	const date = new Date(props.time * 1000);
+
+	// Create a DateTimeFormat object with German locale and custom options for formatting
+	const dateFormatter = new Intl.DateTimeFormat('de-DE', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
+	});
+
+	// Format the date and return it
+	return dateFormatter.format(date) + ' Uhr';
+})
 
 props.stats
 </script>

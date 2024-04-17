@@ -27,7 +27,8 @@
 					</div>
 
 					<div id="1" class="content" :style="isVisible('1')" style="margin-top: 50px;">
-						<DataSetOverview :visible="currentFocus == '1'" :stats="analysisData.stats" />
+						<DataSetOverview :visible="currentFocus == '1'" :time="analysisData.update_time"
+										 :stats="analysisData.stats" />
 					</div>
 
 					<div id="3" class="content" :style="isVisible('3')">
@@ -88,14 +89,14 @@
 					</Button>
 				</div>
 			</div>
+
 		</div>
 
-		LAST UPDATE: YESTERDAY
 	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
 import MusicPlayer from '../components/music/MusicPlayer.vue'
 import { annotate } from 'rough-notation';
@@ -119,6 +120,7 @@ const isPlaying = ref(false)
 const rightSideRef = ref<HTMLElement | null>(null);
 const leftSideRef = ref(<HTMLElement | null>null);
 let currentFocus = ref(null); // This will store the ID of the div in the center
+
 
 function isVisible(id: string): string {
 	return currentFocus.value == id ? 'opacity: 1' : 'opacity: .15; pointer-events: none'
