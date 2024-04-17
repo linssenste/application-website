@@ -4,23 +4,19 @@
 		<!-- stack animation section -->
 		<ul class="polaroids-list" ref="listRef">
 
-			<!-- music player card (aka last stack card) -->
-			<li class="polaroid prepend-slot" :style="cardStyling(0)" data-testid="music-player-card">
-				<MusicPlayer v-on:playing="isPlaying = $event" playerId="stack-player" trackId="6X7R1KlDSwHK7wYwy94sYQ"
-							 ref="musicPlayerRef" id="music-player" />
-			</li>
 
 			<!-- polaroid stack -->
-			<li v-for="(card, index) in polaroids" :key="index" @click="toggleExpansion()"
-				:style="cardStyling(index + 1)" class="polaroid " :data-testid="`polaroid-card-${index}`">
+			<li v-for="(card, index) in polaroids" :key="index" @click="toggleExpansion()" :style="cardStyling(index)"
+				class="polaroid " :data-testid="`polaroid-card-${index}`">
+
 
 				<!-- themed image -->
 				<PolaroidImage :src="card.src" :alt="card.text" :id="`polaroid-${index}`"
-							   :overlay="(index == polaroids.length - 1) && (showText && !expanded)" />
+							   :overlay="(index == polaroids.length) && (showText && !expanded)" />
 			</li>
 
 			<!-- appended close button -->
-			<li class="polaroid append-slot" :style="cardStyling(polaroids.length + 1)"
+			<li class="polaroid append-slot" :style="cardStyling(polaroids.length)"
 				:class="!expanded ? 'append-slot-hidden' : ''" data-testid="close-button-card">
 
 				<button v-on:click="toggleExpansion" data-testid="close-button">
@@ -43,7 +39,6 @@
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import PolaroidImage from '../../components/images/PolaroidImage.vue';
-import MusicPlayer from '../../components/music/MusicPlayer.vue'
 import { debounce } from '../../utilities';
 
 
@@ -58,25 +53,23 @@ const props = defineProps<{
 
 props.polaroids;
 
-const isPlaying = ref(false)
 const showText = ref(true); // hide text part if expanded
 const expanded = ref(false);
 
 // references
 const listRef = ref<HTMLElement | null>(null);
-const musicPlayerRef = ref<HTMLElement | null>(null)
 
 const windowWidth = ref(window.innerWidth);
 
 
 onMounted(() => {
 
+
 	if (!listRef.value) return;
 	const observer = new IntersectionObserver(
 		([entry]) => {
 			if (!entry.isIntersecting) {
 				if (expanded.value) toggleExpansion();
-				if (isPlaying.value && musicPlayerRef.value) (musicPlayerRef.value as any).togglePlaying()
 			}
 		},
 		{ threshold: 0 }
@@ -291,12 +284,5 @@ ul.polaroids-list li.polaroid {
 	width: 0px !important;
 	opacity: 0;
 	pointer-events: none
-}
-
-
-#music-player {
-	position: relative;
-	height: 352px;
-	width: 300px;
 }
 </style>
