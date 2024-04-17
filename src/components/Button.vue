@@ -1,33 +1,43 @@
 <template>
 
 	<button class="action-btn">
-		<span class="circle" aria-hidden="true">
+		<span class="circle" aria-hidden="true" :style="`background: var(--${color ?? 'black'}-color)`">
 			<span class="icon arrow"></span>
 		</span>
-		<span class="button-text">Show gallery oder so </span>
+		<span class="button-text" :style="`color: var(--${color ?? 'black'}-color)`">
+			{{ text }}
+		</span>
 	</button>
 
 </template>
 
+<script setup lang="ts">
 
+const props = defineProps<{
+	color?: string;
+	text: string
+}>();
+props.color;
+</script>
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Mukta:700');
 
 button {
 	position: relative;
 	display: inline-block;
-	cursor: pointer;
+	cursor: pointer !important;
 	outline: none;
 	border: 0;
 	vertical-align: middle;
 	text-decoration: none;
 	background: transparent;
 	padding: 0;
-	font-size: inherit;
-	font-family: inherit;
+	font-size: 18px !important;
+	font-family: 'Mukta';
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+	opacity: 1 !important;
 }
 
 button.action-btn {
@@ -47,7 +57,7 @@ button.action-btn .circle {
 	display: block;
 	width: 3rem;
 	height: 3rem;
-	background: var(--black-color);
+	/* background: var(--black-color); */
 	border-radius: 1.625rem;
 }
 
@@ -55,7 +65,7 @@ button.action-btn .button-text {
 	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1);
 	transition: all 0.45s cubic-bezier(0.65, 0, .076, 1) -webkit-;
 	padding-left: 30px;
-	color: var(--black-color);
+	/* color: var(--black-color); */
 	font-weight: 700;
 	line-height: 1.6;
 	text-align: center;
@@ -108,7 +118,7 @@ button.action-btn .circle .icon.arrow::before {
 	}
 
 	button:hover .button-text {
-		color: var(--white-color);
+		color: var(--white-color) !important;
 	}
 }
 </style>

@@ -28,7 +28,8 @@
 
 				</div>
 
-				<Button v-on:click="toggleGallery" style="margin-top: 20px; margin-bottom: 20px" />
+				<Button v-on:click="toggleGallery" color="black" text="Show Gallery"
+						style="margin-top: 20px; margin-bottom: 20px" />
 			</template>
 
 		</PolaroidStack>
