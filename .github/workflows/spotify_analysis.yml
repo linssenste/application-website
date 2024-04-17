@@ -21,7 +21,7 @@ jobs:
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          PLAYLIST_ID: ${{ variables.CLIENT_SECRET }}
+          PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
         run: |
           jupyter nbconvert --to notebook --execute spotify_analysis_script.ipynb --output spotify_analysis_script.ipynb
 
