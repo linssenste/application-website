@@ -7,8 +7,7 @@ on:
     branches:
       - main
     paths:
-      - 'spotify_analysis_script.ipynb' 
-      - 'src/**'  
+      - '/spotify_analysis_script.ipynb' 
   pull_request:
     branches:
       - main
