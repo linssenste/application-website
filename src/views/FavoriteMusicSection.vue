@@ -35,7 +35,7 @@
 				</div>
 
 				<div id="3" class="content" :style="isVisible('3')">
-					<GenreRadarChart :data="analysisData.genres.general" />
+					<GenreRadarChart :data="analysisData.genres" />
 				</div>
 				<div id="5" class="content" :style="isVisible('5')">
 					<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
@@ -58,7 +58,7 @@
 					<KeepScrollingAnimation />
 
 
-					<h1>Analysis of my swim playlist</h1>
+					<h1>Get to know me through music!</h1>
 
 					<p>In meiner Freizeit gehe ich gerne <span id="text-swim">Schwimmen</span>. Ich finde den Sport aber
 						sehr sehr langweilig und
@@ -74,8 +74,8 @@
 					et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
 					Lorem ipsum dolor sit amet.
 
-					<Button style="margin-top: 50px" color="red" text="Open python notebook">
-					</Button>
+					<!-- <Button style="margin-top: 50px" color="red" text="Open python notebook">
+					</Button> -->
 				</div>
 			</div>
 
@@ -89,7 +89,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
 import MusicPlayer from '../components/music/MusicPlayer.vue'
 import { annotate } from 'rough-notation';
-import Button from '../components/Button.vue'
+// import Button from '../components/Button.vue'
 
 import KeepScrollingAnimation from '../components/KeepScrollingAnimation.vue'
 import { watch } from 'vue';
