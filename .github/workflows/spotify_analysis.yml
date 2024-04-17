@@ -21,8 +21,7 @@ jobs:
         run: |
           pwd  # Print the current working directory
           ls   # List files in the current directory
-          jupyter nbconvert --to notebook --execute spotify_analysis_script.ipynb --output spotify_analysis_script.ipynb
-
+          jupyter nbconvert --execute --inplace --to notebook spotify_analysis_script.ipynb
       - name: Commit and Push if changes are present
         run: |
           git config --global user.name '${{ github.actor }}'
