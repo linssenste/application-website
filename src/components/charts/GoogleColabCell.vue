@@ -90,6 +90,7 @@ function runCodeBlock(openLink: boolean = true): void {
 .container {
 	position: relative;
 	display: flex;
+	margin-top: 35px;
 	flex-direction: row;
 	min-height: 250px;
 	gap: 10px;

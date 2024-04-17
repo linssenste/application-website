@@ -1,19 +1,17 @@
 <template>
-	<div style="position: relative; padding-top: 50px; padding-bottom: 50px; padding-left: 50px;">
+	<div class="favs-container">
 		<h2><span id="top-header">TOP 5 ARTISTS</span></h2>
 		<div v-for="(artist, index) in sortedArtists" class="artist-card">
-			<div style="font-size: 18px; padding-right: 20px;"><b>{{ index + 1 }}.</b></div>
-			<img draggable="false" height="90" width="90" style="border-radius: 12px; object-fit: cover;"
-				 :src="artist.img" />
-			<div style="width: 300px">
-				<b style="font-size: 18px;">{{ artist.name }}</b>
-				<div style="font-size: 16px; margin-top: 5px; letter-spacing: 1px; color: var(--grey-color)">
+			<div class="artist-index"><b>{{ index + 1 }}.</b></div>
+			<img draggable="false" height="90" width="90" class="artist-profile-picture" :src="artist.img" />
+			<div>
+				<b class="artist-name">{{ artist.name }}</b>
+				<div class="track-count">
 					<span>{{ artist.tracks }} TRACKS</span>
 				</div>
 			</div>
 
 		</div>
-
 	</div>
 </template>
 
@@ -65,16 +63,36 @@ watch(() => props.visible, () => {
 	position: relative;
 	display: flex;
 	padding: 10px;
+	padding-left: 35px;
 	flex-direction: row;
 	align-items: center;
 	gap: 20px;
 	border-radius: 6px;
-	/* padding-left: 40px; */
-	/* cursor: pointer; */
-	/* transition: background-color 100ms ease-in-out; */
 }
 
-/* .artist-card:hover {
-	background-color: #f0f0f0;
-} */
+.artist-index {
+	font-size: 18px;
+	padding-right: 20px;
+}
+
+.artist-profile-picture {
+	border-radius: 12px;
+	object-fit: cover;
+}
+
+.favs-container {
+	position: relative;
+	padding-left: 25px;
+}
+
+.track-count {
+	font-size: 16px;
+	margin-top: 5px;
+	letter-spacing: 1px;
+	color: var(--grey-color)
+}
+
+.artist-name {
+	font-size: 18px;
+}
 </style>

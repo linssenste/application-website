@@ -1,7 +1,5 @@
 <template>
-	<div>
-		<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series"></VueApexCharts>
-	</div>
+	<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
 </template>
 
 <script lang="ts" setup>
@@ -14,28 +12,27 @@ const props = defineProps<{
 }>();
 
 
-
-// Function to process the loaded data and update the chart
 const processData = () => {
 	if (!props.data) return;
 
-	// Extracting the top 8 genres
+	// extracting the top 8 genres
 	const topGenres = Object.entries(props.data)
 		.sort((a, b) => b[1] - a[1]) // Sort genres by count, descending
-		.slice(0, 8) // Take the top 8
+		.slice(0, 8)
 		.reduce((acc, [key, value]) => {
 			acc.genres.push(key);
 			acc.counts.push(value);
 			return acc;
 		}, { genres: [], counts: [] });
 
-	// Updating chartOptions and series with the new data
+	// updating new data
 	chartOptions.value.xaxis.categories = topGenres.genres.map(genre => genre.toUpperCase());
 	series.value[0].data = topGenres.counts;
 };
 
 
 const chartOptions = ref({
+
 	markers: { size: 0 },
 	chart: {
 		fontFamily: 'Hanken Grotesk',
@@ -68,21 +65,21 @@ const chartOptions = ref({
 			polygons: {
 				strokeColors: 'var(--light-grey-color)', // Adjust the grey tone for the radar net here
 				fill: {
-					colors: ['transparent'] // Ensure radar areas are transparent
+					colors: ['transparent']
 				}
 			}
 		}
 	},
-	// Add fill settings for radar area color
+
 	fill: {
-		type: 'solid', // Specify the fill type, solid for a solid color background
-		colors: ['var(--red-color-transparent)'] // Specify the grey color for the radar area, you can adjust the shade as needed
+		type: 'solid',
+		colors: ['var(--red-color-transparent)']
 	},
-	// Add stroke settings for radar line color
+
 	stroke: {
-		show: true, // Ensure the stroke lines are shown
-		colors: ['var(--red-color)'], // Specify the blue color for the radar lines, you can adjust the shade as needed
-		width: 4 // Set the width of the radar lines, adjust as needed
+		show: true,
+		colors: ['var(--red-color)'],
+		width: 4
 	},
 });
 

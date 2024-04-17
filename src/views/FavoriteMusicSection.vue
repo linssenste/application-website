@@ -7,58 +7,47 @@
 
 
 		<div class="content-wrapper">
-			<div class="scrollable-content">
+			<div class="scrollable-content" ref="leftSideRef">
 
-				<div ref="leftSideRef" class="content-area">
 
-					<div id="music-player" class="music-player-container content" :style="isVisible('music-player')">
-						<MusicPlayer playerId="favorite-music-player"
-									 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
-									 ref="musicPlayerRef" :trackId="selectedTrack" v-on:playing="isPlaying = $event" />
-						<button v-on:click="selectRandomTrack()"
-								style="width: 100%; margin-top: 15px; border-radius: 12px;">
-							<img src="../assets/icons/shuffle.svg" />
-							SHUFFLE</button>
-					</div>
+				<div id="music-player" class="music-player-container content" :style="isVisible('music-player')">
+					<MusicPlayer playerId="favorite-music-player"
+								 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
+								 ref="musicPlayerRef" :trackId="selectedTrack" v-on:playing="isPlaying = $event" />
+					<button v-on:click="selectRandomTrack()">
+						<img src="../assets/icons/shuffle.svg" />
+						SHUFFLE</button>
+				</div>
 
-					<div id="swim" class="content" :style="isVisible('swim')"
-						 style="margin-top: 50px; position: relative; display: flex; flex-direction: row; justify-content: center;">
-						<PolaroidImage alt="swimming" src="src/assets/polaroid_swimming.png" />
-					</div>
+				<div id="1" class="content" :style="isVisible('1')">
+					<DataSetOverview :visible="currentFocus == '1'" :time="analysisData.update_time"
+									 :stats="analysisData.stats" />
+				</div>
 
-					<div id="1" class="content" :style="isVisible('1')" style="margin-top: 50px;">
-						<DataSetOverview :visible="currentFocus == '1'" :time="analysisData.update_time"
-										 :stats="analysisData.stats" />
-					</div>
-
-					<div id="3" class="content" :style="isVisible('3')">
-						<DecadesBarChart :decades="analysisData.decades" />
-
-					</div>
-
-					<div id="4" class="content" :style="isVisible('4')">
-						<FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" />
-
-					</div>
-
-					<div id="3" class="content" :style="isVisible('3')">
-						<GenreRadarChart :data="analysisData.genres.general" />
-
-						<!-- <div v-for="other in Object.keys(analysisData.genres.detailed)" class="other-chip">{{ other }}
-						</div> -->
-					</div>
-					<div id="5" class="content" :style="isVisible('5')">
-						<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
-
-					</div>
-
-					<div id="6" class="content" :style="isVisible('6')">
-						<GoogleColabCell :visible="currentFocus == '6'" />
-
-					</div>
-
+				<div id="3" class="content" :style="isVisible('3')">
+					<DecadesBarChart :decades="analysisData.decades" />
 
 				</div>
+
+				<div id="4" class="content" :style="isVisible('4')">
+					<FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" />
+
+				</div>
+
+				<div id="3" class="content" :style="isVisible('3')">
+					<GenreRadarChart :data="analysisData.genres.general" />
+				</div>
+				<div id="5" class="content" :style="isVisible('5')">
+					<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
+
+				</div>
+
+				<div id="6" class="content" :style="isVisible('6')">
+					<GoogleColabCell :visible="currentFocus == '6'" />
+
+				</div>
+
+
 			</div>
 
 
@@ -96,7 +85,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
 import MusicPlayer from '../components/music/MusicPlayer.vue'
 import { annotate } from 'rough-notation';
@@ -108,10 +97,11 @@ import analysisData from '../assets/analysis/export-spotify-analysis.json'
 import GenreRadarChart from '../components/charts/GenreRadarChart.vue'
 import FavoriteArtistsChart from '../components/charts/FavoriteArtistsChart.vue';
 import DataSetOverview from '../components/charts/DataSetOverview.vue';
-import PolaroidImage from '../components/images/PolaroidImage.vue';
+
 import AudioFeaturesChart from '../components/charts/AudioFeaturesChart.vue'
 import DecadesBarChart from '../components/charts/DecadesBarChart.vue'
 import GoogleColabCell from '../components/charts/GoogleColabCell.vue'
+import { RoughAnnotation } from 'rough-notation/lib/model';
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
 const selectedTrack = ref<string | null>(null)
 const isPlaying = ref(false)
@@ -174,7 +164,7 @@ const handleScroll = () => {
 
 };
 
-let currentAnnotation = null
+let currentAnnotation: RoughAnnotation | null = null
 
 watch(currentFocus, () => {
 
@@ -220,6 +210,7 @@ function selectedTrackEvent(trackId: string) {
 
 .scrollable-content {
 	width: calc(100% - 600px);
+
 	overflow-x: hidden;
 
 
@@ -227,13 +218,15 @@ function selectedTrackEvent(trackId: string) {
 	align-items: center;
 	flex-direction: column;
 
-	justify-content: space-between;
+	gap: 35px !important;
+	justify-content: center;
 	position: relative;
 
 }
 
 .content-area {
 	max-width: calc(100% - 50px);
+	background-color: green
 }
 
 .right-side {
@@ -255,16 +248,24 @@ function selectedTrackEvent(trackId: string) {
 
 
 .content {
+	width: 100%;
+	max-width: 650px;
 	transition: opacity 150ms ease-in-out;
 }
 
 .music-player-container {
-	margin-top: 30px;
+	margin-top: 45px;
+	margin-bottom: 35px;
 	/* background-color: grey; */
-	height: 382px;
+
 	width: 100%;
 
-	padding: 20px;
 
+}
+
+.music-player-container button {
+	width: 100%;
+	margin-top: 15px;
+	border-radius: 12px;
 }
 </style>

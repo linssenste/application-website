@@ -1,10 +1,8 @@
 <template>
 	<div class="feature-graph">
-		<div
-			 style="position: absolute; left: 50%; height: calc( 100% - 50px); width: 0px; top: 30px;   border-left: 2px dotted var(--grey-color); z-index: 10;;">
-		</div>
+		<div class="half-divider-line" />
 
-		<div style="text-align: center; color:  var(--grey-color); font-size: 12px;"> 50 %</div>
+
 		<!-- Danceability -->
 		<div class="feature" style="margin-top: 40px;">
 			<div class="description"><span id="danceability-left">Chillout</span></div>
@@ -97,7 +95,7 @@ function createUnderlineAnimation(category: string): void {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 40px;
 }
 
 .feature {
@@ -130,5 +128,16 @@ function createUnderlineAnimation(category: string): void {
 	width: 20px;
 	background-color: var(--red-color);
 	border-radius: 50%;
+}
+
+.half-divider-line {
+	position: absolute;
+	left: 50%;
+	height: calc(100% - 70px);
+	width: 0px;
+	top: 30px;
+	border-left: 2px dotted var(--grey-color);
+	z-index: 10;
+
 }
 </style>

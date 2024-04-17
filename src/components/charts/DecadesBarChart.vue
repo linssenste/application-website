@@ -1,12 +1,10 @@
 <template>
-	<div style="padding-top: 30px; padding-bottom: 20px;">
-		<VueApexCharts width="100%" type="bar" :options="chartOptions" :series="series"></VueApexCharts>
-	</div>
+	<VueApexCharts width="100%" type="bar" :options="chartOptions" :series="series" />
 </template>
 
 <script lang="ts" setup>
 import VueApexCharts from "vue3-apexcharts";
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps<{
 	decades: any,
@@ -23,7 +21,7 @@ const series = ref([
 const chartOptions = ref({
 
 	tooltip: {
-		enabled: false // Disable hover effects by turning off the tooltip
+		enabled: true // Disable hover effects by turning off the tooltip
 	},
 	chart: {
 		fontFamily: 'Hanken Grotesk',
