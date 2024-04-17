@@ -19,4 +19,4 @@ jobs:
 
       - name: Execute Jupyter Notebook
         run: |
-          jupyter nbconvert --execute --inplace --to notebook spotify_analysis_script.ipynb
+          jupyter nbconvert --execute --inplace --to notebook spotify_analysis.ipynb
