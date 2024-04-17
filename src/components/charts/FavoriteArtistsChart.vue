@@ -12,9 +12,6 @@
 				</div>
 			</div>
 
-			<div style=" font-size: 18px; ">
-				{{ artist.occurrence.toFixed(2) }} %
-			</div>
 		</div>
 
 	</div>

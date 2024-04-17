@@ -36,13 +36,15 @@
 					</div>
 
 					<div id="4" class="content" :style="isVisible('4')">
-						<!-- <FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" /> -->
+						<FavoriteArtistsChart :visible="currentFocus == '4'" :artists="analysisData.artists" />
 
 					</div>
 
 					<div id="3" class="content" :style="isVisible('3')">
 						<GenreRadarChart :data="analysisData.genres.general" />
-						{{ analysisData.genres.detailed }}
+
+						<!-- <div v-for="other in Object.keys(analysisData.genres.detailed)" class="other-chip">{{ other }}
+						</div> -->
 					</div>
 					<div id="5" class="content" :style="isVisible('5')">
 						<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
