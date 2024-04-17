@@ -1,7 +1,5 @@
 name: Run Jupyter Notebook
-
 on: [push]
-
 jobs:
   run-notebook:
     runs-on: ubuntu-latest
