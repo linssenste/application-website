@@ -1,19 +1,6 @@
 name: Run Jupyter Notebook
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  push:
-    branches:
-      - main
-    paths:
-      - '/spotify_analysis_script.ipynb' 
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'spotify_analysis_script.ipynb'
-
+on: [push]
 
 jobs:
   run-notebook:
