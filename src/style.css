@@ -17,6 +17,35 @@
 	--pen-color: #000F55
 }
 
+button {
+	font-family: 'Mukta';
+	padding: 12px; 
+	border: 12px;
+	padding-left: 36px;
+	padding-right: 36px;
+	outline: none;
+	font-size: 18px;
+	letter-spacing: 1px;
+	border: none;
+	border-radius: 40px;
+	background-color: var(--light-grey-color); 
+	cursor: pointer;
+	opacity: .75;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	flex-direction: row;
+	transition: opacity 150ms ease-in-out;
+}
+button img {
+	height: 18px
+}
+button:hover {
+	opacity: 1;
+}
+
 h2 {
 	letter-spacing: 1px;
 }
@@ -150,17 +179,13 @@ h1 {
 
 body,
 html {
-
 	font-family: 'Hanken Grotesk' !important;
 	position: relative;
-	height: 100%;
+	padding: 0px!important; 
+	margin: 0px!important;
+
 	width: 100%;
 }
 
 
 
-#app {
-	position: relative;
-	max-width: 100%;
-	overflow-x: hidden;
-}
