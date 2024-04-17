@@ -1,5 +1,12 @@
 name: Run Jupyter Notebook
-on: [push]
+
+on:
+  push:
+    paths:
+      - 'spotify_analysis.ipynb'  # Runs on push to specific notebook
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+
 jobs:
   run-notebook:
     runs-on: ubuntu-latest
@@ -25,3 +32,12 @@ jobs:
           PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
         run: |
           jupyter nbconvert --execute --inplace --to notebook spotify_analysis.ipynb
+
+      - name: Commit and Push if changes are present
+        run: |
+          git config --global user.name '${{ github.actor }}'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
+          git add src/assets/analysis/spotify-analysis.json  # Add the JSON file at the specified path
+          git status  # Optional, for debugging to see what changes are being committed
+          git commit -m "Updated notebook and JSON output in src/assets/analysis" || echo "No changes to commit"
+          git push
