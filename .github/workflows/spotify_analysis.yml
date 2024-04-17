@@ -3,10 +3,7 @@ on: [push]
 jobs:
   run-notebook:
     runs-on: ubuntu-latest
-    env:
-      CLIENT_ID: '6594e594a304499cbadcaaf40bc64370'
-      CLIENT_SECRET: '1cf6175b63204b0c8b4fe02d30b49988'
-      PLAYLIST_ID: '0L58LDDYpBh7hncDnluUPl'
+    environment: production
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -20,7 +17,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install notebook requests numpy pandas matplotlib
-          
+
       - name: Execute Jupyter Notebook
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
         run: |
           jupyter nbconvert --execute --inplace --to notebook spotify_analysis.ipynb
