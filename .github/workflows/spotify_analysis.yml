@@ -3,7 +3,7 @@ name: Run Jupyter Notebook
 on:
   push:
     paths:
-      - 'spotify_analysis.ipynb'  # Runs on push to specific notebook
+      - 'spotify_analysis_script.ipynb'  # Runs on push to specific notebook
   schedule:
     - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
 
@@ -31,7 +31,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
         run: |
-          jupyter nbconvert --execute --inplace --to notebook spotify_analysis.ipynb
+          jupyter nbconvert --execute --inplace --to notebook spotify_analysis_script.ipynb
 
       - name: Commit and Push if changes are present
         run: |
