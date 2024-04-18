@@ -69,7 +69,8 @@
 							from
 							{{ analysisData.stats.albums }} albums by {{ analysisData.stats.artists }} artists,
 							totalling
-							<span id="text-1">over {{ analysisData.stats.duration ?? 0 / 3600 }} hours of music.</span>
+							<span id="text-1">over {{ Math.ceil((analysisData.stats.duration ?? 0) / 60) }} hours of
+								music.</span>
 						</p>
 						<p>
 							My taste in music is largely contemporary, dominated by the <span id="text-2">sounds of the

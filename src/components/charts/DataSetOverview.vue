@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="number-stat">
-				<div class="number-stat value">{{ (stats.duration ?? 0) / 3600 }}</div>
+				<div class="number-stat value">{{ Math.ceil((stats.duration ?? 0) / 60) }}</div>
 				<div class="number-stat key">HOURS</div>
 			</div>
 
