@@ -13,15 +13,25 @@
 
 		<RisographArtSection />
 
-		<FavoriteMusicSection style="margin-top: -400px; margin-bottom: 1500px;" />
+		<FavoriteMusicSection style="margin-top: -400px; margin-bottom: 0px;" />
 
-		<!-- <FavoriteMusicSection style="margin-top: -400px; margin-bottom: 1500px;" /> -->
 
-		<!-- <InclusionSection /> -->
-		<!-- <MusicLoveSection style="margin-top: -200px;" />
+		<!-- <RisographArtSection /> -->
+
+		<!-- <ProjectsSection style="margin-top: 200px" /> -->
+
+		<iframe src="https://instax.linssenste.dev"
+				style="width: 100%; height: 100vh; border: none; outline: none"></iframe>
+
+		<InclusionSection style="z-index: 10" />
+
+		<!--
 	> -->
+		<RisographArtSection style="margin-top: 300px; z-index: -1;" />
 
-		<!-- <iframe src="http://localhost:5173/" style="width: 100%; height: 100vh; border: none; outline: none"></iframe> -->
+
+
+		<EndSection style="z-index: 10; margin-top: -600px; padding-bottom: 100px;" />
 
 		<!-- <RisographArtSection :small="true" style="margin-top: -150px" /> -->
 
@@ -39,12 +49,12 @@
         <RisographArtSection :small="true" style="margin-top: -75px" />
         <PolaroidCreativitySection style="margin-bottom: -180px; margin-top: -100px;" />
 
-        <ProjectsSection style="margin-top: 200px" />
+
 
     
         <RisographArtSection :small="true" style="margin-top: -150px" />
 
-        <EndSection style="z-index: 10; margin-top: 50px; padding-bottom: 100px;" /> -->
+         -->
 
 		<!--     <GeoDalliDalliSection />
 
@@ -73,10 +83,10 @@ import RisographArtSection from './views/RisographArtSection.vue'
 import FavoriteMusicSection from './views/FavoriteMusicSection.vue'
 // import InstagramMusicSection from './views/InstagramMusicSection.vue'
 // import PolaroidCreativitySection from './views/PolaroidCreativitySection.vue';
-// import EndSection from './views/EndSection.vue';
+import EndSection from './views/EndSection.vue';
 
 import InclusionSection from './views/InclusionSection.vue';
-import { onMounted } from 'vue';
+
 
 
 // onMounted(() => {

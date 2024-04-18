@@ -39,12 +39,14 @@
 				</div>
 				<div id="5" class="content" :style="isVisible('5')">
 					<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
-
 				</div>
 
 				<div id="6" class="content" :style="isVisible('6')">
-					<GoogleColabCell :visible="currentFocus == '6'" />
+					<MusicVideos />
+				</div>
 
+				<div id="7" class="content" :style="isVisible('7')">
+					<GoogleColabCell :visible="currentFocus == '7'" />
 				</div>
 
 
@@ -96,6 +98,12 @@
 
 		</div>
 
+		<div style=" display: flex; flex-direction: row; justify-content: space-between;">
+			<PolaroidImage src="/src/assets/polaroids/polaroid-superbloom.webp" alt="t" />
+			<PolaroidImage src="/src/assets/polaroids/polaroid-lolla.webp" alt="t" />
+			<PolaroidImage src="/src/assets/polaroids/polaroid-frequency.webp" alt="t" />
+			<PolaroidImage src="/src/assets/polaroids/polaroid-tempelhof.webp" alt="t" />
+		</div>
 	</div>
 </template>
 
@@ -111,12 +119,14 @@ import analysisData from '../assets/analysis/export-spotify-analysis.json'
 import GenreRadarChart from '../components/charts/GenreRadarChart.vue'
 import FavoriteArtistsChart from '../components/charts/FavoriteArtistsChart.vue';
 import DataSetOverview from '../components/charts/DataSetOverview.vue';
+import MusicVideos from '../components/charts/MusicVideos.vue';
 
 import AudioFeaturesChart from '../components/charts/AudioFeaturesChart.vue'
 import DecadesBarChart from '../components/charts/DecadesBarChart.vue'
 import GoogleColabCell from '../components/charts/GoogleColabCell.vue'
 import { RoughAnnotation } from 'rough-notation/lib/model';
 import Button from '../components/Button.vue';
+import PolaroidImage from '../components/images/PolaroidImage.vue';
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
 const selectedTrack = ref<string | null>(null)
 const isPlaying = ref(false)
