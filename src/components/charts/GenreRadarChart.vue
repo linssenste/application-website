@@ -1,9 +1,10 @@
 <template>
 	<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
-	<div style="position: relative; width: 100%;">
+	<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; width: 100%;">
 		<span v-for="other in Object.keys(data.detailed)"
-			  style="background-color: var(--light-grey-color); height: 20px; width: fit-content; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 6px;">
-			{{ other }}</span>
+			  style="background-color: #F0F0F0; color: black; height: 20px; width: fit-content; padding: 10px 20px; border-radius: 6px;">
+			{{ other }}
+		</span>
 	</div>
 </template>
 

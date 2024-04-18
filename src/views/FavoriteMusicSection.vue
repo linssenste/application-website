@@ -60,46 +60,37 @@
 
 					<h1>Get to know me through music!</h1>
 
-					<p style="line-height: 25px; font-size: 17px; text-align: justify;">
-					<p>
-						Music reveals who we are, and my playlist is no exception. To give you an insight into my
-						musical tastes, take a look at my swimming playlist (to make it less boring): 999 tracks from
-						331 albums by 156 artists, totalling <span id="text-1">over 59 hours of music.</span> </p>
-					<p>
-						My taste in music is largely contemporary, dominated by the <span id="text-2">sounds of the last
-							twenty years</span>. But
-						of course my collection also includes timeless classics, such as Queen in the 80s.
+					<div style="line-height: 25px; font-size: 17px; text-align: justify;">
+						<p>
+							Music reveals who we are, and my playlist is no exception. To give you an insight into my
+							musical tastes, take a look at my swimming playlist: {{ analysisData.stats.tracks }} tracks
+							from
+							{{ analysisData.stats.albums }} albums by {{ analysisData.stats.artists }} artists,
+							totalling
+							<span id="text-1">over {{ analysisData.stats.duration ?? 0 / 3600 }} hours of music.</span>
+						</p>
+						<p>
+							My taste in music is largely contemporary, dominated by the <span id="text-2">sounds of the
+								last
+								twenty years</span>. But
+							of course my collection also includes timeless classics, such as Queen in the 80s.
 
-					</p>
-					<p>
-						The swiss musician Faber is objectivly my <span id="text-3">favourite artist</span> with 35
-						songs, closely followed
-						by AnnenMayKantereit. This selection is a reflection of my favourite genres: <span
-							  id="text-4">alternative,
-							hip-hop, pop and indie.</span>
-					</p>
-					<p>
-						The overall mood of my playlist tends to be danceable and melancholic, with a preference for
-						energetic over relaxed and electronic over acoustic sounds.
-					</p>
+						</p>
+						<p>
+							The swiss musician Faber is objectivly my <span id="text-3">favourite artist</span> with 35
+							songs, closely followed
+							by AnnenMayKantereit. This selection is a reflection of my general favourite genres: <span
+								  id="text-4">alternative,
+								hip-hop, pop and indie.</span>
+						</p>
+						<p>
+							The overall mood of my playlist tends to be danceable and melancholic, with a preference for
+							energetic over relaxed and electronic over acoustic sounds.
+						</p>
 
-					</p>
+						Now you know me <span id="text-6" style="padding-top: 10px">a little</span> better.
+					</div>
 
-					<!-- <span id=" text-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-						tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> <span
-							  id="text-2">At vero eos et accusam et justo duo dolores et ea rebum.</span> <span
-							  id="text-3">
-							Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span>
-						<span id="text-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-							eirmod
-							tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span> At vero
-						eos
-						et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-						est
-						Lorem ipsum dolor sit amet. -->
-
-					<!-- <Button style="margin-top: 50px" color="red" text="Open python notebook">
-					</Button> -->
 				</div>
 			</div>
 
@@ -113,7 +104,6 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
 import MusicPlayer from '../components/music/MusicPlayer.vue'
 import { annotate } from 'rough-notation';
-// import Button from '../components/Button.vue'
 
 import KeepScrollingAnimation from '../components/KeepScrollingAnimation.vue'
 import { watch } from 'vue';
@@ -126,6 +116,7 @@ import AudioFeaturesChart from '../components/charts/AudioFeaturesChart.vue'
 import DecadesBarChart from '../components/charts/DecadesBarChart.vue'
 import GoogleColabCell from '../components/charts/GoogleColabCell.vue'
 import { RoughAnnotation } from 'rough-notation/lib/model';
+import Button from '../components/Button.vue';
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
 const selectedTrack = ref<string | null>(null)
 const isPlaying = ref(false)

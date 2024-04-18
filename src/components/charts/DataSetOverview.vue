@@ -38,7 +38,7 @@ interface DataStats {
 	albums: number,
 	tracks: number,
 	artists: number
-	duration: number
+	duration?: number
 }
 const props = defineProps<{
 	stats: DataStats;
