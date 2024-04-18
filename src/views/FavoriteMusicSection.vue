@@ -49,7 +49,6 @@
 					<GoogleColabCell :visible="currentFocus == '7'" />
 				</div>
 
-
 			</div>
 
 
@@ -99,12 +98,9 @@
 
 		</div>
 
-		<div style=" display: flex; flex-direction: row; justify-content: space-between;">
-			<PolaroidImage src="/src/assets/polaroids/polaroid-superbloom.webp" alt="t" />
-			<PolaroidImage src="/src/assets/polaroids/polaroid-lolla.webp" alt="t" />
-			<PolaroidImage src="/src/assets/polaroids/polaroid-frequency.webp" alt="t" />
-			<PolaroidImage src="/src/assets/polaroids/polaroid-tempelhof.webp" alt="t" />
-		</div>
+		<PolaroidImageRow
+						  :images="[{ src: '/src/assets/polaroids/polaroid-superbloom.webp', alt: 'Superbloom festival 2022' }, { src: '/src/assets/polaroids/polaroid-frequency.webp', alt: 'Frequency festival in St. Pölten (Austria), 2022' }, { src: '/src/assets/polaroids/polaroid-tempelhof.webp', alt: 'Tempelhof Sounds Festival 2022' }]" />
+
 	</div>
 </template>
 
@@ -127,7 +123,7 @@ import DecadesBarChart from '../components/charts/DecadesBarChart.vue'
 import GoogleColabCell from '../components/charts/GoogleColabCell.vue'
 import { RoughAnnotation } from 'rough-notation/lib/model';
 import Button from '../components/Button.vue';
-import PolaroidImage from '../components/images/PolaroidImage.vue';
+import PolaroidImageRow from '../components/images/PolaroidImageRow.vue';
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
 const selectedTrack = ref<string | null>(null)
 const isPlaying = ref(false)

@@ -92,7 +92,7 @@ function runCodeBlock(openLink: boolean = true): void {
 	display: flex;
 	margin-top: 35px;
 	flex-direction: row;
-	min-height: 450px;
+	min-height: 310px;
 	gap: 10px;
 	max-width: 700px;
 	min-width: 700px;
