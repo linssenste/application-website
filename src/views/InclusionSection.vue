@@ -7,28 +7,26 @@
 			<div class="text-area">
 				<h1 style="margin: 20px; line-height: 50px;">
 
-					I'm weak and what's wrong with that ?
+					I'm weak and what's wrong with that ?!
 
 				</h1>
 
 				<div class="text" style="padding-top: 0px!important;">
-					At the age of 16, the chronic muscle disease myasthenia gravis became part of my life. Despite the
-					aids I needed, I learnt to follow my dreams and not let my disability limit me, inspired by my life
-					motto: "Limitations only go so far". This motto also drives me to pursue hobbies such as
-					mountaineering and travelling, despite the challenges of my condition.
-					My disability has also opened my eyes to the problems of inclusion in our society. In order to bring
-					about change in this area, I am actively involved in this topic. I have given a TEDx talk and
-					launched the podcast "Inclusions Thoughts" with Caritas. Here we try to look at inclusion from
-					different perspectives.
-					At the age of 16, the chronic muscle disease myasthenia gravis became part of my life. Despite the
-					aids I needed, I learnt to follow my dreams and not let my disability limit me, inspired by my life
-					motto: "Limitations only go so far". This motto also drives me to pursue hobbies such as
-					mountaineering and travelling, despite the challenges of my condition.
-					My disability has also opened my eyes to the problems of inclusion in our society. In order to bring
-					about change in this area, I am actively involved in this topic. I have given a TEDx talk and
-					launched the podcast "Inclusions Thoughts" with Caritas. Here we try to look at inclusion from
-					different perspectives.
+					<p>At the age of 16, the chronic muscle disease myasthenia gravis became part of my life. Despite
+						the
+						aids I needed, I learnt to follow my dreams and not let my disability limit me, inspired by my
+						life
+						motto: "Limitations only go so far". This motto also drives me to pursue hobbies such as
+						mountaineering and travelling, despite the challenges of my condition.
+					</p>
+					<p>
+						My disability has also opened my eyes to the problems of inclusion in our society. In order to
+						bring
+						about change in this area, I am actively involved in this topic. I have given a TEDx talk and
+						launched the podcast "Inclusions Thoughts" with Caritas. Here we try to look at inclusion from
+						different perspectives.
 
+					</p>
 				</div>
 			</div>
 
@@ -44,8 +42,8 @@
 							style="margin: 10px; width: calc(100% - 20px)"
 							src="https://open.spotify.com/embed/episode/37APGyNAhgVwrTJZFxY56s?utm_source=generator&t=85"
 							width="100%" frameBorder="0" loading="lazy"></iframe>
-					<div v-if="locale === 'en' && !isMobile" class="en-sorry">Sorry, the TEDx-talk and podcast are in
-						German
+					<div v-if="!isMobile" class="en-sorry">Pardon me, the TEDx-talk and podcast are in
+						german
 					</div>
 
 				</div>
@@ -74,16 +72,9 @@
 
 
 <script lang="ts" setup>
-// import ImagesRow from '../components/ImagesRow.vue';
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import PolaroidImage from '../components/images/PolaroidImage.vue';
 import PolaroidImageRow from '../components/images/PolaroidImageRow.vue';
-const { t, locale } = useI18n()
+import { isMobile } from '../utilities'
 
-const isMobile = computed(() => {
-	return window.innerWidth < 600
-})
 
 
 </script>

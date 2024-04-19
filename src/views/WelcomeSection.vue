@@ -5,10 +5,19 @@
 
 			<template v-slot:text>
 
-				<h1>Hallo, ich bin Steffen!
+				<h1>Hello, my name is Steffen!
 				</h1>
-				<div>
-					<p>Ich bin ein Frontend-Entwickler mit 4 Jahren Erfahrung und einem Faible für ansprechende <span
+				<p>
+					As a front-end developer, I thrive on crafting clean UI & UX designs, fueled by my passion for both
+					technology and music. Although I'm no virtuoso in the music department, my love for melodies
+					continues to inspire my creative process.
+
+				<p>This website is more than just a portfolio of my technical skills and creative endeavours. It's a
+					window into my personal world. Here you'll find a series of Polaroid images that offer glimpses into
+					my daily life, share insights into my journey with disability, and reveal my deep connection to
+					music. Together, these elements are a
+					reflection of the many aspects of my life and passions.</p>
+				<!-- <p>Ich bin ein Frontend-Entwickler mit 4 Jahren Erfahrung und einem Faible für ansprechende <span
 							  id="ux">UI & UX</span>.
 						Außerdem bin ich stolzer Hundebesitzer und ein großer Musikliebhaber.
 					</p>
@@ -24,9 +33,9 @@
 						meine Welt entführen, meine Leidenschaft für Musik mit Euch teilen und offen über meine
 						Behinderung
 						sprechen.
-					</div>
+					</div> -->
 
-				</div>
+				</p>
 
 				<Button v-on:click="toggleGallery" color="black" text="Show Gallery"
 						style="margin-top: 20px; margin-bottom: 20px" />

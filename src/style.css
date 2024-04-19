@@ -178,6 +178,9 @@ h1 {
 	font-size: 38px !important;
 }
 
+p {
+	line-height: 25px; font-size: 18px; text-align: justify;
+}
 
 body,
 html {

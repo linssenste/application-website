@@ -59,7 +59,7 @@
 
 					<h1 style="margin: 0px!important">Get to know me through music!</h1>
 
-					<div style="line-height: 23px; font-size: 17px; text-align: justify;">
+					<div>
 						<p style="margin-top: 10px!important">
 							Music shapes our lives, reflecting our moods, personalities, and
 							memories. <span id="text-1">I've chosen to
@@ -94,9 +94,11 @@
 						<p>I enjoy weaving my musical tastes into my memories by creating videos that align with my mood
 							and music.</p>
 
-						Now you know me <span id="text-7" style="padding-top: 10px">a little better</span>
+						<p>
+							Now you know me <span id="text-7" style="padding-top: 10px">a little better</span>
 
-						<span v-if="currentFocus == 7" class="inline-handwriting ">?!</span>
+							<span v-if="currentFocus == 7" class="inline-handwriting ">?!</span>
+						</p>
 					</div>
 
 				</div>
