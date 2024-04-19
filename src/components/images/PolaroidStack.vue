@@ -194,12 +194,12 @@ function setStyling() {
 	.intro-text {
 
 		position: relative;
-		width: 100% !important;
-		max-width: 100%;
-		min-width: 100%;
+		width: calc(100% - 40px) !important;
+		max-width: calc(100% - 40px);
+		min-width: calc(100% - 40px);
 		padding-left: 0px;
-
-
+		padding: 20px;
+		padding-top: 0px;
 	}
 
 }

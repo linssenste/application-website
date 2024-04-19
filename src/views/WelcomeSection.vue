@@ -44,8 +44,8 @@ import PolaroidStack from '../components/images/PolaroidStack.vue'
 import Button from '../components/Button.vue'
 import { onMounted } from 'vue';
 
-const polaroidStack = ref(null);
-const welcomeSectionRef = ref(null)
+const polaroidStack = ref<HTMLElement | null>(null);
+const welcomeSectionRef = ref<HTMLElement | null>(null)
 onMounted(() => {
 
 	const humanText = document.getElementById('human');
@@ -53,6 +53,7 @@ onMounted(() => {
 	const annotationHuman = annotate(humanText, { type: 'underline', color: 'var(--pen-color)', padding: [0, 3, 0, 3] });
 
 
+	if (!welcomeSectionRef.value) return;
 	const observer = new IntersectionObserver(
 		([entry]) => {
 			if (entry.isIntersecting) annotationHuman.show();
