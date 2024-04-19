@@ -30,13 +30,13 @@ import { onMounted } from 'vue';
 onMounted(() => {
 	const sloveniaVideo = document.getElementById('slovenia-video');
 	const mountainVideo = document.getElementById('mountain-video');
-
+	if (sloveniaVideo == null || mountainVideo == null) return
 	sloveniaVideo.addEventListener('play', () => {
-		mountainVideo.pause();
+		(mountainVideo as HTMLVideoElement).pause();
 	});
 
 	mountainVideo.addEventListener('play', () => {
-		sloveniaVideo.pause();
+		(sloveniaVideo as HTMLVideoElement).pause();
 	});
 
 	// Intersection Observer to pause video when not visible
@@ -49,7 +49,7 @@ onMounted(() => {
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (!entry.isIntersecting) {
-				entry.target.pause();
+				(entry.target as HTMLVideoElement).pause();
 			}
 		});
 	}, options);
@@ -94,5 +94,11 @@ onMounted(() => {
 
 .video-border video {
 	background-color: var(--light-grey-color)
+}
+
+@media (max-width: 1250px) {
+	.video-column:last-child {
+		display: none;
+	}
 }
 </style>
