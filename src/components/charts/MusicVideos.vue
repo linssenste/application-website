@@ -8,7 +8,7 @@
 							type="video/mp4" />
 				</video>
 			</div>
-			<div>Holiday in Slovenia</div>
+			<div>Vacation in Slovenia</div>
 		</div>
 		<div class="video-column">
 			<div class="video-border">
@@ -74,11 +74,13 @@ onMounted(() => {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	gap: 10px;
 	justify-content: center
 }
 
 .video-column div {
-	font-size: 20px;
+	font-size: 22px;
 	font-family: 'biro_script_standardregular';
 	color: var(--pen-color)
 }

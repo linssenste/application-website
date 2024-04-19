@@ -115,15 +115,17 @@ h2 {
 
 a {
 	text-decoration: none;
-	color: black;
+	color: var(--red-color);
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+	cursor: pointer;
 	transition: background-color 100ms ease-in-out;
 }
 
 a:hover {
-	color: #C80018;
+	color: var(--red-color);
+	text-decoration: underline;
 	transition: background-color 100ms ease-in-out;
 }
 

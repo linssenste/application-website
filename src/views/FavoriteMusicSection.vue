@@ -58,39 +58,46 @@
 
 					<KeepScrollingAnimation />
 
+					<h1 style="margin: 0px!important">Get to know me through music!</h1>
 
-					<h1>Get to know me through music!</h1>
-
-					<div style="line-height: 25px; font-size: 17px; text-align: justify;">
-						<p>
-							Music reveals who we are, and my playlist is no exception. To give you an insight into my
-							musical tastes, take a look at my swimming playlist: {{ analysisData.stats.tracks }} tracks
-							from
-							{{ analysisData.stats.albums }} albums by {{ analysisData.stats.artists }} artists,
-							totalling
-							<span id="text-1">over {{ Math.ceil((analysisData.stats.duration ?? 0) / 60) }} hours of
-								music.</span>
-						</p>
-						<p>
-							My taste in music is largely contemporary, dominated by the <span id="text-2">sounds of the
-								last
-								twenty years</span>. But
-							of course my collection also includes timeless classics, such as Queen in the 80s.
+					<div style="line-height: 23px; font-size: 17px; text-align: justify;">
+						<p style="margin-top: 10px!important">
+							Music shapes our lives, reflecting our moods, personalities, and
+							memories. <span id="text-1">I've chosen to
+								introduce myself through the lens of my musical tastes</span>, quantified objectively
+							here. My
+							analysis is based on my swimming playlist.
 
 						</p>
 						<p>
-							The swiss musician Faber is objectivly my <span id="text-3">favourite artist</span> with 35
+							According to <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/3250/3118"
+							   target="_blank">research</a>, people tend to be particularly fond of music from their
+							teenage
+							years. And I happen to be no exception: My musical taste is largely <span
+								  id="text-2">contemporary, dominated
+								by the sounds of the last two decades</span>.
+
+						</p>
+						<p>
+							The musician Faber is objectivly my <span id="text-3">favourite artist</span> with 35
 							songs, closely followed
-							by AnnenMayKantereit. This selection is a reflection of my general favourite genres: <span
-								  id="text-4">alternative,
-								hip-hop, pop and indie.</span>
+							by AnnenMayKantereit.
+							This selection reflects my general favourite genres:<span id="text-4"> alternative, hip-hop,
+								pop and indie</span> - all with a strong german influence.
+
 						</p>
 						<p>
-							The overall mood of my playlist tends to be danceable and melancholic, with a preference for
+							The overall <span id="text-5">mood of my playlist</span> tends to be danceable and
+							melancholic, with a preference for
 							energetic over relaxed and electronic over acoustic sounds.
 						</p>
 
-						Now you know me <span id="text-6" style="padding-top: 10px">a little</span> better.
+						<p>I enjoy weaving my musical tastes into my memories by creating videos that align with my mood
+							and music.</p>
+
+						Now you know me <span id="text-7" style="padding-top: 10px">a little better</span>
+
+						<span v-if="currentFocus == 7" class="inline-handwriting ">?!</span>
 					</div>
 
 				</div>
@@ -98,6 +105,7 @@
 
 		</div>
 
+		<div style="text-align: center;" class="inline-handwriting">And I love festivals: </div>
 		<PolaroidImageRow
 						  :images="[{ src: '/src/assets/polaroids/polaroid-superbloom.webp', alt: 'Superbloom festival 2022' }, { src: '/src/assets/polaroids/polaroid-frequency.webp', alt: 'Frequency festival in St. Pölten (Austria), 2022' }, { src: '/src/assets/polaroids/polaroid-tempelhof.webp', alt: 'Tempelhof Sounds Festival 2022' }]" />
 
