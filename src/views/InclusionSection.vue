@@ -12,25 +12,22 @@
 				</h1>
 
 				<div class="text" style="padding-top: 0px!important;">
-					{{ t('disability.textSection.paragraph1') }}
-					<div class="inline-handwriting">"Limitations</div>
-					<div class="inline-handwriting"> only</div>
-					<div class="inline-handwriting"> go</div>
-					<div class="inline-handwriting"> so</div>
-					<div class="inline-handwriting"> far"</div>.
-					{{ t('disability.textSection.motto') }}
-
-					<p>
-						{{ t('disability.textSection.paragraph2') }}
-					<div class="inline-handwriting">Inklusionsgedanken</div> {{ t('disability.textSection.podcast') }}
-
-					</p>
-					<iframe title="Inklusionsgedanken podcast on spotify" v-if="isMobile" class="embedded-podcast"
-							src="https://open.spotify.com/embed/episode/37APGyNAhgVwrTJZFxY56s?utm_source=generator&t=85"
-							width="100%" frameBorder="0" loading="lazy"></iframe>
-					<div v-if="isMobile && locale === 'en'" class="en-sorry">Sorry, the TEDx-talk and podcast are in
-						German
-					</div>
+					At the age of 16, the chronic muscle disease myasthenia gravis became part of my life. Despite the
+					aids I needed, I learnt to follow my dreams and not let my disability limit me, inspired by my life
+					motto: "Limitations only go so far". This motto also drives me to pursue hobbies such as
+					mountaineering and travelling, despite the challenges of my condition.
+					My disability has also opened my eyes to the problems of inclusion in our society. In order to bring
+					about change in this area, I am actively involved in this topic. I have given a TEDx talk and
+					launched the podcast "Inclusions Thoughts" with Caritas. Here we try to look at inclusion from
+					different perspectives.
+					At the age of 16, the chronic muscle disease myasthenia gravis became part of my life. Despite the
+					aids I needed, I learnt to follow my dreams and not let my disability limit me, inspired by my life
+					motto: "Limitations only go so far". This motto also drives me to pursue hobbies such as
+					mountaineering and travelling, despite the challenges of my condition.
+					My disability has also opened my eyes to the problems of inclusion in our society. In order to bring
+					about change in this area, I am actively involved in this topic. I have given a TEDx talk and
+					launched the podcast "Inclusions Thoughts" with Caritas. Here we try to look at inclusion from
+					different perspectives.
 
 				</div>
 			</div>
@@ -64,11 +61,13 @@
         ]" songId="3BuLtAmXKy5uQYl4ED1zBT" rowId="mountains" /> -->
 
 
-		<div style=" display: flex; flex-direction: row; justify-content: space-between; padding: 50px;">
-			<PolaroidImage src="/src/assets/polaroids/polaroid-1.webp" alt="t" />
-			<PolaroidImage src="/src/assets/polaroids/polaroid-1.webp" alt="t" />
-			<PolaroidImage src="/src/assets/polaroids/polaroid-1.webp" alt="t" />
-		</div>
+
+		<PolaroidImageRow :images="[
+						{ src: 'src/assets/polaroids/polaroid-heimgarten.webp', alt: 'Mountain Heimgarten' },
+						{ src: 'src/assets/polaroids/polaroid-herzogstand.webp', alt: 'Herzogstand' },
+						{ src: 'src/assets/polaroids/polaroid-wallberg.webp', alt: 'Wallberg' },
+						{ src: 'src/assets/polaroids/polaroid-smrekovec.webp', alt: 'Smrekovec ' },
+					]" />
 
 	</div>
 </template>
@@ -79,6 +78,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PolaroidImage from '../components/images/PolaroidImage.vue';
+import PolaroidImageRow from '../components/images/PolaroidImageRow.vue';
 const { t, locale } = useI18n()
 
 const isMobile = computed(() => {

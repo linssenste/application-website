@@ -9,29 +9,18 @@
 				 height="25" width="25" />
 		</div> -->
 
-		<WelcomeSection />
+		<WelcomeSection style="margin-top: 50px" />
 
 		<RisographArtSection />
 
-		<FavoriteMusicSection style="margin-top: -400px; margin-bottom: 0px;" />
+		<FavoriteMusicSection style="margin-top: -450px; margin-bottom: 0px; z-index: 10" />
+		<RisographArtSection style="margin-top: 100px; z-index: -1;" />
+
+		<InclusionSection style="z-index: 10; margin-top: -450px" />
 
 
-		<!-- <RisographArtSection /> -->
-
-		<!-- <ProjectsSection style="margin-top: 200px" /> -->
-
-		<iframe src="https://instax.linssenste.dev"
-				style="width: 100%; height: 100vh; border: none; outline: none"></iframe>
-
-		<InclusionSection style="z-index: 10" />
-
-		<!--
-	> -->
-		<RisographArtSection style="margin-top: 300px; z-index: -1;" />
-
-
-
-		<EndSection style="z-index: 10; margin-top: -600px; padding-bottom: 100px;" />
+		<PolaroidCreatorSection />
+		<EndSection style="z-index: 10; margin-top: 0px; padding-bottom: 100px;" />
 
 		<!-- <RisographArtSection :small="true" style="margin-top: -150px" /> -->
 
@@ -86,8 +75,7 @@ import FavoriteMusicSection from './views/FavoriteMusicSection.vue'
 import EndSection from './views/EndSection.vue';
 
 import InclusionSection from './views/InclusionSection.vue';
-
-
+import PolaroidCreatorSection from './views/PolaroidCreatorSection.vue'
 
 // onMounted(() => {
 // 	const doc = document.getElementById("application-area");

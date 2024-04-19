@@ -5,7 +5,6 @@
 		<AlbumCoverBanner ref="bannerRef" :playing="isPlaying" v-on:track-selected="selectedTrackEvent" />
 
 
-
 		<div class="content-wrapper">
 			<div class="scrollable-content" ref="leftSideRef">
 
@@ -105,7 +104,8 @@
 
 		</div>
 
-		<div style="text-align: center;" class="inline-handwriting">And I love festivals: </div>
+		<div style="text-align: center; margin-bottom: 15px"><span class="inline-handwriting">And btw I love music
+				festivals: </span></div>
 		<PolaroidImageRow
 						  :images="[{ src: '/src/assets/polaroids/polaroid-superbloom.webp', alt: 'Superbloom festival 2022' }, { src: '/src/assets/polaroids/polaroid-frequency.webp', alt: 'Frequency festival in St. Pölten (Austria), 2022' }, { src: '/src/assets/polaroids/polaroid-tempelhof.webp', alt: 'Tempelhof Sounds Festival 2022' }]" />
 
