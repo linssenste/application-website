@@ -1,10 +1,12 @@
 <template>
-	<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
-	<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; width: 100%;">
-		<span v-for="other in Object.keys(data.detailed)"
-			  style="background-color: #F0F0F0; color: black; height: 20px; width: fit-content; padding: 10px 20px; border-radius: 6px;">
-			{{ other }}
-		</span>
+	<div>
+		<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
+
+		<div class="detailed-genre-chips">
+			<span v-for="other in Object.keys(data.detailed)">
+				{{ other }}
+			</span>
+		</div>
 	</div>
 </template>
 
@@ -99,3 +101,27 @@ onMounted(() => {
 })
 
 </script>
+
+
+<style scoped>
+.detailed-genre-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.detailed-genre-chips span {
+	background-color: #F0F0F0;
+	color: black;
+	height: 20px;
+	width: fit-content;
+	padding: 10px 20px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+</style>
