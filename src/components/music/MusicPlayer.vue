@@ -77,7 +77,7 @@ function initSpotifyApi() {
 			if (errorTimeout) clearTimeout(errorTimeout);
 
 			const element = document.getElementById(props.playerId);
-			console.log(element)
+
 			if (!element) {
 				hasError.value = true;
 				return;

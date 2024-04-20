@@ -33,7 +33,6 @@ function adjustJustification() {
 		const totalWidth = containerRef.value.scrollWidth;
 		const containerWidth = containerRef.value.clientWidth;
 
-		console.log("ADJU", totalWidth, containerWidth)
 		if (totalWidth <= containerWidth) {
 			flexStyle.value.justifyContent = 'center';
 		} else {

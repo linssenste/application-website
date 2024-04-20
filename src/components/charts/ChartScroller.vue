@@ -15,7 +15,7 @@
 								 ref="musicPlayerRef" :trackId="track ?? '2ZOwd1GY5W5Wxdd5NJvgjG'"
 								 v-on:playing="playingEvent" />
 					<button v-on:click="shuffleEvent()">
-						<img src="../../assets/icons/shuffle.svg" />
+						<img src="../../assets/icons/shuffle.svg" alt="shuffle icon" />
 						SHUFFLE</button>
 				</div>
 

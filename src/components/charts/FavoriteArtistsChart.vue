@@ -3,7 +3,8 @@
 		<h2><span id="top-header">TOP 5 ARTISTS</span></h2>
 		<div v-for="(artist, index) in sortedArtists" class="artist-card">
 			<div class="artist-index"><b>{{ index + 1 }}.</b></div>
-			<img draggable="false" height="90" width="90" class="artist-profile-picture" :src="artist.img" />
+			<img draggable="false" height="90" width="90" alt="artist profile picture" class="artist-profile-picture"
+				 :src="artist.img" />
 			<div>
 				<b class="artist-name">{{ artist.name }}</b>
 				<div class="track-count">
