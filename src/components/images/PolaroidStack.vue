@@ -20,7 +20,7 @@
 				:class="!expanded ? 'append-slot-hidden' : ''" data-testid="close-button-card">
 
 				<button v-on:click="toggleExpansion" data-testid="close-button">
-					<img src="../../assets/icons/chevron-left-solid.svg" alt="chevron left" title="Close polaroid stack"
+					<img src="../../assets/icons/chevron-left.svg" alt="chevron left" title="Close polaroid stack"
 						 width="12" /></button>
 			</li>
 		</ul>
