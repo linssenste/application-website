@@ -2,7 +2,7 @@
 	<div class="music-videos">
 		<div class="video-column">
 			<div class="video-border">
-				<video controls id="slovenia-video" width="300" poster="/instagram/slovenia_thumbnail.jpg"
+				<video controls id="slovenia-video" width="300" poster="/src/assets/videos/thumbnail-slovenia.webp"
 					   style="border-radius: 12px" fetchpriority="high">
 					<source src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/slovenia_aftermovie.mp4?alt=media&token=7ab60e9b-2a72-437f-90e1-22c491a053fb"
 							type="video/mp4" />

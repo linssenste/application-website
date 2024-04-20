@@ -10,13 +10,13 @@
 		<!-- help scroll arrow left and right on non touch devices -->
 		<div v-if="!isTouchDevice" v-on:mouseenter="startManualScroll(false)" v-on:mouseleave="finishManualScroll()"
 			 class="hover-scroll-pad-left">
-			<img width="12" src="../../assets/icons/chevron-left-solid.svg" />
+			<img width="12" src="../../assets/icons/chevron-left.svg" />
 		</div>
 
 		<!-- right arrow -->
 		<div v-if="!isTouchDevice" v-on:mouseenter="startManualScroll(true)" v-on:mouseleave="finishManualScroll()"
 			 class="hover-scroll-pad-right">
-			<img width="12" src="../../assets/icons/chevron-right-solid.svg" />
+			<img width="12" src="../../assets/icons/chevron-right.svg" />
 		</div>
 	</div>
 </template>
