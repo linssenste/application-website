@@ -89,17 +89,17 @@ type Polaroid = {
 
 function shufflePolaroids(): Polaroid[] {
 	let polaroids: Polaroid[] = [
-		{ src: '//polaroids/polaroid-1.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-2.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-3.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-4.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-5.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-6.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-7.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-8.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-9.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-10.webp', text: 'moin' },
-		{ src: '//polaroids/polaroid-11.webp', text: 'moin' }
+		{ src: '/polaroids/polaroid-1.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-2.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-3.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-4.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-5.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-6.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-7.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-8.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-9.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-10.webp', text: 'moin' },
+		{ src: '/polaroids/polaroid-11.webp', text: 'moin' }
 	];
 
 	// Shuffle all but the last element
