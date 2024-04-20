@@ -19,6 +19,9 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+	if (imageContainerRef.value) {
+		imageContainerRef.value.style.transform = `translateY(-${1 * 0.075}px)`;
+	}
 	window.addEventListener('scroll', handleScroll);
 });
 

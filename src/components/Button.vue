@@ -32,8 +32,8 @@ button {
 	text-decoration: none;
 	background: transparent;
 	padding: 0;
-	font-size: 18px !important;
-	// font-family: 'Mukta';
+	font-size: 17px !important;
+	font-family: 'Mukta';
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;

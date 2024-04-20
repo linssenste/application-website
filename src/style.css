@@ -24,6 +24,8 @@ button {
 	padding-right: 36px;
 	outline: none;
 	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: 700;
 	letter-spacing: 1px;
 	border: none;
 	border-radius: 40px;
@@ -36,6 +38,8 @@ button {
 	justify-content: center;
 	gap: 12px;
 	flex-direction: row;
+	font-family: 'Mukta';
+
 	transition: opacity 150ms ease-in-out;
 }
 button img {

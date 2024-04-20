@@ -4,9 +4,10 @@
 		<!-- (auto) scrolled cover area -->
 		<AlbumCoverBanner ref="bannerRef" :playing="isPlaying" v-on:track-selected="selectedTrack = $event" />
 
-		<ChartScroller v-on:shuffle="selectRandomTrack()" :track="selectedTrack" v-on:playing="isPlaying = $event" />
-		<!-- <MobileChartScroller v-on:shuffle="selectRandomTrack()" :track="selectedTrack"
-							 v-on:playing="isPlaying = $event" /> -->
+		<ChartScroller v-if="!mobileView" v-on:shuffle="selectRandomTrack()" :track="selectedTrack"
+					   v-on:playing="isPlaying = $event" />
+		<MobileChartScroller v-else v-on:shuffle="selectRandomTrack()" :track="selectedTrack"
+							 v-on:playing="isPlaying = $event" />
 		<div style="text-align: center; margin-bottom: 15px"><span class="inline-handwriting">And btw I love music
 				festivals: </span></div>
 		<PolaroidImageRow
@@ -16,10 +17,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import AlbumCoverBanner from '../components/music/AlbumCoverBanner.vue'
 import ChartScroller from '../components/charts/ChartScroller.vue'
-// import MobileChartScroller from '../components/charts/MobileChartScroller.vue'
+import MobileChartScroller from '../components/charts/MobileChartScroller.vue'
 import PolaroidImageRow from '../components/images/PolaroidImageRow.vue';
 
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
@@ -28,6 +29,10 @@ const selectedTrack = ref('2ZOwd1GY5W5Wxdd5NJvgjG');
 function selectRandomTrack() {
 	if (bannerRef.value) bannerRef.value.randomAlbumTrack();
 }
+
+const mobileView = computed(() => {
+	return window.innerWidth < 1000
+})
 </script>
 
 <style scoped></style>
