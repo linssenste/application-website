@@ -2,7 +2,7 @@
 	<div class="music-videos">
 		<div class="video-column">
 			<div class="video-border">
-				<video controls id="slovenia-video" width="300" poster="/src/assets/videos/thumbnail-slovenia.webp"
+				<video controls id="slovenia-video" width="300" poster="/videos/thumbnail-slovenia.webp"
 					   style="border-radius: 12px" fetchpriority="high">
 					<source src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/slovenia_aftermovie.mp4?alt=media&token=7ab60e9b-2a72-437f-90e1-22c491a053fb"
 							type="video/mp4" />
@@ -12,7 +12,7 @@
 		</div>
 		<div class="video-column">
 			<div class="video-border">
-				<video controls id="mountain-video" width="300" poster="/src/assets/videos/thumbnail-mountain.webp"
+				<video controls id="mountain-video" width="300" poster="/videos/thumbnail-mountain.webp"
 					   style="border-radius: 12px" fetchpriority="high">
 					<source src="https://firebasestorage.googleapis.com/v0/b/linssenweb.appspot.com/o/wallberg-2.mp4?alt=media&token=c88322f9-f992-487e-8dd9-3af8e0cbcc4f"
 							type="video/mp4" />
