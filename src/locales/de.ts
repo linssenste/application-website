@@ -91,7 +91,7 @@ export default {
     footer: {
         thatsIt: "Das war's",
         intro: `Danke, dass Ihr Euch die Zeit genommen hast, meine persönliche Webseite zu besuchen.`,
-        techDetail: `Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
+        techDetail: `Danke, dass Ihr Euch die Zeit genommen hast, meine persönliche Webseite zu besuchen. Vielleicht zum Abschluss noch ein wenig zum Technischen: Diese Webseite wurde mit Vite & Vue 3 in
                     Typescript realisiert, sämtliche Komponenten wurden von mir selbst entworfen & entwickelt. Der Quellcode kann
                     auf Github eingesehen werden.`,
 
