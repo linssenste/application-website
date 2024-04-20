@@ -17,7 +17,7 @@
 				<div class="number-stat key">Artists</div>
 			</div>
 
-			<div class="number-stat">
+			<div class="number-stat hours">
 				<div class="number-stat value">{{ Math.ceil((stats.duration ?? 0) / 60) }}</div>
 				<div class="number-stat key">HOURS</div>
 			</div>
@@ -108,5 +108,13 @@ props.stats
 	letter-spacing: 1px;
 	color: var(--grey-color);
 	margin-top: 15px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+	.hours {
+		display: none;
+	}
 }
 </style>

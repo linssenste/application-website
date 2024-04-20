@@ -25,7 +25,7 @@ interface ArtistStats {
 	tracks: number,
 	albums: number,
 	img: string,
-	occurrence: number,
+	occurrence: string,
 	name: string
 }
 const props = defineProps<{
@@ -37,7 +37,7 @@ const sortedArtists = computed(() => {
 	// Convert the artists object to an array of entries, each entry is [key, value]
 	return Object.entries(props.artists)
 		.map(([key, value]) => ({ ...value, id: key })) // Convert each entry into an object and include the original key as 'id'
-		.sort((a, b) => b.occurrence - a.occurrence); // Sort based on the 'occurrence' property
+		.sort((a, b) => parseInt(b.occurrence) - parseInt(a.occurrence)); // Sort based on the 'occurrence' property
 });
 
 
