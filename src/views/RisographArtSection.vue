@@ -33,9 +33,10 @@ onUnmounted(() => {
 	justify-content: center;
 	align-items: center;
 	min-width: 1000px;
-	/* Corrected min-width */
+	width: 100%;
+	/* Ensures the container does not exceed the viewport width */
 	overflow: hidden;
-	/* Ensures content outside this container is not visible */
+	/* Hides any overflow along the x-axis */
 }
 
 .art-image {
@@ -50,12 +51,19 @@ onUnmounted(() => {
 
 @media (max-width: 1000px) {
 	.art-image-container {
-		min-width: 1000px;
+		min-width: 100%;
+		/* Use 100% of the viewport width */
+		overflow: hidden;
+		/* Reinforce hiding overflow */
 	}
 
 	.art-image {
 		min-width: 1000px;
+		/* Keep the image min-width as required */
+		width: 1000px;
+		/* Ensures the image itself remains 1000px wide */
 		margin-top: 50px;
+		/* Adjust margin as per design requirements */
 		object-fit: cover;
 	}
 }

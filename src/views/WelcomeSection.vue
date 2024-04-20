@@ -12,8 +12,10 @@
 					technology and music. Although I'm no virtuoso in the music department, my love for melodies
 					continues to inspire my creative process.
 
-				<p>This website is more than just a portfolio of my technical skills and creative endeavours. It's a
-					window into my personal world. Here you'll find a series of Polaroid images that offer glimpses into
+				<p>This website is more than just a portfolio of my technical skills and creative endeavours. <span
+						  id="human">It's a
+						window into my personal world</span>. Here you'll find a series of Polaroid images that offer
+					glimpses into
 					my daily life, share insights into my journey with disability, and reveal my deep connection to
 					music. Together, these elements are a
 					reflection of the many aspects of my life and passions.</p>
