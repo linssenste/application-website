@@ -12,14 +12,12 @@
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Mukta:700');
-
 .hint-area {
 	position: relative;
 	display: flex;
+	background-color: white;
 	flex-direction: row;
 	gap: 15px;
-	font-family: 'Mukta';
 	align-items: center;
 	letter-spacing: 1px;
 	font-size: 16px;

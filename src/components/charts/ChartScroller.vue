@@ -1,5 +1,5 @@
 <template>
-	<div style="width: 100%; position: relative">
+	<div style="width: 100%; position: relative; margin-top: 20px">
 
 		<!-- (auto) scrolled cover area -->
 

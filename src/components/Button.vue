@@ -20,7 +20,7 @@ const props = defineProps<{
 props.color;
 </script>
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+// @import url('https://fonts.googleapis.com/css?family=Mukta:700');
 
 button {
 	position: relative;
@@ -33,7 +33,7 @@ button {
 	background: transparent;
 	padding: 0;
 	font-size: 18px !important;
-	font-family: 'Mukta';
+	// font-family: 'Mukta';
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;

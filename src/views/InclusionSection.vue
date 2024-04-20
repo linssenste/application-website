@@ -130,7 +130,7 @@ import { isMobile } from '../utilities'
 
 .en-sorry {
 	text-align: center;
-	color: #A0A0A0;
+	color: var(--grey-color);
 	font-size: 14px;
 	padding-bottom: 15px;
 }
