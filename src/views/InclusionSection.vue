@@ -61,10 +61,10 @@
 
 
 		<PolaroidImageRow :images="[
-						{ src: 'src/assets/polaroids/polaroid-heimgarten.webp', alt: 'Mountain Heimgarten' },
-						{ src: 'src/assets/polaroids/polaroid-herzogstand.webp', alt: 'Herzogstand' },
-						{ src: 'src/assets/polaroids/polaroid-wallberg.webp', alt: 'Wallberg' },
-						{ src: 'src/assets/polaroids/polaroid-smrekovec.webp', alt: 'Smrekovec ' },
+						{ src: '/polaroids/polaroid-heimgarten.webp', alt: 'Mountain Heimgarten' },
+						{ src: '/polaroids/polaroid-herzogstand.webp', alt: 'Herzogstand' },
+						{ src: '/polaroids/polaroid-wallberg.webp', alt: 'Wallberg' },
+						{ src: '/polaroids/polaroid-smrekovec.webp', alt: 'Smrekovec ' },
 					]" />
 
 	</div>
