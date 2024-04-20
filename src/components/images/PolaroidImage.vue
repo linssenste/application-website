@@ -1,7 +1,7 @@
 <template>
 
 	<div class="polaroid-image" ref="polaroidRef">
-		<img :src="src" :width="330" :alt="alt" data-testid="image" draggable="false" />
+		<img :src="src" :width="330" :height="395" :alt="alt" data-testid="image" draggable="false" />
 	</div>
 
 </template>
