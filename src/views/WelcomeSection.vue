@@ -5,12 +5,14 @@
 
 			<template v-slot:text>
 
-				<h1>Hello, my name is Steffen!
+				<h1>Hello<span v-if="welcomeName && welcomeName.length > 0" style="margin-left: 12px"> {{ welcomeName
+						}}</span>,
 				</h1>
 				<p>
-					As a front-end developer, I thrive on crafting clean UI & UX designs, fueled by my passion for both
-					technology and music. Although I'm no virtuoso in the music department, my love for melodies
-					continues to inspire my creative process.
+					My name is Steffen, and I am a front-end developer with a passion for sleek UI &
+					UX. My work is driven by a deep interest for both technology and design, complemented by my
+					enthusiasm for music. I may not be a virtuoso, but the world of melodies deeply influences and
+					inspires my creative process.
 
 				<p>This website is more than just a portfolio of my technical skills and creative endeavours. <span
 						  id="human">It's a
@@ -55,9 +57,14 @@ import PolaroidStack from '../components/images/PolaroidStack.vue'
 import Button from '../components/Button.vue'
 import { onMounted } from 'vue';
 
+const welcomeName = ref('Herrlich Media')
 const polaroidStack = ref<HTMLElement | null>(null);
 const welcomeSectionRef = ref<HTMLElement | null>(null)
 onMounted(() => {
+
+	const urlParams = new URLSearchParams(window.location.search);
+	const nameParam = urlParams.get('n');
+	welcomeName.value = nameParam ?? '';
 
 	const humanText = document.getElementById('human');
 	if (!humanText) return;
