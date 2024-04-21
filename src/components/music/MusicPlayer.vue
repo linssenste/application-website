@@ -2,7 +2,7 @@
 
 	<div style="position:relative;  ">
 		<div v-if="!hasError" class="music-player" title="music player" :id="playerId"></div>
-		<iframe v-else style="border-radius:10px" title="embededd music player as fallback"
+		<iframe v-else style="border-radius:12px" title="embededd music player as fallback"
 				:src="`https://open.spotify.com/embed/track/${props.trackId}?utm_source=generator`" width="100%"
 				height="100%" frameBorder="0" allow="clipboard-write; encrypted-media; picture-in-picture"
 				loading="lazy"></iframe>

@@ -1,69 +1,62 @@
 <template>
-	<div style="width: 100%; position: relative; margin-top: 20px">
-
-		<!-- (auto) scrolled cover area -->
-
-
-		<div class="content-wrapper">
-			<div class="scrollable-content" ref="leftSideRef">
+	<div class="content-wrapper">
+		<div class="scrollable-content" ref="leftSideRef">
 
 
-				<div id="music-player" class="music-player-container content">
-					<div class="selection-hint">Select an album to play a song from it</div>
-					<MusicPlayer playerId="favorite-music-player"
-								 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
-								 ref="musicPlayerRef" :trackId="track" v-on:playing="playingEvent" />
-					<button v-on:click="shuffleEvent()">
-						<img src="../../assets/icons/shuffle.svg" alt="shuffle icon" />
-						SHUFFLE</button>
-				</div>
+			<div id="music-player" class="music-player-container content">
+				<div class="selection-hint">Select an album to play a song from it</div>
+				<MusicPlayer playerId="favorite-music-player"
+							 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
+							 ref="musicPlayerRef" :trackId="track" v-on:playing="playingEvent" />
+				<button v-on:click="shuffleEvent()">
+					<img src="../../assets/icons/shuffle.svg" alt="shuffle icon" />
+					SHUFFLE</button>
+			</div>
 
-				<div id="1" class="content" :style="isVisible('1')">
-					<DataSetOverview :visible="currentFocus == '1'" :time="analysisData.update_time"
-									 :stats="analysisData.stats" />
-				</div>
+			<div id="1" class="content" :style="isVisible('1')">
+				<DataSetOverview :visible="currentFocus == '1'" :time="analysisData.update_time"
+								 :stats="analysisData.stats" />
+			</div>
 
-				<div id="2" class="content" :style="isVisible('2')">
-					<DecadesBarChart :decades="analysisData.decades" />
-
-				</div>
-
-				<div id="3" class="content" :style="isVisible('3')">
-					<FavoriteArtistsChart :visible="currentFocus == '3'" :artists="analysisData.artists" />
-
-				</div>
-
-				<div id="4" class="content" :style="isVisible('4')">
-					<GenreRadarChart :data="analysisData.genres" />
-				</div>
-				<div id="5" class="content" :style="isVisible('5')">
-					<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
-				</div>
-
-				<div id="6" class="content" :style="isVisible('6')">
-					<MusicVideos />
-				</div>
-
-				<div id="7" class="content" :style="isVisible('7')">
-					<GoogleColabCell :visible="currentFocus == '7'" />
-				</div>
+			<div id="2" class="content" :style="isVisible('2')">
+				<DecadesBarChart :decades="analysisData.decades" />
 
 			</div>
 
+			<div id="3" class="content" :style="isVisible('3')">
+				<FavoriteArtistsChart :visible="currentFocus == '3'" :artists="analysisData.artists" />
 
-
-			<div class="right-side" ref="rightSideRef">
-				<div>
-
-					<KeepScrollingAnimation />
-
-					<h1 style="margin: 0px!important">Get to know me through music!</h1>
-
-					<AnalysisText />
-
-				</div>
 			</div>
 
+			<div id="4" class="content" :style="isVisible('4')">
+				<GenreRadarChart :data="analysisData.genres" />
+			</div>
+			<div id="5" class="content" :style="isVisible('5')">
+				<AudioFeaturesChart :data="analysisData.features" :visible="currentFocus == '5'" />
+			</div>
+
+			<div id="6" class="content" :style="isVisible('6')">
+				<MusicVideos />
+			</div>
+
+			<div id="7" class="content" :style="isVisible('7')">
+				<GoogleColabCell :visible="currentFocus == '7'" />
+			</div>
+
+		</div>
+
+
+
+		<div class="right-side" ref="rightSideRef">
+			<div>
+
+				<KeepScrollingAnimation />
+
+				<h1 style="margin: 0px!important">Get to know me through music!</h1>
+
+				<AnalysisText />
+
+			</div>
 		</div>
 
 	</div>
@@ -230,6 +223,7 @@ function playingEvent(isPlaying: boolean): void {
 	max-width: 600px;
 	box-sizing: border-box;
 
+	background-color: white;
 	right: 0px !important;
 
 
