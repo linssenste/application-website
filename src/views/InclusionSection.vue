@@ -7,7 +7,7 @@
 			<div class="text-area">
 				<h1 style="margin: 20px; line-height: 50px;">
 
-					I'm weak and what's wrong with that ?!
+					I'm weak & what's wrong with that ?!
 
 				</h1>
 
@@ -42,7 +42,7 @@
 							style="margin: 10px; width: calc(100% - 20px)"
 							src="https://open.spotify.com/embed/episode/37APGyNAhgVwrTJZFxY56s?utm_source=generator&t=85"
 							width="100%" frameBorder="0" loading="lazy"></iframe>
-					<div v-if="!isMobile" class="en-sorry">Pardon me, the TEDx-talk and podcast are in
+					<div v-if="!isMobile" class="hint-text">Pardon me, the TEDx-talk and podcast are in
 						german
 					</div>
 

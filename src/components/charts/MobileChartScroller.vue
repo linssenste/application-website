@@ -1,7 +1,7 @@
 <template>
 	<div class="stats-container">
 		<div id="music-player" class="music-player-container content">
-			<div class="selection-hint">Select an album to play a song from it</div>
+			<div class="hint-text">Select an album to play a song from it</div>
 			<MusicPlayer playerId="favorite-music-player"
 						 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
 						 ref="musicPlayerRef" :trackId="track ?? '2ZOwd1GY5W5Wxdd5NJvgjG'"
@@ -54,16 +54,6 @@ function playingEvent(isPlaying: boolean): void {
 
 
 <style scoped>
-.selection-hint {
-	text-align: center;
-	color: var(--grey-color);
-	text-transform: uppercase;
-	font-size: 14px;
-	padding-bottom: 10px;
-	letter-spacing: 1px;
-}
-
-
 .music-player-container {
 
 	margin-top: 25px;

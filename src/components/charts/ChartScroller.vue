@@ -4,7 +4,7 @@
 
 
 			<div id="music-player" class="music-player-container content">
-				<div class="selection-hint">Select an album to play a song from it</div>
+				<div class="hint-text">Select an album to play a song from it</div>
 				<MusicPlayer playerId="favorite-music-player"
 							 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
 							 ref="musicPlayerRef" :trackId="track" v-on:playing="playingEvent" />
@@ -233,14 +233,6 @@ function playingEvent(isPlaying: boolean): void {
 	height: 100vh;
 }
 
-.selection-hint {
-	text-align: center;
-	color: var(--grey-color);
-	text-transform: uppercase;
-	font-size: 14px;
-	padding-bottom: 10px;
-	letter-spacing: 1px;
-}
 
 
 .content {
