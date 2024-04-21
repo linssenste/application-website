@@ -19,9 +19,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-	if (imageContainerRef.value) {
-		imageContainerRef.value.style.transform = `translateY(-${1 * 0.075}px)`;
-	}
+	handleScroll();
 	window.addEventListener('scroll', handleScroll);
 });
 
@@ -37,6 +35,7 @@ onUnmounted(() => {
 	align-items: center;
 	min-width: 1000px;
 	width: 100%;
+	min-height: 680px;
 	/* Ensures the container does not exceed the viewport width */
 	overflow: hidden;
 	/* Hides any overflow along the x-axis */

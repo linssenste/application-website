@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="chart-container">
 		<VueApexCharts width="100%" type="radar" :options="chartOptions" :series="series" />
 
 		<div class="detailed-genre-chips">
@@ -123,5 +123,11 @@ onMounted(() => {
 	text-transform: uppercase;
 	font-size: 15px;
 	letter-spacing: 1px;
+}
+
+
+.chart-container {
+	position: relative;
+	width: 100%;
 }
 </style>

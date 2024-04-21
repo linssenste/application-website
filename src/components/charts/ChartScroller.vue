@@ -12,8 +12,7 @@
 					<div class="selection-hint">Select an album to play a song from it</div>
 					<MusicPlayer playerId="favorite-music-player"
 								 style="background-color: var(--light-grey-color); height: 352px; border-radius: 12px"
-								 ref="musicPlayerRef" :trackId="track ?? '2ZOwd1GY5W5Wxdd5NJvgjG'"
-								 v-on:playing="playingEvent" />
+								 ref="musicPlayerRef" :trackId="track" v-on:playing="playingEvent" />
 					<button v-on:click="shuffleEvent()">
 						<img src="../../assets/icons/shuffle.svg" alt="shuffle icon" />
 						SHUFFLE</button>
@@ -181,7 +180,7 @@ const emit = defineEmits(['shuffle', 'playing']);
 
 
 const props = defineProps<{
-	track?: string;
+	track: string | null;
 }>()
 props.track;
 

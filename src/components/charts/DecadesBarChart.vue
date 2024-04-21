@@ -1,5 +1,7 @@
 <template>
-	<VueApexCharts width="100%" type="bar" :options="chartOptions" :series="series" />
+	<div class="chart-contaienr">
+		<VueApexCharts width="100%" type="bar" :options="chartOptions" :series="series" />
+	</div>
 </template>
 
 <script lang="ts" setup>
@@ -60,3 +62,11 @@ const chartOptions = ref({
 	},
 });
 </script>
+
+
+<style scoped>
+.chart-container {
+	width: 100%;
+	position: relative;
+}
+</style>
