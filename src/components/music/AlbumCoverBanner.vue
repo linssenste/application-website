@@ -89,8 +89,8 @@ onMounted(async () => {
 	container.scrollLeft = 85
 
 
-	albumId.value = '3HhPdWaK9aHL7OonsPETtp'
-	selectedTrack.value = '6X7R1KlDSwHK7wYwy94sYQ';
+	albumId.value = '5EnLouCexQYqfXGNqymBqo'
+	selectedTrack.value = '1G8c9Fc37NRdqD2vOkAQk1';
 
 	emit('track-selected', selectedTrack.value)
 

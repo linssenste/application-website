@@ -25,7 +25,7 @@ import PolaroidImageRow from '../components/images/PolaroidImageRow.vue';
 
 const bannerRef = ref<typeof AlbumCoverBanner | null>(null);
 const isPlaying = ref(false);
-const selectedTrack = ref('2ZOwd1GY5W5Wxdd5NJvgjG');
+const selectedTrack = ref(null);
 function selectRandomTrack() {
 	if (bannerRef.value) bannerRef.value.randomAlbumTrack();
 }
